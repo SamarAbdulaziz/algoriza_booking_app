@@ -4,7 +4,6 @@ import 'package:algoriza_booking_app/feature/auth/domain/repository/base_auth_re
 import 'package:dartz/dartz.dart';
 
 class LoginUseCase {
-  //extends BaseUseCase<Authentication,String>
   final BaseAuthRepository baseAuthRepository;
 
   LoginUseCase(this.baseAuthRepository);
@@ -14,6 +13,8 @@ class LoginUseCase {
     required String password,
   }) async {
     return await baseAuthRepository.loginByEmailAndPassword(
-        email: email, password: password);
+        email: email,
+        password: password,
+    );
   }
 }
