@@ -2,6 +2,7 @@ import 'package:algoriza_booking_app/feature/auth/presentaion/controllers/auth_c
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
