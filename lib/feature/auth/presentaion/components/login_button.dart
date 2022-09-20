@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DefaultButton extends StatelessWidget {
@@ -41,7 +40,7 @@ class DefaultButton extends StatelessWidget {
 
         ),
         style: ElevatedButton.styleFrom(
-            primary: buttoncolor,
+            backgroundColor: buttoncolor,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(circularRadius)
             )

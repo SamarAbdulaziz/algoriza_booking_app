@@ -1,13 +1,19 @@
 
 import 'package:algoriza_booking_app/feature/auth/presentaion/components/login_button.dart';
+import 'package:algoriza_booking_app/feature/auth/presentaion/controllers/auth_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'login-text-form-field.dart';
 
 
 class RegisterWidget extends StatelessWidget {
-  const RegisterWidget({Key? key}) : super(key: key);
+  RegisterWidget({Key? key}) : super(key: key);
+  final TextEditingController firstNameController = TextEditingController();
+  final TextEditingController lastNameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +48,7 @@ class RegisterWidget extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(30.0),
                                   ))),
                           child: Row(
-                            children:  [
+                            children: const [
                               IconButton(
                                   icon: FaIcon(
                                     FontAwesomeIcons.facebook,
@@ -110,6 +116,7 @@ class RegisterWidget extends StatelessWidget {
                 height: 16,
               ),
               LoginTextFormField(
+                controller: firstNameController,
                 title: 'First name',
                 hintText: 'Enter first name',
               ),
@@ -117,6 +124,7 @@ class RegisterWidget extends StatelessWidget {
                 height: 16,
               ),
               LoginTextFormField(
+                controller: lastNameController,
                 title: 'Last name',
                 hintText: 'Enter last name',
               ),
@@ -124,6 +132,7 @@ class RegisterWidget extends StatelessWidget {
                 height: 16,
               ),
               LoginTextFormField(
+                controller: emailController,
                 title: 'your email',
                 hintText: 'enter your email',
               ),
@@ -131,13 +140,26 @@ class RegisterWidget extends StatelessWidget {
                 height: 16,
               ),
               LoginTextFormField(
+                controller: passwordController,
                 title: 'password',
                 hintText: 'enter password',
               ),
               const SizedBox(
                 height: 20,
               ),
-              InkWell(onTap: () {}, child: DefaultButton(title: 'Sign up', ontap: () {  },)),
+              InkWell(
+                  onTap: () {},
+                  child: DefaultButton(
+                    title: 'Sign up',
+                    ontap: () {
+                      BlocProvider.of<AuthenticationCubit>(context)
+                          .registerByEmailAndPassword(
+                              '${firstNameController.text} ${lastNameController.text}',
+                              emailController.text,
+                              passwordController.text,
+                              passwordController.text);
+                    },
+                  )),
               const SizedBox(
                 height: 20,
               ),

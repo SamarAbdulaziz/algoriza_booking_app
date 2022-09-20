@@ -1,12 +1,16 @@
 import 'package:algoriza_booking_app/feature/auth/presentaion/components/login_button.dart';
+import 'package:algoriza_booking_app/feature/auth/presentaion/controllers/auth_cubit.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'login-text-form-field.dart';
 
 class LoginWidget extends StatelessWidget {
-  const LoginWidget({Key? key}) : super(key: key);
+  LoginWidget({Key? key}) : super(key: key);
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -106,6 +110,7 @@ class LoginWidget extends StatelessWidget {
               height: 16,
             ),
             LoginTextFormField(
+              controller: emailController,
               title: 'your email',
               hintText: 'enter your email',
             ),
@@ -113,6 +118,7 @@ class LoginWidget extends StatelessWidget {
               height: 16,
             ),
             LoginTextFormField(
+              controller: passwordController,
               title: 'password',
               hintText: 'enter password',
             ),
@@ -135,11 +141,23 @@ class LoginWidget extends StatelessWidget {
               height: 16,
             ),
             InkWell(
-                onTap: (){},
-                child: DefaultButton(title: 'Login', ontap: () {  },)),
+                onTap: () {},
+                child: DefaultButton(
+                  title: 'Login',
+                  ontap: () {
+                    debugPrint(emailController.text);
+                    debugPrint(passwordController.text);
+                    BlocProvider.of<AuthenticationCubit>(context)
+                        .loginByEmailAndPassword(
+                      emailController.text,
+                      passwordController.text,
+                    );
+                  },
+                )),
           ],
         ),
       ),
     );
   }
-}
+}/*'sam.sam@gmail.com',
+                      '123456',*/

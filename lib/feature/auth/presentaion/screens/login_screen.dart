@@ -11,10 +11,14 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black,
-        leading: const Icon(Icons.arrow_back),
-      ),
-      body:const LoginWidget() ,
+          backgroundColor: Colors.black,
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.arrow_back),
+          ),),
+      body: LoginWidget(),
     );
   }
 }
