@@ -41,7 +41,6 @@ class AuthenticationRepository extends BaseAuthRepository {
       return Left(ServerFailure(failure.message));
     }
   }
-
   @override
   Future<Either<Failure, AuthenticationInfo>> registerByEmailAndPassword(
       {required String name,

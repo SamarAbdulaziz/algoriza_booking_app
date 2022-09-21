@@ -1,4 +1,6 @@
 import 'package:algoriza_booking_app/core/utiles/app_strings.dart';
+import 'package:algoriza_booking_app/feature/Profile_info/presentaion/controllers/profile_cubit.dart';
+import 'package:algoriza_booking_app/feature/Profile_info/presentaion/screens/Profile_screen.dart';
 import 'package:algoriza_booking_app/feature/auth/presentaion/screens/get_started_screen.dart';
 import 'package:algoriza_booking_app/feature/auth/presentaion/screens/login_screen.dart';
 import 'package:algoriza_booking_app/feature/auth/presentaion/screens/onboarding_screen.dart';
@@ -14,6 +16,7 @@ class Routes {
   static const String onBoardingRoute = '/onBoardingScreen';
   static const String loginScreenRoute = '/loginScreen';
   static const String registerScreenRoute = '/registerScreen';
+  static const String profileScreenRoute = '/profileScreen';
 }
 
 class AppRoutes {
@@ -51,6 +54,15 @@ class AppRoutes {
             child: const RegisterScreen(),
           ),
         );
+
+      case Routes.profileScreenRoute:
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider<ProfileCubit>(
+            create: (context) => sl<ProfileCubit>(),
+            child: const ProfileScreen(),
+          ),
+        );
+
       default:
         return undefinedRoute();
     }
@@ -58,10 +70,11 @@ class AppRoutes {
 
   static Route<dynamic>? undefinedRoute() {
     return MaterialPageRoute(
-        builder: (context) => const Scaffold(
-              body: Center(
-                child: Text(AppStrings.undefinedRoute),
-              ),
-            ));
+      builder: (context) => const Scaffold(
+        body: Center(
+          child: Text(AppStrings.undefinedRoute),
+        ),
+      ),
+    );
   }
 }
