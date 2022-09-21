@@ -17,14 +17,16 @@ class BookingApp extends StatelessWidget {
         initialRoute: Routes.initialRoute,
         onGenerateRoute: AppRoutes.onGenerateRoute,
         theme: ThemeData(
-            scaffoldBackgroundColor: Colors.black,
-             //primarySwatch: Color(0xff779AB6),
-            appBarTheme: const AppBarTheme(
-                backgroundColor: Colors.black,
-                systemOverlayStyle: SystemUiOverlayStyle(
-                  statusBarColor: Colors.transparent,
-                ),
-                elevation: 0.0)),
+          scaffoldBackgroundColor: Colors.black,
+          //primarySwatch: Color(0xff779AB6),
+          appBarTheme: const AppBarTheme(
+            backgroundColor: Colors.black,
+            systemOverlayStyle: SystemUiOverlayStyle(
+              statusBarColor: Colors.transparent,
+            ),
+            elevation: 0.0,
+          ),
+        ),
         // home: OnBoardingScreen(),
         debugShowCheckedModeBanner: false,
       ),
