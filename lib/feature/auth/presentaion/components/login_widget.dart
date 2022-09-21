@@ -165,10 +165,6 @@ class LoginWidget extends StatelessWidget {
                           emailController.text,
                           passwordController.text,
                         );
-                        //TODO
-                        // move it to the right place
-                        BlocProvider.of<AuthenticationCubit>(context)
-                            .getProfileInfoByToken();
                       }
                     },
                   )),

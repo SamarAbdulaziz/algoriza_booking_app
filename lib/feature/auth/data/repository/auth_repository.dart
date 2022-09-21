@@ -6,7 +6,6 @@ import 'package:algoriza_booking_app/feature/auth/domain/entities/auth.dart';
 import 'package:algoriza_booking_app/feature/auth/domain/repository/base_auth_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
-import '../models/profile_info_model.dart';
 
 class AuthenticationRepository extends BaseAuthRepository {
   final BaseRemoteDataSource baseRemoteDataSource;
@@ -29,13 +28,6 @@ class AuthenticationRepository extends BaseAuthRepository {
       debugPrint(result.data!.apiToken);
       debugPrint(result.data.toString());
       CacheData.setData(key: 'apiToken', value: result.data!.apiToken);
-      // print('*************************************');
-      // debugPrint(CacheData.getData(key: 'apiToken'));
-      // debugPrint(CacheData.getData(key: 'apiToken'));
-      // debugPrint(CacheData.getData(key: 'apiToken'));
-      // debugPrint(CacheData.getData(key: 'apiToken'));
-      // print('*************************************');
-
       return Right(result);
     } on ServerException catch (failure) {
       return Left(ServerFailure(failure.message));
@@ -61,19 +53,5 @@ class AuthenticationRepository extends BaseAuthRepository {
     }
   }
 
-  @override //required String apiToken,
 
-  Future<Either<Failure, ProfileInfoModel>> getProfileInfoByToken(
-  ) async {
-    var token = CacheData.getData(key: 'apiToken');
-    final result = await baseRemoteDataSource.getProfileInfoByToken(token!);
-    try {
-      debugPrint(result.statusType);
-      debugPrint(result.data.toString());
-      debugPrint(result.data.apiToken);
-      return Right(result);
-    } on ServerException catch (failure) {
-      return Left(ServerFailure(failure.message));
-    }
-  }
 }

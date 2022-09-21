@@ -1,4 +1,5 @@
-import '../../domain/entities/title.dart';
+
+import 'package:algoriza_booking_app/feature/Profile_info/domain/entities/title.dart';
 
 class TitleModel extends Titles {
   const TitleModel({

@@ -1,6 +1,6 @@
-import 'package:algoriza_booking_app/feature/auth/data/models/title_model.dart';
-import 'package:algoriza_booking_app/feature/auth/domain/entities/status.dart';
-import 'package:algoriza_booking_app/feature/auth/domain/entities/title.dart';
+import 'package:algoriza_booking_app/feature/Profile_info/data/models/title_model.dart';
+import 'package:algoriza_booking_app/feature/Profile_info/domain/entities/status.dart';
+import 'package:algoriza_booking_app/feature/Profile_info/domain/entities/title.dart';
 
 class StatusModel extends Status {
   const StatusModel({
