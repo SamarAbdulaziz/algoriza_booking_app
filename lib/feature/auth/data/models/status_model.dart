@@ -5,7 +5,7 @@ import 'package:algoriza_booking_app/feature/auth/domain/entities/title.dart';
 class StatusModel extends Status {
   const StatusModel({
     required String type,
-    required Titles title,
+    Titles? title,
   })
       : super(
     type: type,

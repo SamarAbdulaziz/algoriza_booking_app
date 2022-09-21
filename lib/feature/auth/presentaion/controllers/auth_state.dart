@@ -32,3 +32,17 @@ class RegisterErrorState extends AuthenticationStates {
 
   RegisterErrorState({required this.message});
 }
+
+class ProfileInfoLoadingState extends AuthenticationStates {}
+
+class ProfileInfoSuccessState extends AuthenticationStates {
+  final AuthenticationInfo authenticationInfo;
+
+  ProfileInfoSuccessState({required this.authenticationInfo});
+}
+
+class ProfileInfoErrorState extends AuthenticationStates {
+  final String message;
+
+  ProfileInfoErrorState({required this.message});
+}

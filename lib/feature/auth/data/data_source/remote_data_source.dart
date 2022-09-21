@@ -13,6 +13,10 @@ abstract class BaseRemoteDataSource {
     String password,
     String passwordConfirmation,
   );
+  Future<AuthenticationModel> getProfileInfoByToken(
+    String apiToken,
+  );
+
 }
 
 
@@ -54,6 +58,24 @@ class RemoteDataSource extends BaseRemoteDataSource {
       'password': password,
       'password_confirmation':passwordConfirmation,
     });
+    if (response.statusCode == 200) {
+      // if (response.data['status']['type'] == '1') {
+      //   return AuthenticationModel.fromJson(response.data);
+      // }
+
+      return AuthenticationModel.fromJson(response.data);
+    } else {
+      throw ServerException('Server exception');
+    }
+  }
+@override
+  Future<AuthenticationModel> getProfileInfoByToken(
+    String apiToken,
+  ) async {
+    final response = await dio.post(AppConstants.profilePath,);
+    dio.options.headers={
+      'token':apiToken,
+    };
     if (response.statusCode == 200) {
       // if (response.data['status']['type'] == '1') {
       //   return AuthenticationModel.fromJson(response.data);

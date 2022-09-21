@@ -1,6 +1,6 @@
+import 'package:algoriza_booking_app/feature/auth/data/data_source/local_data_source.dart';
 import 'package:algoriza_booking_app/feature/auth/presentaion/components/login_button.dart';
 import 'package:algoriza_booking_app/feature/auth/presentaion/controllers/auth_cubit.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -141,19 +141,24 @@ class LoginWidget extends StatelessWidget {
               height: 16,
             ),
             InkWell(
-                onTap: () {},
-                child: DefaultButton(
-                  title: 'Login',
-                  ontap: () {
-                    debugPrint(emailController.text);
-                    debugPrint(passwordController.text);
-                    BlocProvider.of<AuthenticationCubit>(context)
-                        .loginByEmailAndPassword(
-                      emailController.text,
-                      passwordController.text,
-                    );
-                  },
-                )),
+              onTap: () {},
+              child: DefaultButton(
+                title: 'Login',
+                ontap: () {
+                  // debugPrint(emailController.text);
+                  // debugPrint(passwordController.text);
+                  BlocProvider.of<AuthenticationCubit>(context)
+                      .loginByEmailAndPassword(
+                    emailController.text,
+                    passwordController.text,
+                  );
+                   // String? apiToken = CacheData.getData(key: 'apiToke');
+                   // debugPrint(apiToken);
+                  // BlocProvider.of<AuthenticationCubit>(context)
+                  //     .getProfileInfoByToken("27BeEb5SJku9LhknpJW56I33CXnuLT0XnCJ5OX8MSKNODxLg2DHhHCQwZDbG");
+                },
+              ),
+            ),
           ],
         ),
       ),

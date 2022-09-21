@@ -1,10 +1,12 @@
 import 'package:algoriza_booking_app/core/errors/exceptions.dart';
 import 'package:algoriza_booking_app/core/errors/failure.dart';
+import 'package:algoriza_booking_app/feature/auth/data/data_source/local_data_source.dart';
 import 'package:algoriza_booking_app/feature/auth/data/data_source/remote_data_source.dart';
 import 'package:algoriza_booking_app/feature/auth/domain/entities/auth.dart';
 import 'package:algoriza_booking_app/feature/auth/domain/repository/base_auth_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthenticationRepository extends BaseAuthRepository {
   final BaseRemoteDataSource baseRemoteDataSource;
@@ -18,13 +20,24 @@ class AuthenticationRepository extends BaseAuthRepository {
   }) async {
     final result =
         await baseRemoteDataSource.loginByEmailAndPassword(email, password);
+    final prefs = await SharedPreferences.getInstance();
+
     try {
       debugPrint(result.status.type);
-      debugPrint(result.status.title.arMessage);
-      debugPrint(result.status.title.enMessage);
+      debugPrint(result.status.title!.arMessage);
+      debugPrint(result.status.title!.enMessage);
       debugPrint(result.data!.name);
       debugPrint(result.data!.apiToken);
       debugPrint(result.data.toString());
+      // await prefs.setString('apiToken', result.data!.apiToken);
+      CacheData.setData(key: 'apiToken', value: result.data!.apiToken);
+      // print('*************************************');
+      // debugPrint(CacheData.getData(key: 'apiToken'));
+      // debugPrint(CacheData.getData(key: 'apiToken'));
+      // debugPrint(CacheData.getData(key: 'apiToken'));
+      // debugPrint(CacheData.getData(key: 'apiToken'));
+      // print('*************************************');
+
       return Right(result);
     } on ServerException catch (failure) {
       return Left(ServerFailure(failure.message));
@@ -45,6 +58,21 @@ class AuthenticationRepository extends BaseAuthRepository {
     );
     try {
       debugPrint(result.status.type);
+      return Right(result);
+    } on ServerException catch (failure) {
+      return Left(ServerFailure(failure.message));
+    }
+  }
+
+  @override
+  Future<Either<Failure, AuthenticationInfo>> getProfileInfoByToken({
+    required String apiToken,
+  }) async {
+    var token = CacheData.getData(key: 'apiToken');
+    final result = await baseRemoteDataSource.getProfileInfoByToken(token!);
+    try {
+      debugPrint(result.status.type);
+      debugPrint(result.data!.apiToken);
       return Right(result);
     } on ServerException catch (failure) {
       return Left(ServerFailure(failure.message));

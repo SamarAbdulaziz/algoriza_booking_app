@@ -14,4 +14,7 @@ abstract class BaseAuthRepository {
     required String password,
     required String passwordConfirmation,
   });
+  Future<Either<Failure, AuthenticationInfo>> getProfileInfoByToken({
+    required String apiToken,
+  });
 }

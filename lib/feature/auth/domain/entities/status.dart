@@ -3,10 +3,10 @@ import 'package:equatable/equatable.dart';
 
 class Status extends Equatable {
   final String type;
-  final Titles title;
+  final Titles? title;
 
-  const Status({required this.type, required this.title});
+  const Status({required this.type, this.title});
 
   @override
-  List<Object> get props => [type, title];
+  List<Object> get props => [type];
 }
