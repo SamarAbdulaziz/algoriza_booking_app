@@ -1,41 +1,24 @@
-import 'package:algoriza_booking_app/feature/auth/presentaion/controllers/auth_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../components/login_widget.dart';
+
 
 class LoginScreen extends StatelessWidget {
+  static const String routeName='Login Screen';
   const LoginScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            TextButton(
-              onPressed: () {
-                BlocProvider.of<AuthenticationCubit>(context)
-                    .loginByEmailAndPassword('Noor.Noor@gmail.com', '123456');
-              },
-              child: Text(
-                'Login',
-                style: TextStyle(fontSize: 40.0),
-              ),
-            ),
-            TextButton(
-              onPressed: () {
-                BlocProvider.of<AuthenticationCubit>(context)
-                    .registerByEmailAndPassword('Noor','Noor.Noor@gmail.com', '123456','123456');
-              },
-              child: Text(
-                'Register',
-                style: TextStyle(fontSize: 40.0),
-              ),
-            ),
-          ],
-        ),
-      ),
+    return  Scaffold(
+      appBar: AppBar(
+          backgroundColor: Colors.black,
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.arrow_back),
+          ),),
+      body: LoginWidget(),
     );
   }
 }
