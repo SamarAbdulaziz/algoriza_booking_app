@@ -1,5 +1,5 @@
 import 'package:algoriza_booking_app/config/routes/app_routes.dart';
-import 'package:algoriza_booking_app/feature/auth/presentaion/components/login_button.dart';
+import 'package:algoriza_booking_app/feature/auth/presentation/components/login_button.dart';
 import 'package:flutter/material.dart';
 
 class GetStartedScreen extends StatelessWidget {

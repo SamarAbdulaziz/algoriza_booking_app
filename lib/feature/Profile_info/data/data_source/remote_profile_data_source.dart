@@ -1,9 +1,9 @@
 import 'package:algoriza_booking_app/core/errors/exceptions.dart';
 import 'package:algoriza_booking_app/core/utiles/constants.dart';
-import 'package:algoriza_booking_app/feature/auth/data/models/profile_info_model.dart';
+import 'package:algoriza_booking_app/feature/Profile_info/data/models/profile_info_model.dart';
 import 'package:dio/dio.dart';
 
-abstract class BaseRemoteDataSource {
+abstract class BaseRemoteProfileDataSource {
 
   Future<ProfileInfoModel> getProfileInfoByToken(
     String apiToken,
@@ -11,7 +11,7 @@ abstract class BaseRemoteDataSource {
 }
 
 
-class RemoteDataSource extends BaseRemoteDataSource {
+class RemoteProfileDataSource extends BaseRemoteProfileDataSource {
   var dio = Dio(BaseOptions(
     baseUrl: AppConstants.baseUrl,
     receiveDataWhenStatusError: true,

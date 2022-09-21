@@ -7,7 +7,7 @@ class AuthenticationInfo extends Equatable {
 
   Data? data;
 
-  AuthenticationInfo({required this.status, this.data});
+   AuthenticationInfo({required this.status, this.data});
 
   @override
   List<Object> get props => [status];

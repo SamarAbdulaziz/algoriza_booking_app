@@ -1,7 +1,5 @@
 import 'package:algoriza_booking_app/core/errors/failure.dart';
-import 'package:algoriza_booking_app/feature/auth/data/models/profile_info_model.dart';
 import 'package:algoriza_booking_app/feature/auth/domain/entities/auth.dart';
-import 'package:algoriza_booking_app/feature/auth/domain/usecases/get_profile_info.dart';
 import 'package:algoriza_booking_app/feature/auth/domain/usecases/login_use_case.dart';
 import 'package:algoriza_booking_app/feature/auth/domain/usecases/register_use_case.dart';
 import 'package:bloc/bloc.dart';
@@ -12,10 +10,8 @@ part 'auth_state.dart';
 class AuthenticationCubit extends Cubit<AuthenticationStates> {
   final LoginUseCase loginUseCase;
   final RegisterUseCase registerUseCase;
-  final GetProfileInfoUseCase getProfileInfoUseCase;
 
-  AuthenticationCubit(
-      this.loginUseCase, this.registerUseCase, this.getProfileInfoUseCase)
+  AuthenticationCubit(this.loginUseCase, this.registerUseCase)
       : super(AuthenticationInitialState());
 
   Future<void> loginByEmailAndPassword(String email, String password) async {
@@ -46,27 +42,4 @@ class AuthenticationCubit extends Cubit<AuthenticationStates> {
     );
   }
 
-  //String apiToken
-  Future<void> getProfileInfoByToken() async {
-    emit(ProfileInfoLoadingState());
-    Either<Failure, ProfileInfoModel> response =
-        await getProfileInfoUseCase(); //apiToken: apiToken
-    response.fold(
-      (failure) => emit(ProfileInfoErrorState(message: failure.massage)),
-      (profileInfoModel) => emit(
-        ProfileInfoSuccessState(
-          profileInfoModel: profileInfoModel,
-        ),
-      ),
-    );
-  }
 }
-/* Future<void> getWeatherByCityName(String cityName) async {
-    emit(
-        NewWeatherLoadingState()); //to let the circular progress indecator show up
-    Either<Failure, NewWeather> response =
-        await getWeatherByCityNameUseCaseNew(cityName);
-    response.fold(
-        (failure) => emit(NewWeatherErrorState(errorMessage: failure.massage)),
-        (newWeather) => emit(NewWeatherLoadedState(newWeather: newWeather)));
-  }*/
