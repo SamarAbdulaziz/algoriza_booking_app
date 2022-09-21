@@ -2,6 +2,7 @@ import 'package:algoriza_booking_app/core/utiles/app_strings.dart';
 import 'package:algoriza_booking_app/feature/auth/presentaion/screens/get_started_screen.dart';
 import 'package:algoriza_booking_app/feature/auth/presentaion/screens/login_screen.dart';
 import 'package:algoriza_booking_app/feature/auth/presentaion/screens/onboarding_screen.dart';
+import 'package:algoriza_booking_app/feature/auth/presentaion/screens/profile_screen.dart';
 import 'package:algoriza_booking_app/feature/auth/presentaion/screens/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,7 +25,7 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (context) => BlocProvider<AuthenticationCubit>(
             create: (context) => sl<AuthenticationCubit>(),
-            child: const GetStartedScreen(),
+            child: const ProfileScreen(),
           ),
         );
 
