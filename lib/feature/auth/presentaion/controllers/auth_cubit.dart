@@ -1,11 +1,11 @@
 import 'package:algoriza_booking_app/core/errors/failure.dart';
+import 'package:algoriza_booking_app/feature/auth/data/models/profile_info_model.dart';
 import 'package:algoriza_booking_app/feature/auth/domain/entities/auth.dart';
 import 'package:algoriza_booking_app/feature/auth/domain/usecases/get_profile_info.dart';
 import 'package:algoriza_booking_app/feature/auth/domain/usecases/login_use_case.dart';
 import 'package:algoriza_booking_app/feature/auth/domain/usecases/register_use_case.dart';
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
-import 'package:meta/meta.dart';
 
 part 'auth_state.dart';
 
@@ -37,19 +37,28 @@ class AuthenticationCubit extends Cubit<AuthenticationStates> {
         password: password,
         passwordConfirmation: passwordConfirmation);
     response.fold(
-        (failure) => emit(RegisterErrorState(message: failure.massage)),
-        (authenticationInfo) =>
-            emit(RegisterSuccessState(authenticationInfo: authenticationInfo)));
+      (failure) => emit(RegisterErrorState(message: failure.massage)),
+      (authenticationInfo) => emit(
+        RegisterSuccessState(
+          authenticationInfo: authenticationInfo,
+        ),
+      ),
+    );
   }
 
-  Future<void> getProfileInfoByToken(String apiToken) async {
+  //String apiToken
+  Future<void> getProfileInfoByToken() async {
     emit(ProfileInfoLoadingState());
-    Either<Failure, AuthenticationInfo> response =
-        await getProfileInfoUseCase(apiToken: apiToken);
+    Either<Failure, ProfileInfoModel> response =
+        await getProfileInfoUseCase(); //apiToken: apiToken
     response.fold(
-        (failure) => emit(ProfileInfoErrorState(message: failure.massage)),
-        (authenticationInfo) => emit(
-            ProfileInfoSuccessState(authenticationInfo: authenticationInfo)));
+      (failure) => emit(ProfileInfoErrorState(message: failure.massage)),
+      (profileInfoModel) => emit(
+        ProfileInfoSuccessState(
+          profileInfoModel: profileInfoModel,
+        ),
+      ),
+    );
   }
 }
 /* Future<void> getWeatherByCityName(String cityName) async {

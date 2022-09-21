@@ -1,5 +1,5 @@
 import 'package:algoriza_booking_app/core/errors/failure.dart';
-import 'package:algoriza_booking_app/feature/auth/domain/entities/auth.dart';
+import 'package:algoriza_booking_app/feature/auth/data/models/profile_info_model.dart';
 import 'package:algoriza_booking_app/feature/auth/domain/repository/base_auth_repository.dart';
 import 'package:dartz/dartz.dart';
 
@@ -9,10 +9,9 @@ class GetProfileInfoUseCase {
 
   GetProfileInfoUseCase(this.baseAuthRepository);
 
-  Future<Either<Failure, AuthenticationInfo>> call({
-    required String apiToken,
-  }) async {
+  Future<Either<Failure, ProfileInfoModel>> call() async {
+    //    required String apiToken,
     return await baseAuthRepository.getProfileInfoByToken(
-        apiToken: apiToken);
+        );//apiToken: apiToken
   }
 }

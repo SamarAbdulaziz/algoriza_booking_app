@@ -6,7 +6,7 @@ import 'package:algoriza_booking_app/feature/auth/domain/entities/auth.dart';
 import 'package:algoriza_booking_app/feature/auth/domain/repository/base_auth_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import '../models/profile_info_model.dart';
 
 class AuthenticationRepository extends BaseAuthRepository {
   final BaseRemoteDataSource baseRemoteDataSource;
@@ -20,7 +20,6 @@ class AuthenticationRepository extends BaseAuthRepository {
   }) async {
     final result =
         await baseRemoteDataSource.loginByEmailAndPassword(email, password);
-    final prefs = await SharedPreferences.getInstance();
 
     try {
       debugPrint(result.status.type);
@@ -29,7 +28,6 @@ class AuthenticationRepository extends BaseAuthRepository {
       debugPrint(result.data!.name);
       debugPrint(result.data!.apiToken);
       debugPrint(result.data.toString());
-      // await prefs.setString('apiToken', result.data!.apiToken);
       CacheData.setData(key: 'apiToken', value: result.data!.apiToken);
       // print('*************************************');
       // debugPrint(CacheData.getData(key: 'apiToken'));
@@ -64,15 +62,16 @@ class AuthenticationRepository extends BaseAuthRepository {
     }
   }
 
-  @override
-  Future<Either<Failure, AuthenticationInfo>> getProfileInfoByToken({
-    required String apiToken,
-  }) async {
+  @override //required String apiToken,
+
+  Future<Either<Failure, ProfileInfoModel>> getProfileInfoByToken(
+  ) async {
     var token = CacheData.getData(key: 'apiToken');
     final result = await baseRemoteDataSource.getProfileInfoByToken(token!);
     try {
-      debugPrint(result.status.type);
-      debugPrint(result.data!.apiToken);
+      debugPrint(result.statusType);
+      debugPrint(result.data.toString());
+      debugPrint(result.data.apiToken);
       return Right(result);
     } on ServerException catch (failure) {
       return Left(ServerFailure(failure.message));

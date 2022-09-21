@@ -1,6 +1,4 @@
 part of 'auth_cubit.dart';
-
-@immutable
 abstract class AuthenticationStates {}
 
 class AuthenticationInitialState extends AuthenticationStates {}
@@ -36,9 +34,9 @@ class RegisterErrorState extends AuthenticationStates {
 class ProfileInfoLoadingState extends AuthenticationStates {}
 
 class ProfileInfoSuccessState extends AuthenticationStates {
-  final AuthenticationInfo authenticationInfo;
+  final ProfileInfoModel profileInfoModel;
 
-  ProfileInfoSuccessState({required this.authenticationInfo});
+  ProfileInfoSuccessState({required this.profileInfoModel});
 }
 
 class ProfileInfoErrorState extends AuthenticationStates {
