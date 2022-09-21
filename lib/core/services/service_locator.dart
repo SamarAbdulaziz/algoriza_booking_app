@@ -1,6 +1,7 @@
 import 'package:algoriza_booking_app/feature/auth/data/data_source/remote_data_source.dart';
 import 'package:algoriza_booking_app/feature/auth/data/repository/auth_repository.dart';
 import 'package:algoriza_booking_app/feature/auth/domain/repository/base_auth_repository.dart';
+import 'package:algoriza_booking_app/feature/auth/domain/usecases/get_profile_info.dart';
 import 'package:algoriza_booking_app/feature/auth/domain/usecases/login_use_case.dart';
 import 'package:algoriza_booking_app/feature/auth/domain/usecases/register_use_case.dart';
 import 'package:algoriza_booking_app/feature/auth/presentaion/controllers/auth_cubit.dart';
@@ -20,9 +21,10 @@ class ServiceLocator {
     ///UseCases
     sl.registerLazySingleton<LoginUseCase>(() => LoginUseCase(sl()));
     sl.registerLazySingleton<RegisterUseCase>(() => RegisterUseCase(sl()));
+    sl.registerLazySingleton<GetProfileInfoUseCase>(() => GetProfileInfoUseCase(sl()));
     //
     ///Bloc-cubit
     sl.registerFactory<AuthenticationCubit>(
-        () => AuthenticationCubit(sl(), sl()));
+        () => AuthenticationCubit(sl(), sl(),sl()));
   }
 }

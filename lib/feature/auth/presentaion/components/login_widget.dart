@@ -113,10 +113,10 @@ class LoginWidget extends StatelessWidget {
                 height: 16,
               ),
               LoginTextFormField(
-                controller: emailController,
+                  controller: emailController,
                   title: 'your email',
                   hintText: 'enter your email',
-                  validator: (value) {
+                  validator: (String? value) {
                     if (value!.isEmpty) {
                       return 'Email must not be empty';
                     }
@@ -125,15 +125,14 @@ class LoginWidget extends StatelessWidget {
                 height: 16,
               ),
               LoginTextFormField(
-                controller: passwordController,
-                title: 'password',
-                hintText: 'enter password',
-                  validator: (value) {
+                  controller: passwordController,
+                  title: 'password',
+                  hintText: 'enter password',
+                  validator: (String? value) {
                     if (value!.isEmpty) {
                       return 'Password must not be empty';
                     }
-                  }
-              ),
+                  }),
               const SizedBox(
                 height: 14,
               ),
@@ -143,9 +142,10 @@ class LoginWidget extends StatelessWidget {
                   Text(
                     'Forget your password?',
                     style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.grey.shade700,
-                        fontWeight: FontWeight.w400),
+                      fontSize: 16,
+                      color: Colors.grey.shade700,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
                 ],
               ),
@@ -157,14 +157,18 @@ class LoginWidget extends StatelessWidget {
                   child: DefaultButton(
                     title: 'Login',
                     ontap: () {
-                      debugPrint(emailController.text);
-                      debugPrint(passwordController.text);
-                      if (formKey.currentState!.validate()){
+                      // debugPrint(emailController.text);
+                      // debugPrint(passwordController.text);
+                      if (formKey.currentState!.validate()) {
                         BlocProvider.of<AuthenticationCubit>(context)
                             .loginByEmailAndPassword(
                           emailController.text,
                           passwordController.text,
                         );
+                        //TODO
+                        // move it to the right place
+                        BlocProvider.of<AuthenticationCubit>(context)
+                            .getProfileInfoByToken();
                       }
                     },
                   )),
