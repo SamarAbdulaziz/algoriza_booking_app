@@ -4,12 +4,14 @@ class LoginTextFormField extends StatelessWidget {
   final TextEditingController controller;
   final String title;
   final String hintText;
+  final FormFieldValidator<String>? validator;
 
   const LoginTextFormField({
     Key? key,
     required this.title,
     required this.hintText,
     required this.controller,
+    required this.validator,
   }) : super(key: key);
 
   @override
@@ -30,6 +32,7 @@ class LoginTextFormField extends StatelessWidget {
         const SizedBox(height: 4,),
         TextFormField(
           controller: controller,
+          validator:validator,
           autocorrect: false,
           style: const TextStyle(color: Colors.white),
           decoration: InputDecoration(
