@@ -1,5 +1,4 @@
 import 'package:algoriza_booking_app/core/errors/failure.dart';
-import 'package:algoriza_booking_app/feature/Profile_info/data/models/profile_info_model.dart';
 import 'package:algoriza_booking_app/feature/Profile_info/domain/entities/UpdateProfile.dart';
 import 'package:algoriza_booking_app/feature/Profile_info/domain/entities/profile-info.dart';
 import 'package:algoriza_booking_app/feature/Profile_info/domain/usecases/get_profile_info_use_case.dart';
@@ -19,7 +18,7 @@ class ProfileCubit extends Cubit<ProfileStates> {
   //String apiToken
   Future<void> getProfileInfoByToken() async {
     emit(ProfileInfoLoadingState());
-    Either<Failure, ProfileInfoModel> response =
+    Either<Failure, ProfileInfo> response =
         await getProfileInfoUseCase(); //apiToken: apiToken
     response.fold(
       (failure) => emit(ProfileInfoErrorState(message: failure.massage)),

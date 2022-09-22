@@ -2,6 +2,8 @@ import 'package:algoriza_booking_app/core/utiles/app_strings.dart';
 import 'package:algoriza_booking_app/feature/Profile_info/presentaion/controllers/profile_cubit.dart';
 import 'package:algoriza_booking_app/feature/Profile_info/presentaion/screens/Profile_screen.dart';
 import 'package:algoriza_booking_app/feature/auth/presentation/controllers/auth_cubit.dart';
+import 'package:algoriza_booking_app/feature/explore/presentation/controllers/hotels_cubit.dart';
+import 'package:algoriza_booking_app/feature/explore/presentation/screens/explore_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../core/services/service_locator.dart';
@@ -16,6 +18,7 @@ class Routes {
   static const String loginScreenRoute = '/loginScreen';
   static const String registerScreenRoute = '/registerScreen';
   static const String profileScreenRoute = '/profileScreen';
+  static const String exploreScreenRoute = '/exploreScreen';
 }
 
 class AppRoutes {
@@ -61,11 +64,21 @@ class AppRoutes {
             child: const ProfileScreen(),
           ),
         );
+      case Routes.exploreScreenRoute:
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider<HotelsCubit>(
+            create: (context) => sl<HotelsCubit>(),
+            child: const ExploreScreen(),
+          ),
+        );
 
       default:
         return undefinedRoute();
     }
+
   }
+
+
 
   static Route<dynamic>? undefinedRoute() {
     return MaterialPageRoute(
