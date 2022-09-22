@@ -11,8 +11,7 @@ class AuthenticationCubit extends Cubit<AuthenticationStates> {
   final LoginUseCase loginUseCase;
   final RegisterUseCase registerUseCase;
 
-  AuthenticationCubit(
-      this.loginUseCase, this.registerUseCase,)
+  AuthenticationCubit(this.loginUseCase, this.registerUseCase)
       : super(AuthenticationInitialState());
 
   Future<void> loginByEmailAndPassword(String email, String password) async {
@@ -42,6 +41,5 @@ class AuthenticationCubit extends Cubit<AuthenticationStates> {
       ),
     );
   }
-
 
 }

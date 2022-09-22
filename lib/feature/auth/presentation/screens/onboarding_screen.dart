@@ -124,24 +124,24 @@ class OnBoardingScreen extends StatelessWidget {
   }
 }
 
-List<onBoradingModel> onboardingItems = [
-  onBoradingModel(
-      Text: 'Best travelling all time',
+List<onBoardingModel> onboardingItems = [
+  onBoardingModel(
+      text: 'Best travelling all time',
       body:
           'Find deals for any season from cosy\n country homes to city flats\n ',
       image: 'assets/images/travelud-onboarding1.png'),
-  onBoradingModel(
-      Text: 'Find best deals',
+  onBoardingModel(
+      text: 'Find best deals',
       body:
           'Find deals for any season from cosy\n country homes to city flats\n',
       image: 'assets/images/travel-onboarding2.png'),
-  onBoradingModel(
-      Text: 'Plan your trips',
+  onBoardingModel(
+      text: 'Plan your trips',
       body: 'Book one of your unique hotels to\n escape the ordinary\n ',
       image: 'assets/images/travel_onboarding3.png')
 ];
 
-Widget buildBoardingItem(onBoradingModel model) => Column(
+Widget buildBoardingItem(onBoardingModel model) => Column(
       children: [
         Image(
           image: AssetImage(
@@ -157,7 +157,7 @@ Widget buildBoardingItem(onBoradingModel model) => Column(
             child: Column(
               children: [
                 DefaultTextFont(
-                  title: model.Text!,
+                  title: model.text!,
                   size: 25,
                   fontweight: FontWeight.bold,
                   titlecolor: Colors.white,

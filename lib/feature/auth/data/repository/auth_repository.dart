@@ -1,6 +1,6 @@
 import 'package:algoriza_booking_app/core/errors/exceptions.dart';
 import 'package:algoriza_booking_app/core/errors/failure.dart';
-import 'package:algoriza_booking_app/feature/auth/data/data_source/local_data_source.dart';
+import 'package:algoriza_booking_app/core/utiles/local_data_source.dart';
 import 'package:algoriza_booking_app/feature/auth/data/data_source/remote_data_source.dart';
 import 'package:algoriza_booking_app/feature/auth/domain/entities/auth.dart';
 import 'package:algoriza_booking_app/feature/auth/domain/repository/base_auth_repository.dart';

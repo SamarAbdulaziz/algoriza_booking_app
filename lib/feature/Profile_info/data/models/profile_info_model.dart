@@ -1,6 +1,6 @@
-import 'package:algoriza_booking_app/feature/Profile_info/data/models/data_model.dart';
-import 'package:algoriza_booking_app/feature/Profile_info/domain/entities/data.dart';
 import 'package:algoriza_booking_app/feature/Profile_info/domain/entities/profile-info.dart';
+import 'package:algoriza_booking_app/feature/auth/data/models/data_model.dart';
+import 'package:algoriza_booking_app/feature/auth/domain/entities/data.dart';
 
 class ProfileInfoModel extends ProfileInfo {
 

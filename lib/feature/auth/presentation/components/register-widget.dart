@@ -1,6 +1,5 @@
-
-import 'package:algoriza_booking_app/feature/auth/presentaion/components/login_button.dart';
-import 'package:algoriza_booking_app/feature/auth/presentaion/controllers/auth_cubit.dart';
+import 'package:algoriza_booking_app/feature/auth/presentation/components/login_button.dart';
+import 'package:algoriza_booking_app/feature/auth/presentation/controllers/auth_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';

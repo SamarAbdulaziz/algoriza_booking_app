@@ -30,4 +30,3 @@ class RegisterErrorState extends AuthenticationStates {
 
   RegisterErrorState({required this.message});
 }
-

@@ -1,10 +1,10 @@
-class onBoradingModel{
-  String? Text;
+class onBoardingModel{
+  String? text;
   String? image;
   String? body;
 
-  onBoradingModel({
-    required this.Text,
+  onBoardingModel({
+    required this.text,
     required this.body,
     required this.image,
   });

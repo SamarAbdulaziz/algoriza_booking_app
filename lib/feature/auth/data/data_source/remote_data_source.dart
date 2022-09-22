@@ -13,8 +13,6 @@ abstract class BaseRemoteDataSource {
     String password,
     String passwordConfirmation,
   );
-
-
 }
 
 
@@ -66,5 +64,4 @@ class RemoteDataSource extends BaseRemoteDataSource {
       throw ServerException('Server exception');
     }
   }
-
 }
