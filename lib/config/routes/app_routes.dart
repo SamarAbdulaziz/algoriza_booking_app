@@ -1,15 +1,14 @@
 import 'package:algoriza_booking_app/core/utiles/app_strings.dart';
 import 'package:algoriza_booking_app/feature/Profile_info/presentaion/controllers/profile_cubit.dart';
 import 'package:algoriza_booking_app/feature/Profile_info/presentaion/screens/Profile_screen.dart';
-import 'package:algoriza_booking_app/feature/auth/presentaion/screens/get_started_screen.dart';
-import 'package:algoriza_booking_app/feature/auth/presentaion/screens/login_screen.dart';
-import 'package:algoriza_booking_app/feature/auth/presentaion/screens/onboarding_screen.dart';
-import 'package:algoriza_booking_app/feature/auth/presentaion/screens/register_screen.dart';
+import 'package:algoriza_booking_app/feature/auth/presentation/controllers/auth_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../core/services/service_locator.dart';
-import '../../feature/auth/presentaion/controllers/auth_cubit.dart';
+import '../../feature/auth/presentation/screens/get_started_screen.dart';
+import '../../feature/auth/presentation/screens/login_screen.dart';
+import '../../feature/auth/presentation/screens/onboarding_screen.dart';
+import '../../feature/auth/presentation/screens/register_screen.dart';
 
 class Routes {
   static const String initialRoute = '/';

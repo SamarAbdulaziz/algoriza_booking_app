@@ -6,7 +6,7 @@ import 'package:algoriza_booking_app/feature/auth/domain/entities/data.dart';
 import '../../domain/entities/status.dart';
 
 class AuthenticationModel extends AuthenticationInfo {
-   AuthenticationModel({
+    AuthenticationModel({
     required Status status,
      Data? data,
   }) : super(

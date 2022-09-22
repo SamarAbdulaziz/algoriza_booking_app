@@ -1,10 +1,9 @@
-import 'package:algoriza_booking_app/feature/auth/presentaion/components/login_button.dart';
-import 'package:algoriza_booking_app/feature/auth/presentaion/controllers/auth_cubit.dart';
-
+import 'package:algoriza_booking_app/config/routes/app_routes.dart';
+import 'package:algoriza_booking_app/feature/auth/presentation/components/login_button.dart';
+import 'package:algoriza_booking_app/feature/auth/presentation/controllers/auth_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 import 'login-text-form-field.dart';
 
 class LoginWidget extends StatelessWidget {
@@ -69,30 +68,31 @@ class LoginWidget extends StatelessWidget {
                     ),
                     Expanded(
                       child: ElevatedButton(
-                          onPressed: () {},
-                          style: ButtonStyle(
-                              shape: MaterialStateProperty.all<
-                                  RoundedRectangleBorder>(RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30.0),
-                              ))),
-                          child: Row(
-                            children: const [
-                              IconButton(
-                                  icon: FaIcon(
-                                    FontAwesomeIcons.twitter,
-                                    size: 16,
-                                    color: Colors.white,
-                                  ),
-                                  onPressed: null),
-                              Text(
-                                'Twitter',
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w500),
-                              ),
-                            ],
-                          )),
+                        onPressed: () {},
+                        style: ButtonStyle(
+                            shape: MaterialStateProperty.all<
+                                RoundedRectangleBorder>(RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                        ))),
+                        child: Row(
+                          children: const [
+                            IconButton(
+                                icon: FaIcon(
+                                  FontAwesomeIcons.twitter,
+                                  size: 16,
+                                  color: Colors.white,
+                                ),
+                                onPressed: null),
+                            Text(
+                              'Twitter',
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w500),
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   ],
                 ),
@@ -125,14 +125,15 @@ class LoginWidget extends StatelessWidget {
                 height: 16,
               ),
               LoginTextFormField(
-                  controller: passwordController,
-                  title: 'password',
-                  hintText: 'enter password',
-                  validator: (String? value) {
-                    if (value!.isEmpty) {
-                      return 'Password must not be empty';
-                    }
-                  }),
+                controller: passwordController,
+                title: 'password',
+                hintText: 'enter password',
+                validator: (String? value) {
+                  if (value!.isEmpty) {
+                    return 'Password must not be empty';
+                  }
+                },
+              ),
               const SizedBox(
                 height: 14,
               ),
@@ -153,30 +154,28 @@ class LoginWidget extends StatelessWidget {
                 height: 16,
               ),
               InkWell(
-                  onTap: () {},
-                  child: DefaultButton(
-                    title: 'Login',
-                    ontap: () {
-                      // debugPrint(emailController.text);
-                      // debugPrint(passwordController.text);
-                      if (formKey.currentState!.validate()) {
-                        BlocProvider.of<AuthenticationCubit>(context)
-                            .loginByEmailAndPassword(
-                          emailController.text,
-                          passwordController.text,
-                        );
-                        //TODO
-                        // move it to the right place
-                        BlocProvider.of<AuthenticationCubit>(context)
-                            .getProfileInfoByToken();
-                      }
-                    },
-                  )),
+                onTap: () {},
+                child: DefaultButton(
+                  title: 'Login',
+                  ontap: () {
+                    // debugPrint(emailController.text);
+                    // debugPrint(passwordController.text);
+                    if (formKey.currentState!.validate()) {
+                      BlocProvider.of<AuthenticationCubit>(context)
+                          .loginByEmailAndPassword(
+                        emailController.text,
+                        passwordController.text,
+                      );
+                     //Todo
+                      Navigator.pushNamed(context, Routes.profileScreenRoute);
+                    }
+                  },
+                ),
+              ),
             ],
           ),
         ),
       ),
     );
   }
-}/*'sam.sam@gmail.com',
-                      '123456',*/
+}
