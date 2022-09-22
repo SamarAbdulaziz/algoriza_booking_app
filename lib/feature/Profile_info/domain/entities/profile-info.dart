@@ -1,4 +1,4 @@
-import 'package:algoriza_booking_app/feature/auth/domain/entities/data.dart';
+import 'package:algoriza_booking_app/feature/Profile_info/domain/entities/data.dart';
 import 'package:equatable/equatable.dart';
 
 class ProfileInfo extends Equatable {

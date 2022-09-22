@@ -28,13 +28,6 @@ class AuthenticationRepository extends BaseAuthRepository {
       debugPrint(result.data!.apiToken);
       debugPrint(result.data.toString());
       CacheData.setData(key: 'apiToken', value: result.data!.apiToken);
-      // print('*************************************');
-      // debugPrint(CacheData.getData(key: 'apiToken'));
-      // debugPrint(CacheData.getData(key: 'apiToken'));
-      // debugPrint(CacheData.getData(key: 'apiToken'));
-      // debugPrint(CacheData.getData(key: 'apiToken'));
-      // print('*************************************');
-
       return Right(result);
     } on ServerException catch (failure) {
       return Left(ServerFailure(failure.message));

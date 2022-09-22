@@ -21,14 +21,27 @@ class ProfileScreen extends StatelessWidget {
       ),
       body: Center(
           child: Container(
-        child: TextButton(
-          onPressed: () {
-            BlocProvider.of<ProfileCubit>(context).getProfileInfoByToken();
-          },
-          child: Text(
-            ' Get Profile info',
-            style: TextStyle(fontSize: 30.0),
-          ),
+        child: Column(
+          children: [
+            TextButton(
+              onPressed: () {
+                BlocProvider.of<ProfileCubit>(context).getProfileInfoByToken();
+              },
+              child: Text(
+                ' Get Profile info',
+                style: TextStyle(fontSize: 30.0),
+              ),
+            ),
+            TextButton(
+              onPressed: () {
+                BlocProvider.of<ProfileCubit>(context).updateProfileInfo(name: 'SamooooorA', email: 'samar.noor@gmail.com');
+              },
+              child: Text(
+                'Update Profile info',
+                style: TextStyle(fontSize: 30.0),
+              ),
+            ),
+          ],
         ),
       )),
     );
