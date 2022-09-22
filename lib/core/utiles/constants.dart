@@ -3,6 +3,7 @@ class AppConstants {
   static const String loginPath = '/auth/login';
   static const String registerPath = '/auth/register';
   static const String profilePath = '/auth/profile-info';
+  static const String updateProfilePath = '/auth/update-info';
   static const String hotelsPath = '/hotels';
 
 //

@@ -7,13 +7,26 @@ class ProfileInitialState extends ProfileStates {}
 class ProfileInfoLoadingState extends ProfileStates {}
 
 class ProfileInfoSuccessState extends ProfileStates {
-  final ProfileInfoModel profileInfoModel;
+  final ProfileInfo profileInfo;
 
-  ProfileInfoSuccessState({required this.profileInfoModel});
+  ProfileInfoSuccessState({required this.profileInfo});
 }
 
 class ProfileInfoErrorState extends ProfileStates {
   final String message;
 
   ProfileInfoErrorState({required this.message});
+}
+class UpdateProfileInfoLoadingState extends ProfileStates {}
+
+class  UpdateProfileInfoSuccessState extends ProfileStates {
+  final  UpdateProfile updateProfile;
+
+  UpdateProfileInfoSuccessState({required this.updateProfile});
+}
+
+class  UpdateProfileInfoErrorState extends ProfileStates {
+  final String message;
+
+  UpdateProfileInfoErrorState({required this.message});
 }
