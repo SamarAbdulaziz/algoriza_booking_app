@@ -19,8 +19,8 @@ class GeneralDataModel extends GeneralData {
 
   factory GeneralDataModel.fromJson(Map<String,dynamic>json) => GeneralDataModel(
     currentPage:json['current_page'] ,
-    hotelsList: json['data'].map((hotel)=>HotelModel.fromJson(hotel)).toList(),
-    //hotelsList: List<HotelModel>.from(json["data"].map((x) => HotelModel.fromJson(x))),
+    //hotelsList: json['data'].map((hotel)=>HotelModel.fromJson(hotel)).toList(),
+    hotelsList: List<HotelModel>.from(json["data"].map((x) => HotelModel.fromJson(x))),
     firstPageUrl: json["first_page_url"],
     from: json["from"],
     lastPage: json["last_page"],
