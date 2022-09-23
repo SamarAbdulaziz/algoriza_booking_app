@@ -2,9 +2,9 @@ import 'package:algoriza_booking_app/feature/explore/domain/entities/hotel_facil
 
 class HotelFacilitiesModel extends HotelFacilities {
   const HotelFacilitiesModel({
-    required super.id,
-    required super.hotelId,
-    required super.facilityId,
+     super.id,
+     super.hotelId,
+     super.facilityId,
   });
 
   factory HotelFacilitiesModel.fromJson(Map<String, dynamic> json) =>

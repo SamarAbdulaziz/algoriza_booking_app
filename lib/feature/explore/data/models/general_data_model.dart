@@ -3,24 +3,24 @@ import 'package:algoriza_booking_app/feature/explore/domain/entities/general_dat
 
 class GeneralDataModel extends GeneralData {
   const GeneralDataModel({
-    required super.currentPage,
-    required super.hotelsList,
-    required super.firstPageUrl,
-    required super.from,
-    required super.lastPage,
-    required super.lastPageUrl,
-    required super.nextPageUrl,
-    required super.path,
-    required super.perPage,
-    required super.prevPageUrl,
-    required super.to,
-    required super.total,
+     super.currentPage,
+     super.hotelsList,
+     super.firstPageUrl,
+     super.from,
+     super.lastPage,
+     super.lastPageUrl,
+     super.nextPageUrl,
+     super.path,
+     super.perPage,
+     super.prevPageUrl,
+     super.to,
+     super.total,
   });
 
   factory GeneralDataModel.fromJson(Map<String,dynamic>json) => GeneralDataModel(
     currentPage:json['current_page'] ,
     hotelsList: json['data'].map((hotel)=>HotelModel.fromJson(hotel)).toList(),
-    //hotels: List<Hotel>.from(json["hotels"].map((x) => Hotel.fromJson(x))),
+    //hotelsList: List<HotelModel>.from(json["data"].map((x) => HotelModel.fromJson(x))),
     firstPageUrl: json["first_page_url"],
     from: json["from"],
     lastPage: json["last_page"],

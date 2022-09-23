@@ -12,7 +12,7 @@ class ExploreScreen extends StatelessWidget {
       body: Center(
         child: TextButton(
           onPressed: () {
-            BlocProvider.of<HotelsCubit>(context).exploreHotels();
+            BlocProvider.of<HotelsCubit>(context).exploreHotels(count: 10,page: 1);
           },
           child: Text('Explore'),
         ),

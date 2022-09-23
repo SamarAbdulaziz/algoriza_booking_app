@@ -2,9 +2,9 @@ import 'package:algoriza_booking_app/feature/explore/domain/entities/hotel_image
 
 class HotelImageModel extends HotelImage {
   const HotelImageModel({
-    required super.id,
-    required super.hotelId,
-    required super.image,
+     super.id,
+     super.hotelId,
+     super.image,
   });
 
   factory HotelImageModel.fromJson(Map<String, dynamic> json) =>

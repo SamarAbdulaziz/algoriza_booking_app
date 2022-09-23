@@ -1,16 +1,16 @@
 import 'package:equatable/equatable.dart';
 
 class HotelFacilities extends Equatable {
-  final int id;
-  final String hotelId;
-  final String facilityId;
+  final int? id;
+  final String? hotelId;
+  final String? facilityId;
 
   const HotelFacilities({
-    required this.id,
-    required this.hotelId,
-    required this.facilityId,
+    this.id,
+    this.hotelId,
+    this.facilityId,
   });
 
   @override
-  List<Object> get props => [id, hotelId, facilityId];
+  List<Object?> get props => [id, hotelId, facilityId];
 }

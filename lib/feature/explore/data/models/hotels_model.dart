@@ -3,8 +3,8 @@ import 'package:algoriza_booking_app/feature/explore/domain/entities/hotels.dart
 
 class HotelsModel extends Hotels {
   const HotelsModel({
-    required super.statusType,
-    required super.generalData,
+    super.statusType,
+    super.generalData,
   });
 
   factory HotelsModel.fromJson(Map<String, dynamic> json) => HotelsModel(

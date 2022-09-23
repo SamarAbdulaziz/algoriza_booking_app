@@ -2,17 +2,14 @@ import 'package:algoriza_booking_app/feature/explore/domain/entities/general_dat
 import 'package:equatable/equatable.dart';
 
 class Hotels extends Equatable {
-  final String statusType;
-  final GeneralData generalData;
+  final String? statusType;
+  final GeneralData? generalData;
 
   const Hotels({
-    required this.statusType,
-    required this.generalData,
+    this.statusType,
+    this.generalData,
   });
 
   @override
-  List<Object> get props => [
-        statusType,
-        generalData,
-      ];
+  List<Object?> get props => [statusType, generalData];
 }

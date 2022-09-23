@@ -16,7 +16,7 @@ class HotelsRepository extends BaseHotelsRepository {
     final result = await baseHotelRemoteDataSource.exploreHotels();
     try {
       debugPrint(result.statusType);
-      debugPrint(result.generalData.hotelsList.toString());
+      debugPrint(result.generalData!.hotelsList.toString());
       return Right(result);
     } on ServerException catch (failure) {
       return Left(ServerFailure(failure.message));
