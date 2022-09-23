@@ -35,8 +35,8 @@ class ProfileScreen extends StatelessWidget {
             TextButton(
               onPressed: () {
                 BlocProvider.of<ProfileCubit>(context).updateProfileInfo(
-                  name: 'SamarAbdulaziz',
-                  email: 'samar.noor@gmail.com',
+                  name: 'Samar Abdulaziz',
+                  email: 'sam.sam@gmail.com',
                 );
               },
               child: Text(
