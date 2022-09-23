@@ -4,7 +4,6 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../../core/utiles/default_text_font.dart';
 import '../../data/models/onboarding_model.dart';
 import '../components/login_button.dart';
-import 'login_screen.dart';
 
 // ignore: must_be_immutable
 class OnBoardingScreen extends StatelessWidget {
@@ -24,10 +23,7 @@ class OnBoardingScreen extends StatelessWidget {
               child: DefaultButton(
                 title: 'Skip',
                 ontap: (){
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const LoginScreen()));
+                  Navigator.pushNamed(context, Routes.exploreScreenRoute);
                 },
                 textcolor: Colors.white,
                 buttoncolor: Colors.teal,
