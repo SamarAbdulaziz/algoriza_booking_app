@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../../../../config/routes/app_routes.dart';
 import 'login-text-form-field.dart';
 
 
@@ -216,18 +217,21 @@ class RegisterWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Already have account?Log in?',
+                      'Already have account?',
                       style: TextStyle(
                           fontSize: 16,
                           color: Colors.grey.shade700,
                           fontWeight: FontWeight.w400),
                     ),
-                    Text(
-                      'Login',
+                    TextButton(
+                      child:Text('Login',
                       style: TextStyle(
                           fontSize: 16,
                           color: Colors.teal.shade200,
-                          fontWeight: FontWeight.bold),
+                          fontWeight: FontWeight.bold,),),
+                      onPressed: () {
+                        Navigator.pushNamed(context, Routes.loginScreenRoute);
+                      },
                     ),
                   ],
                 ),
