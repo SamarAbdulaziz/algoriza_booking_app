@@ -5,6 +5,9 @@ class AppConstants {
   static const String profilePath = '/auth/profile-info';
   static const String updateProfilePath = '/auth/update-info';
   static const String hotelsPath = '/hotels';
+  static const String getBookingPath = '/get-bookings';
+  static const String createBookingPath = '/create-booking';
+  static const String updateBookingPath = '/update-booking-status';
 
 //
 //   static String getWeatherByCityNamePathNew(String cityName) =>
