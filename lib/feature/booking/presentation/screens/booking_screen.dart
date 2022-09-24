@@ -13,17 +13,19 @@ class BookingScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextButton(
-                onPressed: () {
-                  BlocProvider.of<BookingCubit>(context)
-                      .getBooking(type: 'Completed');
-                },
-                child: Text('Get completed Booking')),
+              onPressed: () {
+                BlocProvider.of<BookingCubit>(context)
+                    .getBooking(type: 'Completed');
+              },
+              child: Text('Get completed Booking'),
+            ),
             TextButton(
-                onPressed: () {
-                  BlocProvider.of<BookingCubit>(context)
-                      .getBooking(type: 'upcomming');
-                },
-                child: Text('Get upcomming Booking')),
+              onPressed: () {
+                BlocProvider.of<BookingCubit>(context)
+                    .getBooking(type: 'Upcomming');
+              },
+              child: Text('Get upcomming Booking'),
+            ),
             TextButton(
                 onPressed: () {
                   BlocProvider.of<BookingCubit>(context)
@@ -33,15 +35,19 @@ class BookingScreen extends StatelessWidget {
             TextButton(
                 onPressed: () {
                   BlocProvider.of<BookingCubit>(context)
-                      .createBooking(hotelId: 10);
+                      .createBooking(hotelId: 14);
                 },
-                child: Text('creat Booking of hotel 10')),
-           TextButton(
-                onPressed: () {
-                  BlocProvider.of<BookingCubit>(context)
-                      .updateBooking(bookingId: 224, type: 'upcomming');
-                },
-                child: Text('Update Booking of hotel 10 of booking id 224 to upcomming  ')),
+                child: Text('creat Booking of hotel 14')),
+            TextButton(
+              onPressed: () {
+                BlocProvider.of<BookingCubit>(context).updateBooking(
+                  bookingId: 229,
+                  type: 'cancelled',
+                );
+              },
+              child: Text(
+                  'Update Booking of hotel 10 of booking id 224'),
+            ),
           ],
         ),
       ),
