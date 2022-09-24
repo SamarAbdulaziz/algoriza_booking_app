@@ -3,10 +3,10 @@ import 'package:algoriza_booking_app/feature/booking/domain/entities/booking_sta
 import 'package:algoriza_booking_app/feature/booking/domain/repositories/base_booking_repo.dart';
 import 'package:dartz/dartz.dart';
 
-class UpdateBooking {
+class UpdateBookingUseCase {
   final BaseBookingRepository baseBookingRepository;
 
-  UpdateBooking(this.baseBookingRepository);
+  UpdateBookingUseCase(this.baseBookingRepository);
 
   Future<Either<Failure, BookingStatus>> call(
       {required int bookingId, required String type}) async {

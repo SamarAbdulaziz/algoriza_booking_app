@@ -2,6 +2,8 @@ import 'package:algoriza_booking_app/core/utiles/app_strings.dart';
 import 'package:algoriza_booking_app/feature/Profile_info/presentaion/controllers/profile_cubit.dart';
 import 'package:algoriza_booking_app/feature/Profile_info/presentaion/screens/Profile_screen.dart';
 import 'package:algoriza_booking_app/feature/auth/presentation/controllers/auth_cubit.dart';
+import 'package:algoriza_booking_app/feature/booking/presentation/controllers/booking_cubit.dart';
+import 'package:algoriza_booking_app/feature/booking/presentation/screens/booking_screen.dart';
 import 'package:algoriza_booking_app/feature/explore/presentation/controllers/hotels_cubit.dart';
 import 'package:algoriza_booking_app/feature/explore/presentation/screens/explore_screen.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +21,7 @@ class Routes {
   static const String registerScreenRoute = '/registerScreen';
   static const String profileScreenRoute = '/profileScreen';
   static const String exploreScreenRoute = '/exploreScreen';
+  static const String bookingScreenRoute = '/bookingScreen';
 }
 
 class AppRoutes {
@@ -69,6 +72,13 @@ class AppRoutes {
           builder: (context) => BlocProvider<HotelsCubit>(
             create: (context) => sl<HotelsCubit>(),
             child: const ExploreScreen(),
+          ),
+        );
+      case Routes.bookingScreenRoute:
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider<BookingCubit>(
+            create: (context) => sl<BookingCubit>(),
+            child: const BookingScreen(),
           ),
         );
 

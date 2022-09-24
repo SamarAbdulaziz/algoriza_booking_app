@@ -4,13 +4,14 @@ import 'package:algoriza_booking_app/feature/booking/domain/entities/booking_sta
 class BookingStatusModel extends BookingStatus {
   const BookingStatusModel({
     required super.type,
-    required super.title,
+   required super.title,
   });
 
   factory BookingStatusModel.fromJson(Map<String, dynamic> json) =>
       BookingStatusModel(
-        type:json['type'] ,
-        title:BookingTitleModel.fromJson(json['title']) ,
+        type:json['status']['type'] ,
+        title:BookingTitleModel.fromJson(json['status']['title']) ,
+
       );
 
 }
