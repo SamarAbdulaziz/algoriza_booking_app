@@ -3,7 +3,8 @@ import 'package:algoriza_booking_app/feature/search/domain/entities/search_data.
 import 'package:dartz/dartz.dart';
 
 abstract class BaseSearchRepository {
-  Future<Either<Failure, SearchData?>> search({
+  Future<Either<Failure, SearchData>> search(
+      {
     String? name,
     String? address,
     int? maxPrice,
@@ -14,5 +15,6 @@ abstract class BaseSearchRepository {
     double? distance,
     int? count,
     int? page,
-  });
+  }
+  );
 }

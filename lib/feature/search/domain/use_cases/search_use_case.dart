@@ -1,6 +1,6 @@
 import 'package:algoriza_booking_app/core/errors/failure.dart';
 import 'package:algoriza_booking_app/feature/search/domain/entities/search_data.dart';
-import 'package:algoriza_booking_app/feature/search/domain/repositories/search_repository.dart';
+import 'package:algoriza_booking_app/feature/search/domain/repositories/base_search_repository.dart';
 import 'package:dartz/dartz.dart';
 
 class SearchUseCase {
@@ -8,7 +8,8 @@ class SearchUseCase {
 
   SearchUseCase(this.baseSearchRepository);
 
-  Future<Either<Failure, SearchData>?> call({
+  Future<Either<Failure, SearchData>>call(
+      {
     String? name,
     String? address,
     int? maxPrice,
@@ -19,8 +20,9 @@ class SearchUseCase {
     double? distance,
     int? count,
     int? page,
-  }) async {
-    await baseSearchRepository.search(
+  }
+  ) async {
+    return await baseSearchRepository.search(
       name: name,
       address: address,
       maxPrice: maxPrice,

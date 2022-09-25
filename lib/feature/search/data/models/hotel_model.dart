@@ -5,17 +5,18 @@ import 'package:algoriza_booking_app/feature/search/domain/entities/hotel.dart';
 class HotelModel extends Hotel {
   const HotelModel(
       {required super.id,
-      required super.name,
-      required super.description,
-      required super.price,
-      required super.address,
-      required super.longitude,
-      required super.latitude,
-      required super.rate,
-      required super.createdAt,
-      required super.updatedAt,
-      required super.hotelImageList,
-      required super.facilitiesList});
+    required super.name,
+    required super.description,
+    required super.price,
+    required super.address,
+    required super.longitude,
+    required super.latitude,
+    required super.rate,
+    required super.createdAt,
+    required super.updatedAt,
+    required super.hotelImageList,
+    required super.facilitiesList,
+  });
 
   factory HotelModel.fromJson(Map<String, dynamic> json) => HotelModel(
         id: json["id"],

@@ -3,33 +3,33 @@ import 'package:equatable/equatable.dart';
 
 class GeneralSearchData extends Equatable {
   final int currentPage;
-  final List<Hotel>? hotelsList;
-  final String? firstPageUrl;
-  final int? from;
-  final int? lastPage;
-  final String? lastPageUrl;
+  final List<Hotel> hotelsList;
+  final String firstPageUrl;
+  //final int from;
+  final int lastPage;
+  final String lastPageUrl;
 //  final List<Link> links;
   final dynamic nextPageUrl;
-  final String? path;
-  final int? perPage;
+  final String path;
+  final int perPage;
   final dynamic prevPageUrl;
-  final int? to;
-  final int? total;
+  //final int to;
+  final int total;
 
   const GeneralSearchData({
     required this.currentPage,
-    this.hotelsList,
-    this.firstPageUrl,
-    this.from,
-    this.lastPage,
-    this.lastPageUrl,
+    required this.hotelsList,
+    required this.firstPageUrl,
+    // required this.from,
+    required this.lastPage,
+    required this.lastPageUrl,
     // required this.links,
-    this.nextPageUrl,
-    this.path,
-    this.perPage,
-    this.prevPageUrl,
-    this.to,
-    this.total,
+    required this.nextPageUrl,
+    required this.path,
+    required this.perPage,
+    required this.prevPageUrl,
+   // required this.to,
+    required this.total,
   });
 
   @override
@@ -37,14 +37,14 @@ class GeneralSearchData extends Equatable {
         currentPage,
         hotelsList,
         firstPageUrl,
-        from,
+        // from,
         lastPage,
         lastPageUrl,
         nextPageUrl,
         path,
         perPage,
         prevPageUrl,
-        to,
+      //  to,
         total,
       ];
 }

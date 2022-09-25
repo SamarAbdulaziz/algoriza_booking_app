@@ -21,6 +21,11 @@ import 'package:algoriza_booking_app/feature/explore/data/repositories/explore_r
 import 'package:algoriza_booking_app/feature/explore/domain/repositories/explore_repo.dart';
 import 'package:algoriza_booking_app/feature/explore/domain/use_cases/explore_use_case.dart';
 import 'package:algoriza_booking_app/feature/explore/presentation/controllers/hotels_cubit.dart';
+import 'package:algoriza_booking_app/feature/search/data/data_sources/search_remote_data_source.dart';
+import 'package:algoriza_booking_app/feature/search/data/repositories/search_repository.dart';
+import 'package:algoriza_booking_app/feature/search/domain/repositories/base_search_repository.dart';
+import 'package:algoriza_booking_app/feature/search/domain/use_cases/search_use_case.dart';
+import 'package:algoriza_booking_app/feature/search/presentation/controllers/search_cubit.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../feature/auth/presentation/controllers/auth_cubit.dart';
@@ -37,6 +42,8 @@ class ServiceLocator {
         () => RemoteHotelsDataSource());
     sl.registerLazySingleton<BaseBookingRemoteDataSource>(
         () => BookingRemoteDataSource());
+    sl.registerLazySingleton<BaseSearchRemoteDataSource>(
+        () => SearchRemoteDataSource());
 
     ///Repo
     sl.registerLazySingleton<BaseAuthRepository>(
@@ -47,6 +54,8 @@ class ServiceLocator {
         () => HotelsRepository(sl()));
     sl.registerLazySingleton<BaseBookingRepository>(
         () => BookingRepository(sl()));
+    sl.registerLazySingleton<BaseSearchRepository>(
+        () => SearchRepository(sl()));
 
     ///UseCases
     sl.registerLazySingleton<LoginUseCase>(() => LoginUseCase(sl()));
@@ -65,6 +74,7 @@ class ServiceLocator {
         () => CreateBookingUseCase(sl()));
     sl.registerLazySingleton<UpdateBookingUseCase>(
         () => UpdateBookingUseCase(sl()));
+    sl.registerLazySingleton<SearchUseCase>(() => SearchUseCase(sl()));
 
     ///Bloc-cubit
     sl.registerFactory<AuthenticationCubit>(
@@ -72,5 +82,6 @@ class ServiceLocator {
     sl.registerFactory<ProfileCubit>(() => ProfileCubit(sl(), sl()));
     sl.registerFactory<HotelsCubit>(() => HotelsCubit(sl()));
     sl.registerFactory<BookingCubit>(() => BookingCubit(sl(), sl(), sl()));
+    sl.registerFactory<SearchCubit>(() => SearchCubit(sl()));
   }
 }

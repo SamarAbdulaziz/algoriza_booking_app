@@ -22,10 +22,10 @@ class OnBoardingScreen extends StatelessWidget {
                   const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
               child: DefaultButton(
                 title: 'Skip',
-                ontap: (){
+                ontap: () {
                   // Navigator.pushNamed(context, Routes.exploreScreenRoute);
-                   Navigator.pushNamed(context, Routes.bookingScreenRoute);
-
+                  //  Navigator.pushNamed(context, Routes.bookingScreenRoute);
+                  Navigator.pushNamed(context, Routes.searchScreenRoute);
                 },
                 textcolor: Colors.white,
                 buttoncolor: Colors.teal,
