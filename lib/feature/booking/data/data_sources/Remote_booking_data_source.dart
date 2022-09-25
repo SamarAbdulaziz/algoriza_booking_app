@@ -2,7 +2,6 @@ import 'package:algoriza_booking_app/core/errors/exceptions.dart';
 import 'package:algoriza_booking_app/core/utiles/constants.dart';
 import 'package:algoriza_booking_app/feature/booking/data/models/booking_data_model.dart';
 import 'package:algoriza_booking_app/feature/booking/data/models/booking_status_model.dart';
-import 'package:algoriza_booking_app/feature/booking/domain/entities/booking_status.dart';
 import 'package:dio/dio.dart';
 
 abstract class BaseBookingRemoteDataSource {

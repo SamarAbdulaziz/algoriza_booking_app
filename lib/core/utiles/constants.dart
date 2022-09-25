@@ -8,11 +8,11 @@ class AppConstants {
   static const String getBookingPath = '/get-bookings';
   static const String createBookingPath = '/create-booking';
   static const String updateBookingPath = '/update-booking-status';
+  static const String searchPath = '/search-hotels';
 
-//
 //   static String getWeatherByCityNamePathNew(String cityName) =>
 //       '$baseUrlNew/forecast.json?key=$apiKeyNew&q=$cityName&days=7&aqi=no&alerts=no';
-// // static  String getWeatherByCoordinatesPathNew(double lat,double long)=>'$baseUrlNew/forecast.json?key=$apiKeyNew&q=$lat,$long&days=7&aqi=no&alerts=no';
+// static  String getWeatherByCoordinatesPathNew(double lat,double long)=>'$baseUrlNew/forecast.json?key=$apiKeyNew&q=$lat,$long&days=7&aqi=no&alerts=no';
 //
 
 }
