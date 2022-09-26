@@ -24,30 +24,30 @@ class DefaultButton extends StatelessWidget {
     this.height = 52,
     this.fontweight = FontWeight.bold});
 
+
   @override
   Widget build(BuildContext context) {
-    return  Container(
+    return Container(
       width: width,
       height: height,
       child: ElevatedButton(
         onPressed: ontap,
         child: Text(
-            title,
-            style:  GoogleFonts.mulish(
+          title,
+          style: GoogleFonts.mulish(
             textStyle: TextStyle(
                 fontWeight: fontweight,
                 color: textcolor,
               fontSize: size
               ),
+              fontWeight: fontweight,
+              color: textcolor,
             ),
-
-        ),
+          ),
         style: ElevatedButton.styleFrom(
-            backgroundColor: buttoncolor,
+            primary: buttoncolor,
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(circularRadius)
-            )
-        ),
+                borderRadius: BorderRadius.circular(circularRadius))),
       ),
     );
   }

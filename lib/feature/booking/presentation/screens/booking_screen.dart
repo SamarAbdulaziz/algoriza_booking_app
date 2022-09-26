@@ -2,7 +2,9 @@ import 'package:algoriza_booking_app/feature/booking/presentation/controllers/bo
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+
 class BookingScreen extends StatelessWidget {
+  static const String routeName='Booking Screen ';
   const BookingScreen({Key? key}) : super(key: key);
 
   @override

@@ -12,7 +12,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../core/services/service_locator.dart';
 import '../../feature/Profile_info/presentaion/screens/edit_profile_screen.dart';
-import '../../feature/auth/presentation/screens/get_started_screen.dart';
 import '../../feature/auth/presentation/screens/login_screen.dart';
 import '../../feature/auth/presentation/screens/onboarding_screen.dart';
 import '../../feature/auth/presentation/screens/register_screen.dart';
@@ -40,7 +39,7 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (context) => BlocProvider<AuthenticationCubit>(
             create: (context) => sl<AuthenticationCubit>(),
-            child: const GetStartedScreen(),
+            child:  BookingScreen(),
           ),
         );
 
@@ -100,7 +99,7 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (context) => BlocProvider<BookingCubit>(
             create: (context) => sl<BookingCubit>(),
-            child: const BookingScreen(),
+            child:  BookingScreen(),
           ),
         );
 
