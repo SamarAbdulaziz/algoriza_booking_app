@@ -31,7 +31,7 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (context) => BlocProvider<AuthenticationCubit>(
             create: (context) => sl<AuthenticationCubit>(),
-            child: const OnHotelPressedScreen(),
+            child: const BookingScreen(),
           ),
         );
 
