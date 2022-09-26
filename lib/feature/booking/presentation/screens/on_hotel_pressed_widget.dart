@@ -8,7 +8,7 @@ class OnHotelPressedWidget extends StatelessWidget {
     return Container(
         padding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
         child: ListView.builder(
-          itemBuilder: (context, index) => const HotelPressed(),
+          itemBuilder: (context, index) =>  HotelPressed(),
           itemCount: 6,
         ));
   }
