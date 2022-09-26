@@ -17,6 +17,7 @@ class BookingApp extends StatelessWidget {
         initialRoute: Routes.initialRoute,
         onGenerateRoute: AppRoutes.onGenerateRoute,
         theme: ThemeData(
+          primarySwatch: Colors.teal,
           scaffoldBackgroundColor: Colors.black,
           //primarySwatch: Color(0xff779AB6),
           appBarTheme: const AppBarTheme(
