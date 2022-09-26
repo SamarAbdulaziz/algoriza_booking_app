@@ -1,3 +1,5 @@
+import 'package:algoriza_booking_app/feature/booking/presentation/components/favorite_widget.dart';
+import 'package:algoriza_booking_app/feature/booking/presentation/components/finished_widget.dart';
 import 'package:algoriza_booking_app/feature/booking/presentation/components/hotel_pressed.dart';
 import 'package:algoriza_booking_app/feature/booking/presentation/components/upcoming_widget.dart';
 import 'package:flutter/material.dart';
@@ -80,13 +82,13 @@ class _BookingWidgetState extends State<BookingWidget>
             Container(
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
                 child: ListView.builder(
-                  itemBuilder: (context, index) => HotelPressed(),
+                  itemBuilder: (context, index) => FinishedWidget(),
                   itemCount: 6,
                 )),
             Container(
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
                 child: ListView.builder(
-                  itemBuilder: (context, index) => HotelPressed(),
+                  itemBuilder: (context, index) => FavoriteWidget(),
                   itemCount: 6,
                 )),
           ]),
