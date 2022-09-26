@@ -8,6 +8,7 @@ class DefaultButton extends StatelessWidget {
   double circularRadius;
   double height;
   double width;
+  double size;
   FontWeight fontweight;
   VoidCallback ontap;
 
@@ -18,6 +19,7 @@ class DefaultButton extends StatelessWidget {
     this.buttoncolor =   Colors.teal,
     this.textcolor = Colors.white,
     this.circularRadius = 40.0,
+    this.size = 15,
     this.width = double.infinity,
     this.height = 52,
     this.fontweight = FontWeight.bold});
@@ -35,6 +37,7 @@ class DefaultButton extends StatelessWidget {
             textStyle: TextStyle(
                 fontWeight: fontweight,
                 color: textcolor,
+              fontSize: size
               ),
             ),
 
