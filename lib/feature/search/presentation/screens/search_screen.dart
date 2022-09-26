@@ -20,18 +20,7 @@ class SearchScreen extends StatelessWidget {
             fontSize: 30.0,
           ),
         ),
-      )
-          // child: TextFormField(
-          //     decoration: InputDecoration(
-          //         icon: Icon(
-          //       Icons.search,
-          //       color: Colors.red,
-          //     )),
-          //     controller: controller,
-          //     onFieldSubmitted: (value) async {
-          //       await BlocProvider.of<SearchCubit>(context).search(name: '5000');
-          //     }),
-          ),
+      )),
     );
   }
 }
