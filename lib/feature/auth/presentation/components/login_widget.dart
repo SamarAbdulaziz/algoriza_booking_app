@@ -168,7 +168,7 @@ class LoginWidget extends StatelessWidget {
                           passwordController.text,
                         );
                        //Todo
-                        Navigator.pushNamed(context, Routes.profileScreenRoute);
+                        Navigator.pushNamed(context, Routes.homeScreenRoute);
                       }
                     },
                   ),

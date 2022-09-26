@@ -183,7 +183,9 @@ class RegisterWidget extends StatelessWidget {
                                 '${firstNameController.text} ${lastNameController.text}',
                                 emailController.text,
                                 passwordController.text,
-                                passwordController.text);
+                                passwordController.text).then((value) =>
+                            Navigator.pushNamed(context, Routes.loginScreenRoute)
+                        );
                       }
                     },
                   ),

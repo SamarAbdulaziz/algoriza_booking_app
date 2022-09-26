@@ -8,6 +8,7 @@ class DefaultButton extends StatelessWidget {
   double circularRadius;
   double height;
   double width;
+  double size;
   FontWeight fontweight;
   VoidCallback ontap;
 
@@ -18,33 +19,35 @@ class DefaultButton extends StatelessWidget {
     this.buttoncolor =   Colors.teal,
     this.textcolor = Colors.white,
     this.circularRadius = 40.0,
+    this.size = 15,
     this.width = double.infinity,
     this.height = 52,
     this.fontweight = FontWeight.bold});
 
+
   @override
   Widget build(BuildContext context) {
-    return  Container(
+    return Container(
       width: width,
       height: height,
       child: ElevatedButton(
         onPressed: ontap,
         child: Text(
-            title,
-            style:  GoogleFonts.mulish(
+          title,
+          style: GoogleFonts.mulish(
             textStyle: TextStyle(
                 fontWeight: fontweight,
                 color: textcolor,
+              fontSize: size
               ),
+              fontWeight: fontweight,
+              color: textcolor,
             ),
-
-        ),
+          ),
         style: ElevatedButton.styleFrom(
-            backgroundColor: buttoncolor,
+            primary: buttoncolor,
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(circularRadius)
-            )
-        ),
+                borderRadius: BorderRadius.circular(circularRadius))),
       ),
     );
   }
