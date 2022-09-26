@@ -1,4 +1,4 @@
-import 'package:algoriza_booking_app/feature/Profile_info/presentaion/components/text_form_field_profile.dart';
+import 'package:algoriza_booking_app/feature/Profile_info/presentaion/components/profile_component.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../config/routes/app_routes.dart';
@@ -54,20 +54,20 @@ class ProfileWidget extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 20,),
-            TextFormFieldProfile(
+            const SizedBox(height: 40,),
+            ProfileComponent(
                 hintTitle: 'Change Password', suffixIcon: Icons.lock),
-            TextFormFieldProfile(
+            ProfileComponent(
                 hintTitle: 'Invite Friend',
                 suffixIcon: Icons.supervisor_account_rounded),
-            TextFormFieldProfile(
+            ProfileComponent(
                 hintTitle: 'Change Password',
                 suffixIcon: Icons.supervisor_account_rounded),
-            TextFormFieldProfile(
+            ProfileComponent(
                 hintTitle: 'Help Center', suffixIcon: Icons.help),
-            TextFormFieldProfile(
+            ProfileComponent(
                 hintTitle: 'Payment', suffixIcon: Icons.payments_sharp),
-            TextFormFieldProfile(
+            ProfileComponent(
                 hintTitle: ' Settings', suffixIcon: Icons.settings),
           ],
         ),
