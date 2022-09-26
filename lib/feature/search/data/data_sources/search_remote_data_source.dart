@@ -43,16 +43,16 @@ class SearchRemoteDataSource extends BaseSearchRemoteDataSource {
     int? page,
   }) async {
     final response = await dio.get(AppConstants.searchPath, queryParameters: {
-      'name': name ?? '',
-      'address': address ?? '',
-      'max_price': maxPrice ?? '',
-      'min_price': minPrice ?? '',
-      //'facilities[0]': facilities ?? '',
-      'latitude': lat ?? '',
-      'longitude': long ?? '',
-      'distance': distance ?? '',
-      'count': count ?? '',
-      'page': page ?? '',
+      'name': name ,
+      'address': address ,
+      'max_price': maxPrice ,
+      'min_price': minPrice ,
+      'facilities': facilities ,
+      'latitude': lat ,
+      'longitude': long ,
+      'distance': distance ,
+      'count': count ,
+      'page': page ,
     });
     if (response.statusCode == 200) {
       debugPrint(response.toString());

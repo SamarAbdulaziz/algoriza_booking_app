@@ -67,7 +67,7 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (context) => BlocProvider<ProfileCubit>(
             create: (context) => sl<ProfileCubit>(),
-            child: const ProfileScreen(),
+            child:  ProfileScreen(),
           ),
         );
       case Routes.exploreScreenRoute:

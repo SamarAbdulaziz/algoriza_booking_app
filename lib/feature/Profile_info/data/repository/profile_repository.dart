@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:algoriza_booking_app/core/errors/exceptions.dart';
 import 'package:algoriza_booking_app/core/errors/failure.dart';
 import 'package:algoriza_booking_app/core/utiles/local_data_source.dart';
@@ -17,7 +19,7 @@ class ProfileInfoRepository extends BaseProfileRepository {
   @override
   Future<Either<Failure, ProfileInfoModel>> getProfileInfoByToken() async {
     final result =
-        await baseRemoteProfileDataSource.getProfileInfoByToken(token!);
+        await baseRemoteProfileDataSource.getProfileInfoByToken(apiToken: token!);
     try {
       // debugPrint(result.statusType);
       // debugPrint(result.data.toString());
@@ -32,10 +34,10 @@ class ProfileInfoRepository extends BaseProfileRepository {
   Future<Either<Failure, UpdateProfileModel>> updateProfileInfo({
     required String name,
     required String email,
-    String? image,
+    File? pickedImage,
   }) async {
     final updatedResult = await baseRemoteProfileDataSource.updateProfileInfo(
-        token!, name, email, image);
+        apiToken: token!, name: name, email: email, pickedImage: pickedImage);
     try {
       debugPrint('UPDATED DATA ');
       debugPrint(updatedResult.status.type);

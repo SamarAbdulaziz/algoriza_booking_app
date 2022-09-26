@@ -30,3 +30,4 @@ class  UpdateProfileInfoErrorState extends ProfileStates {
 
   UpdateProfileInfoErrorState({required this.message});
 }
+class ImageLoadedState extends ProfileStates{}
