@@ -1,4 +1,3 @@
-
 import 'package:algoriza_booking_app/core/errors/failure.dart';
 import 'package:algoriza_booking_app/feature/Profile_info/domain/entities/UpdateProfile.dart';
 import 'package:algoriza_booking_app/feature/Profile_info/domain/entities/profile-info.dart';
