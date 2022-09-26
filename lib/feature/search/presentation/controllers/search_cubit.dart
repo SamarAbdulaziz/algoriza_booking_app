@@ -1,4 +1,6 @@
+import 'package:algoriza_booking_app/feature/search/domain/entities/facilities.dart';
 import 'package:algoriza_booking_app/feature/search/domain/entities/search_data.dart';
+import 'package:algoriza_booking_app/feature/search/domain/use_cases/get_facilities_use_case.dart';
 import 'package:algoriza_booking_app/feature/search/domain/use_cases/search_use_case.dart';
 import 'package:bloc/bloc.dart';
 
@@ -6,8 +8,10 @@ part 'search_state.dart';
 
 class SearchCubit extends Cubit<SearchStates> {
   final SearchUseCase searchUseCase;
+  final GetFacilitiesUseCase getFacilitiesUseCase;
 
-  SearchCubit(this.searchUseCase) : super(SearchInitial());
+  SearchCubit(this.searchUseCase, this.getFacilitiesUseCase)
+      : super(SearchInitial());
 
   Future<void> search({
     String? name,
@@ -36,5 +40,14 @@ class SearchCubit extends Cubit<SearchStates> {
     );
     result.fold((failure) => emit(SearchErrorState(message: failure.massage)),
         (searchData) => emit(SearchSuccessState(searchData: searchData)));
+  }
+
+ // var facilitiesList = [];
+
+  Future<void> getFacilities() async {
+    final result = await getFacilitiesUseCase();
+    result.fold(
+        (failure) => emit(FacilitiesErrorState(message: failure.massage)),
+        (facilities) => emit(FacilitiesSuccessState(facilities: facilities)));
   }
 }

@@ -17,3 +17,15 @@ class SearchErrorState extends SearchStates {
 
   SearchErrorState({required this.message});
 }
+
+class FacilitiesSuccessState extends SearchStates {
+  final Facilities facilities;
+
+  FacilitiesSuccessState({required this.facilities});
+}
+
+class FacilitiesErrorState extends SearchStates {
+  final String message;
+
+  FacilitiesErrorState({required this.message});
+}

@@ -24,6 +24,7 @@ import 'package:algoriza_booking_app/feature/explore/presentation/controllers/ho
 import 'package:algoriza_booking_app/feature/search/data/data_sources/search_remote_data_source.dart';
 import 'package:algoriza_booking_app/feature/search/data/repositories/search_repository.dart';
 import 'package:algoriza_booking_app/feature/search/domain/repositories/base_search_repository.dart';
+import 'package:algoriza_booking_app/feature/search/domain/use_cases/get_facilities_use_case.dart';
 import 'package:algoriza_booking_app/feature/search/domain/use_cases/search_use_case.dart';
 import 'package:algoriza_booking_app/feature/search/presentation/controllers/search_cubit.dart';
 import 'package:get_it/get_it.dart';
@@ -75,6 +76,7 @@ class ServiceLocator {
     sl.registerLazySingleton<UpdateBookingUseCase>(
         () => UpdateBookingUseCase(sl()));
     sl.registerLazySingleton<SearchUseCase>(() => SearchUseCase(sl()));
+    sl.registerLazySingleton<GetFacilitiesUseCase>(() => GetFacilitiesUseCase(sl()));
 
     ///Bloc-cubit
     sl.registerFactory<AuthenticationCubit>(
@@ -82,6 +84,6 @@ class ServiceLocator {
     sl.registerFactory<ProfileCubit>(() => ProfileCubit(sl(), sl()));
     sl.registerFactory<HotelsCubit>(() => HotelsCubit(sl()));
     sl.registerFactory<BookingCubit>(() => BookingCubit(sl(), sl(), sl()));
-    sl.registerFactory<SearchCubit>(() => SearchCubit(sl()));
+    sl.registerFactory<SearchCubit>(() => SearchCubit(sl(),sl()));
   }
 }

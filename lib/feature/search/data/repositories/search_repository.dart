@@ -1,6 +1,7 @@
 import 'package:algoriza_booking_app/core/errors/exceptions.dart';
 import 'package:algoriza_booking_app/core/errors/failure.dart';
 import 'package:algoriza_booking_app/feature/search/data/data_sources/search_remote_data_source.dart';
+import 'package:algoriza_booking_app/feature/search/data/models/facilities_model.dart';
 import 'package:algoriza_booking_app/feature/search/domain/entities/search_data.dart';
 import 'package:algoriza_booking_app/feature/search/domain/repositories/base_search_repository.dart';
 import 'package:dartz/dartz.dart';
@@ -45,17 +46,15 @@ class SearchRepository extends BaseSearchRepository {
       return Left(ServerFailure(failure.message));
     }
   }
+
+
+  @override
+  Future<Either<Failure, FacilitiesModel>> getFacilities() async {
+    final facilitiesList = await baseSearchRemoteDataSource.getFacilities();
+    try {
+      return Right(facilitiesList);
+    } on ServerException catch (failure) {
+      return Left(ServerFailure(failure.message));
+    }
+  }
 }
-//*
-//
-//  final result =
-//         await baseBookingRemoteDataSource.getBooking(token: token, type: type);
-//     try {
-//       debugPrint(result.statusType);
-//       debugPrint(result.generalBookingData.bookedHotelsList!.length.toString());
-//
-//       return Right(result);
-//     } on ServerException catch (failure) {
-//       return Left(ServerFailure(failure.message));
-//     }
-// **/
