@@ -1,6 +1,8 @@
 import 'package:algoriza_booking_app/feature/booking/presentation/components/hotel_pressed.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../config/routes/app_routes.dart';
+
 class FinishedWidget extends StatelessWidget {
   const FinishedWidget({Key? key}) : super(key: key);
 
@@ -8,7 +10,7 @@ class FinishedWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        Navigator.pushNamed(context, HotelPressed.routeName);
+        Navigator.pushNamed(context, Routes.onHotelPressedScreen);
       },
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 6),

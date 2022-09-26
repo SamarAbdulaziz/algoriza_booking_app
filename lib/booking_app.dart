@@ -5,6 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/services.dart';
 
+import 'feature/auth/presentation/screens/get_started_screen.dart';
+import 'feature/auth/presentation/screens/onboarding_screen.dart';
+
 
 class BookingApp extends StatelessWidget {
   const BookingApp({Key? key}) : super(key: key);
@@ -28,7 +31,7 @@ class BookingApp extends StatelessWidget {
             elevation: 0.0,
           ),
         ),
-        // home: OnBoardingScreen(),
+         home: GetStartedScreen(),
         debugShowCheckedModeBanner: false,
       ),
     );

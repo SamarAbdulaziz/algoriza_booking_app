@@ -1,6 +1,8 @@
 import 'package:algoriza_booking_app/feature/booking/presentation/components/hotel_pressed.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../config/routes/app_routes.dart';
+
 class UpComingWidget extends StatefulWidget {
   const UpComingWidget({Key? key}) : super(key: key);
 
@@ -13,7 +15,7 @@ class _UpComingWidgetState extends State<UpComingWidget> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        Navigator.pushNamed(context, HotelPressed.routeName);
+        Navigator.pushNamed(context, Routes.onHotelPressedScreen);
       },
       child: Column(
         children: [

@@ -15,6 +15,7 @@ import '../../feature/Profile_info/presentaion/screens/edit_profile_screen.dart'
 import '../../feature/auth/presentation/screens/login_screen.dart';
 import '../../feature/auth/presentation/screens/onboarding_screen.dart';
 import '../../feature/auth/presentation/screens/register_screen.dart';
+import '../../feature/booking/presentation/screens/on_hotel_pressed_screen.dart';
 import '../../feature/explore/presentation/screens/home_screen.dart';
 
 class Routes {
@@ -28,6 +29,8 @@ class Routes {
   static const String bookingScreenRoute = '/bookingScreen';
   static const String searchScreenRoute = '/searchScreen';
   static const String homeScreenRoute = '/homeScreen';
+  static const String onHotelPressedScreen = '/onHotelPressedScreen';
+
 
 }
 
@@ -108,6 +111,13 @@ class AppRoutes {
           builder: (context) => BlocProvider<SearchCubit>(
             create: (context) => sl<SearchCubit>(),
             child: SearchScreen(),
+          ),
+        );
+      case Routes.onHotelPressedScreen:
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider<SearchCubit>(
+            create: (context) => sl<SearchCubit>(),
+            child: OnHotelPressedScreen(),
           ),
         );
 

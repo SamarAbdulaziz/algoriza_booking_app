@@ -7,6 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:meta/meta.dart';
 
 import '../../../Profile_info/presentaion/screens/Profile_screen.dart';
+import '../../../booking/presentation/screens/booking_screen.dart';
 import '../screens/explore_screen.dart';
 
 part 'hotels_state.dart';
@@ -29,7 +30,7 @@ class HotelsCubit extends Cubit<HotelsStates> {
 
   List<Widget> screenNavigationbar = [
     ExploreScreen(),
-    ProfileScreen(),
+    BookingScreen(),
     ProfileScreen(),
 
   ];

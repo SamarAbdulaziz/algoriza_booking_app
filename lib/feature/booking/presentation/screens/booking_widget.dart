@@ -34,41 +34,41 @@ class _BookingWidgetState extends State<BookingWidget>
       padding: const EdgeInsets.symmetric(horizontal: 4.0),
       child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 14.0),
+          padding: EdgeInsets.all( 16.0),
           child: const Text(
             'My Trip',
             style: TextStyle(
                 color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
           ),
         ),
-        const SizedBox(
-          height: 16,
-        ),
-        Container(
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(40),
-              color: Colors.grey.shade800),
-          child: TabBar(
-            controller: tabController,
-            onTap: (index) {
-              selectedIndex = index;
-            },
-            indicatorColor: Colors.transparent,
-            labelStyle:
-                const TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
-            labelColor: Colors.green,
-            unselectedLabelColor: Colors.grey,
-            tabs: [
-              Tab(
-                child: Text('Upcoming'),
-              ),
-              Tab(
-                child: Text('Finished'),
-              ),
-              Tab(
-                child: Text('Favorites'),
-              ),
-            ],
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(40),
+                color: Colors.grey.shade800),
+            child: TabBar(
+              controller: tabController,
+              onTap: (index) {
+                selectedIndex = index;
+              },
+              indicatorColor: Colors.transparent,
+              labelStyle:
+                  const TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+              labelColor: Colors.teal,
+              unselectedLabelColor: Colors.grey,
+              tabs: [
+                Tab(
+                  child: Text('Upcoming'),
+                ),
+                Tab(
+                  child: Text('Finished'),
+                ),
+                Tab(
+                  child: Text('Favorites'),
+                ),
+              ],
+            ),
           ),
         ),
         Expanded(
