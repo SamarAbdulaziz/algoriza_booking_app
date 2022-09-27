@@ -23,7 +23,7 @@ class OnBoardingScreen extends StatelessWidget {
               child: DefaultButton(
                 title: 'Skip',
                 ontap: () {
-                  // Navigator.pushNamed(context, Routes.exploreScreenRoute);
+                 // Navigator.pushNamed(context, Routes.exploreScreenRoute);
                   //  Navigator.pushNamed(context, Routes.bookingScreenRoute);
                   Navigator.pushNamed(context, Routes.searchScreenRoute);
                 },
