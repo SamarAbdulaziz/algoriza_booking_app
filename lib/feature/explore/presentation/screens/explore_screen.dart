@@ -52,8 +52,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
           var hotel = state.hotels.generalData;
           return NestedScrollView(
             controller: _controller,
-            headerSliverBuilder: (BuildContext context,
-                bool innerBoxIsScrolled) {
+            headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
               return <Widget>[
                 SliverAppBar(
                     expandedHeight: 450,
@@ -286,6 +285,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                         ],
                       ),
                       ListView.builder(
+                          padding: EdgeInsets.all(0),
                           physics: NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
                           itemCount: hotel!.hotelsList!.length,
