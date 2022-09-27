@@ -1,7 +1,6 @@
 import 'package:algoriza_booking_app/feature/auth/presentation/components/login_button.dart';
 import 'package:algoriza_booking_app/feature/explore/presentation/controllers/hotels_cubit.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -10,7 +9,7 @@ import '../components/best_deals_explore_builder.dart';
 import '../components/popular_destination_builder.dart';
 
 class ExploreScreen extends StatefulWidget {
-   ExploreScreen({Key? key}) : super(key: key);
+   const ExploreScreen({Key? key}) : super(key: key);
 
   @override
   State<ExploreScreen> createState() => _ExploreScreenState();
@@ -61,11 +60,12 @@ class _ExploreScreenState extends State<ExploreScreen> {
                     collapsedHeight: 100,
                     elevation: 100,
                     automaticallyImplyLeading: false,
-                    title: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                    title: const Padding(
+                      padding: EdgeInsets.all(8.0),
                       child: LoginTextFormField(
-                        title: '', hintText: 'Where are you going?', prefix: Icons.search,
-
+                        title: '',
+                        hintText: 'Where are you going?',
+                        prefix: Icons.search,
                       ),
                     ),
                     pinned: true,
@@ -78,45 +78,50 @@ class _ExploreScreenState extends State<ExploreScreen> {
                             items: [
                               Container(
                                   width: double.infinity,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                       image: DecorationImage(
                                           image: AssetImage(
-                                            'assets/images/GetStarted.jpg',),
-                                          fit: BoxFit.cover
-                                      )
-                                  ),
+                                            'assets/images/GetStarted.jpg',
+                                          ),
+                                          fit: BoxFit.cover)),
                                   child: Visibility(
                                     visible: silverCollapsed ? false : true,
                                     child: Padding(
                                       padding: const EdgeInsets.only(
                                           left: 30.0, bottom: 30),
                                       child: Column(
-                                        mainAxisAlignment: MainAxisAlignment
-                                            .end,
-                                        crossAxisAlignment: CrossAxisAlignment
-                                            .start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
-                                          Text('Find best deals',
+                                          const Text(
+                                            'Find best deals',
                                             style: TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 25,
-                                                color: Colors.white),),
-                                          SizedBox(height: 5,),
-                                          Text(
+                                                color: Colors.white),
+                                          ),
+                                          const SizedBox(
+                                            height: 5,
+                                          ),
+                                          const Text(
                                             'Extraordinary five-star \noutdoor activities',
                                             style: TextStyle(
                                                 fontWeight: FontWeight.w400,
                                                 fontSize: 15,
                                                 letterSpacing: 1,
-                                                color: Colors.white),),
-                                          SizedBox(height: 5,),
+                                                color: Colors.white),
+                                          ),
+                                          const SizedBox(
+                                            height: 5,
+                                          ),
                                           DefaultButton(
                                             title: 'View Hotel',
                                             size: 15,
                                             width: 120,
                                             height: 40,
                                             ontap: () {},
-
                                           ),
                                         ],
                                       ),
@@ -126,44 +131,50 @@ class _ExploreScreenState extends State<ExploreScreen> {
                               ),
                               Container(
                                   width: double.infinity,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                       image: DecorationImage(
                                           image: AssetImage(
-                                            'assets/images/slider1.jpg',),
-                                          fit: BoxFit.cover
-                                      )
-                                  ),
+                                            'assets/images/slider1.jpg',
+                                          ),
+                                          fit: BoxFit.cover)),
                                   child: Visibility(
                                     visible: silverCollapsed ? false : true,
                                     child: Padding(
                                       padding: const EdgeInsets.only(
                                           left: 30.0, bottom: 30),
                                       child: Column(
-                                        mainAxisAlignment: MainAxisAlignment
-                                            .end,
-                                        crossAxisAlignment: CrossAxisAlignment
-                                            .start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
-                                          Text('Cape Town', style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 25,
-                                              color: Colors.white),),
-                                          SizedBox(height: 5,),
-                                          Text(
+                                          const Text(
+                                            'Cape Town',
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 25,
+                                                color: Colors.white),
+                                          ),
+                                          const SizedBox(
+                                            height: 5,
+                                          ),
+                                          const Text(
                                             'Extraordinary five-star \noutdoor activities',
                                             style: TextStyle(
                                                 fontWeight: FontWeight.w400,
                                                 fontSize: 15,
                                                 letterSpacing: 1,
-                                                color: Colors.white),),
-                                          SizedBox(height: 5,),
+                                                color: Colors.white),
+                                          ),
+                                          const SizedBox(
+                                            height: 5,
+                                          ),
                                           DefaultButton(
                                             title: 'View Hotel',
                                             size: 15,
                                             width: 120,
                                             height: 40,
                                             ontap: () {},
-
                                           ),
                                         ],
                                       ),
@@ -173,45 +184,50 @@ class _ExploreScreenState extends State<ExploreScreen> {
                               ),
                               Container(
                                   width: double.infinity,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                       image: DecorationImage(
                                           image: AssetImage(
-                                            'assets/images/slider2.jpg',),
-                                          fit: BoxFit.cover
-                                      )
-                                  ),
+                                            'assets/images/slider2.jpg',
+                                          ),
+                                          fit: BoxFit.cover)),
                                   child: Visibility(
                                     visible: silverCollapsed ? false : true,
                                     child: Padding(
                                       padding: const EdgeInsets.only(
                                           left: 30.0, bottom: 30),
                                       child: Column(
-                                        mainAxisAlignment: MainAxisAlignment
-                                            .end,
-                                        crossAxisAlignment: CrossAxisAlignment
-                                            .start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
-                                          Text('Find best deals',
+                                          const Text(
+                                            'Find best deals',
                                             style: TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 25,
-                                                color: Colors.white),),
-                                          SizedBox(height: 5,),
-                                          Text(
+                                                color: Colors.white),
+                                          ),
+                                          const SizedBox(
+                                            height: 5,
+                                          ),
+                                          const Text(
                                             'Extraordinary five-star \noutdoor activities',
                                             style: TextStyle(
                                                 fontWeight: FontWeight.w400,
                                                 fontSize: 15,
                                                 letterSpacing: 1,
-                                                color: Colors.white),),
-                                          SizedBox(height: 5,),
+                                                color: Colors.white),
+                                          ),
+                                          const SizedBox(
+                                            height: 5,
+                                          ),
                                           DefaultButton(
                                             title: 'View Hotel',
                                             size: 15,
                                             width: 120,
                                             height: 40,
                                             ontap: () {},
-
                                           ),
                                         ],
                                       ),
@@ -219,8 +235,6 @@ class _ExploreScreenState extends State<ExploreScreen> {
                                   )
 
                               ),
-
-
                             ],
                             options: CarouselOptions(
                                 height: 480,
@@ -229,10 +243,10 @@ class _ExploreScreenState extends State<ExploreScreen> {
                                 enableInfiniteScroll: true,
                                 reverse: false,
                                 autoPlay: true,
-                                autoPlayInterval: Duration(seconds: 3),
-                                autoPlayAnimationDuration: Duration(seconds: 1),
-                                autoPlayCurve: Curves.fastOutSlowIn
-                            ),
+                                autoPlayInterval: const Duration(seconds: 3),
+                                autoPlayAnimationDuration:
+                                    const Duration(seconds: 1),
+                                autoPlayCurve: Curves.fastOutSlowIn),
                           ),
                         )
                       ],
@@ -255,53 +269,58 @@ class _ExploreScreenState extends State<ExploreScreen> {
               ];
             },
             body: SingleChildScrollView(
-                physics: BouncingScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Column(
                     children: [
                       Row(
                         children: [
-                          Text('Popular Destination', style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold),),
-                          Spacer(),
+                          const Text(
+                            'Popular Destination',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          const Spacer(),
                         ],
                       ),
                       PopularDestinationBuilder(),
                       Row(
                         children: [
-                          Text('Best deals', style: TextStyle(color: Colors
-                              .white, fontWeight: FontWeight.bold),),
-                          Spacer(),
+                          const Text(
+                            'Best deals',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          const Spacer(),
                           TextButton(
                               onPressed: () {},
                               child: Row(
                                 children: [
-                                  Text('View all'),
-                                  Icon(Icons.arrow_forward_sharp)
+                                  const Text('View all'),
+                                  const Icon(Icons.arrow_forward_sharp)
                                 ],
-                              )
-                          )
+                              ))
                         ],
                       ),
                       ListView.builder(
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
                           itemCount: hotel!.hotelsList!.length,
                           //physics: BouncingScrollPhysics(),
                           itemBuilder: (BuildContext context, int index) =>
-                              ExploreBuilderWidget(hotel: hotel!.hotelsList![index],)
-                      ),
-
+                              ExploreBuilderWidget(
+                                hotel: hotel.hotelsList![index],
+                              )),
                     ],
                   ),
-                )
-            ),
-
+                )),
           );
+        } else {
+          return const Center(child: CircularProgressIndicator());
         }
-        else return Center(child: CircularProgressIndicator());
       },
     );
 

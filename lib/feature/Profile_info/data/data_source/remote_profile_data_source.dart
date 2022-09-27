@@ -73,7 +73,6 @@ class RemoteProfileDataSource extends BaseRemoteProfileDataSource {
       // if (response.data['status']['type'] == '1') {
       //   return AuthenticationModel.fromJson(response.data);
       // }
-
       return UpdateProfileModel.fromJson(response.data);
     } else {
       throw ServerException('Server exception');
