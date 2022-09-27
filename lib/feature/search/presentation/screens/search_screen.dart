@@ -5,6 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class SearchScreen extends StatelessWidget {
   TextEditingController controller = TextEditingController();
 
+  SearchScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,10 +16,10 @@ class SearchScreen extends StatelessWidget {
         onPressed: () {
           BlocProvider.of<SearchCubit>(context).search(
            // address: 'tanta',
-            facilities: 1,
+            facilities: [1,2,3,4],
           );
         },
-        child: Text(
+        child: const Text(
           'Search',
           style: TextStyle(
             fontSize: 30.0,

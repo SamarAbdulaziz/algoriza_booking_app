@@ -18,7 +18,7 @@ class SearchRepository extends BaseSearchRepository {
     String? address,
     int? maxPrice,
     int? minPrice,
-    int? facilities,
+    List<int>? facilities,
     double? lat,
     double? long,
     double? distance,
