@@ -47,7 +47,7 @@ class SearchRemoteDataSource extends BaseSearchRemoteDataSource {
       'address': address ,
       'max_price': maxPrice ,
       'min_price': minPrice ,
-      'facilities': facilities ,
+      'facilities[0]': facilities ,
       'latitude': lat ,
       'longitude': long ,
       'distance': distance ,

@@ -12,7 +12,10 @@ class SearchScreen extends StatelessWidget {
       body: Center(
           child: TextButton(
         onPressed: () {
-          BlocProvider.of<SearchCubit>(context).search();
+          BlocProvider.of<SearchCubit>(context).search(
+           // address: 'tanta',
+            facilities: 1,
+          );
         },
         child: Text(
           'Search',
