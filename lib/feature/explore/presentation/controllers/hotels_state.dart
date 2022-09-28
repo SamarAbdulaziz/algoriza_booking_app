@@ -19,5 +19,6 @@ class HotelsErrorState extends HotelsStates {
   HotelsErrorState({required this.message});
 }
 
-class navigationbarstate extends HotelsStates {}
+class NavigationBarState extends HotelsStates {}
 
+class ToggleIsEndState extends HotelsStates {}

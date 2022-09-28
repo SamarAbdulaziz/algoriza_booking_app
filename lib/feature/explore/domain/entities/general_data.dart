@@ -10,7 +10,7 @@ class GeneralData extends Equatable {
   final String? lastPageUrl;
 
 //  final List<Link> links;
-  final dynamic? nextPageUrl;
+  final dynamic nextPageUrl;
   final String? path;
   final int? perPage;
   final dynamic prevPageUrl;

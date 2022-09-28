@@ -1,8 +1,6 @@
 import 'package:algoriza_booking_app/feature/auth/presentation/components/login_button.dart';
 import 'package:algoriza_booking_app/feature/explore/presentation/controllers/hotels_cubit.dart';
-import 'package:algoriza_booking_app/feature/explore/presentation/screens/explor_hotels_screen.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -12,7 +10,7 @@ import '../components/best_deals_explore_builder.dart';
 import '../components/popular_destination_builder.dart';
 
 class ExploreScreen extends StatefulWidget {
-  ExploreScreen({Key? key}) : super(key: key);
+  const ExploreScreen({Key? key}) : super(key: key);
 
   @override
   State<ExploreScreen> createState() => _ExploreScreenState();
@@ -43,6 +41,11 @@ class _ExploreScreenState extends State<ExploreScreen> {
           setState(() {});
         }
       }
+      // if (_controller.position.extentAfter == 0 &&
+      //     !BlocProvider.of<HotelsCubit>(context).isEnd) {
+      //   debugPrint('the end');
+      //   BlocProvider.of<HotelsCubit>(context).toggleIsEnd();
+      // }
     });
   }
 
@@ -278,14 +281,14 @@ class _ExploreScreenState extends State<ExploreScreen> {
                   child: Column(
                     children: [
                       Row(
-                        children: [
-                          const Text(
+                        children: const [
+                          Text(
                             'Popular Destination',
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold),
                           ),
-                          const Spacer(),
+                          Spacer(),
                         ],
                       ),
                       PopularDestinationBuilder(),
@@ -301,29 +304,36 @@ class _ExploreScreenState extends State<ExploreScreen> {
                           TextButton(
                               onPressed: () {},
                               child: Row(
-                                children: [
-                                  const Text('View all'),
-                                  const Icon(Icons.arrow_forward_sharp)
+                                children: const [
+                                  Text('View all'),
+                                  Icon(Icons.arrow_forward_sharp)
                                 ],
                               ))
                         ],
                       ),
                       ListView.builder(
-                          padding: const EdgeInsets.all(0),
-                          physics: const NeverScrollableScrollPhysics(),
-                          shrinkWrap: true,
-                          itemCount: hotel!.hotelsList!.length,
-                          //physics: BouncingScrollPhysics(),
-                          itemBuilder: (BuildContext context, int index) =>
-                              ExploreBuilderWidget(
-                                hotel: hotel!.hotelsList![index],
-                              )),
+                        padding: const EdgeInsets.all(0),
+                        physics: const NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        itemCount: hotel!.hotelsList!.length,
+                        //physics: BouncingScrollPhysics(),
+                        itemBuilder: (BuildContext context, int index) =>
+                            ExploreBuilderWidget(
+                          hotel: hotel.hotelsList![index],
+                        ),
+                      ),
+                      // if (BlocProvider.of<HotelsCubit>(context).isEnd)
+                      //   const Padding(
+                      //     padding: EdgeInsets.all(24.0),
+                      //     child: CircularProgressIndicator(),
+                      //   ),
                     ],
                   ),
                 )),
           );
-        } else
+        } else {
           return const Center(child: CircularProgressIndicator());
+        }
       },
     );
   }

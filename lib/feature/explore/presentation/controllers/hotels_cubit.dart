@@ -32,12 +32,17 @@ class HotelsCubit extends Cubit<HotelsStates> {
     ExploreScreen(),
     BookingScreen(),
     ProfileScreen(),
-
   ];
 
   void changebottomnavifationbar(int index) {
     currentindexnavbar = index;
-    emit(navigationbarstate());
+    emit(NavigationBarState());
   }
 
+  bool isEnd = false;
+
+  void toggleIsEnd(){
+    isEnd!=isEnd;
+    emit(ToggleIsEndState());
+  }
 }

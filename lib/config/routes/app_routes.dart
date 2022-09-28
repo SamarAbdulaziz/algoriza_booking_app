@@ -61,7 +61,7 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (context) => BlocProvider<AuthenticationCubit>(
             create: (context) => sl<AuthenticationCubit>(),
-            child: const ExploreHotelScreen(),
+            child:  GetStartedScreen(),
           ),
         );
       case Routes.onBoardingRoute:

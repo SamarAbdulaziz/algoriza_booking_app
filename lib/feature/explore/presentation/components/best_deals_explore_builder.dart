@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 import '../../../../config/routes/app_routes.dart';
 import '../../domain/entities/hotel.dart';
@@ -51,7 +52,7 @@ class ExploreBuilderWidget extends StatelessWidget {
                                   fontSize: 18),
                             ),
                             Text(
-                              '${hotel.description}',
+                              '${hotel.address}',
                               overflow: TextOverflow.ellipsis,
                               maxLines: 2,
                               style: TextStyle(
@@ -66,30 +67,58 @@ class ExploreBuilderWidget extends StatelessWidget {
                           Expanded(
                             child: Column(
                               children: [
-                                Row(children: [
-                                  Icon(Icons.location_on,color: Colors.teal,size: 15,),
-                                  Text('3.0 km to city',style: TextStyle(color: Colors.grey,fontWeight: FontWeight.w400),),
-
-                                ],),
                                 Row(
-                                  children: [
-                                    Icon(Icons.star,color: Colors.teal,size: 15,),
-                                    Icon(Icons.star,color: Colors.teal,size: 15,),
-                                    Icon(Icons.star,color: Colors.teal,size: 15,),
-                                    Icon(Icons.star,color: Colors.teal,size: 15,),
-                                    Icon(Icons.star,color: Colors.grey,size: 15,),
 
-
+                                  children: const [
+                                    Icon(
+                                      Icons.location_on,
+                                      color: Colors.teal,
+                                      size: 15,
+                                    ),
+                                    Text(
+                                      '3.0 km to city',
+                                      style: TextStyle(
+                                        color: Colors.grey,
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                    ),
                                   ],
-                                )
+                                ),
+                                RatingBar.builder(
+                                  initialRating: double.parse(hotel.rate!) / 2,
+                                  ignoreGestures: true,
+                                  direction: Axis.horizontal,
+                                  allowHalfRating: true,
+                                  itemCount: 5,
+                                  itemSize: 16.0,
+                                  itemBuilder: (context, index) => Icon(
+                                    Icons.star,
+                                    color: Colors.teal,
+                                  ),
+                                  onRatingUpdate: (rating) {
+                                    print(rating);
+                                  },
+                                ),
                               ],
                             ),
                           ),
                           Column(
                             children: [
-                              Text('\$${hotel.price}',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),),
-                              Text('/per night',style: TextStyle(color: Colors.grey,fontWeight: FontWeight.w400),),
-
+                              Text(
+                                '\$${hotel.price}',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20,
+                                ),
+                              ),
+                              const Text(
+                                '/per night',
+                                style: TextStyle(
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
                             ],
                           )
 

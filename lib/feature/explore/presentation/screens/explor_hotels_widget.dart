@@ -2,6 +2,7 @@ import 'package:algoriza_booking_app/feature/booking/presentation/components/fav
 import 'package:algoriza_booking_app/feature/booking/presentation/components/upcoming_widget.dart';
 import 'package:algoriza_booking_app/feature/explore/presentation/components/explore_Widget_comp.dart';
 import 'package:algoriza_booking_app/feature/explore/presentation/components/line.dart';
+import 'package:algoriza_booking_app/feature/explore/presentation/screens/filtter_screen.dart';
 import 'package:flutter/material.dart';
 
 class ExploreHotelWidget extends StatelessWidget {
@@ -134,15 +135,20 @@ class ExploreHotelWidget extends StatelessWidget {
                   '20 Hotel Found',
                   style: TextStyle(color: Colors.white,fontSize: 16),
                 ),
-                Row(
-                  children: [
-                    Text(
-                      'Filtter',
-                      style: TextStyle(color: Colors.white,fontSize: 16),
-                    ),
-                    SizedBox(width: 6,),
-                    Icon(Icons.filter_list_rounded,color: Colors.teal,),
-                  ],
+                InkWell(
+                  onTap: (){
+                    Navigator.pushNamed(context, FiltterScreen.routeName);
+                  },
+                  child: Row(
+                    children: [
+                      Text(
+                        'Filtter',
+                        style: TextStyle(color: Colors.white,fontSize: 16),
+                      ),
+                      SizedBox(width: 6,),
+                      Icon(Icons.filter_list_rounded,color: Colors.teal,),
+                    ],
+                  ),
                 ),
 
               ],
