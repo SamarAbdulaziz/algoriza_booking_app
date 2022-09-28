@@ -1,7 +1,7 @@
 import 'package:algoriza_booking_app/core/errors/exceptions.dart';
 import 'package:algoriza_booking_app/core/errors/failure.dart';
 import 'package:algoriza_booking_app/feature/search/data/data_sources/search_remote_data_source.dart';
-import 'package:algoriza_booking_app/feature/search/data/models/facilities_model.dart';
+import 'package:algoriza_booking_app/feature/search/data/models/filter_facilities_model.dart';
 import 'package:algoriza_booking_app/feature/search/domain/entities/search_data.dart';
 import 'package:algoriza_booking_app/feature/search/domain/repositories/base_search_repository.dart';
 import 'package:dartz/dartz.dart';
@@ -18,7 +18,7 @@ class SearchRepository extends BaseSearchRepository {
     String? address,
     int? maxPrice,
     int? minPrice,
-    int? facilities,
+    List<int>? facilities,
     double? lat,
     double? long,
     double? distance,

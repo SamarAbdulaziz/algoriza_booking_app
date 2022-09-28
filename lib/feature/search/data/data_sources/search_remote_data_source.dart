@@ -1,6 +1,6 @@
 import 'package:algoriza_booking_app/core/errors/exceptions.dart';
 import 'package:algoriza_booking_app/core/utiles/constants.dart';
-import 'package:algoriza_booking_app/feature/search/data/models/facilities_model.dart';
+import 'package:algoriza_booking_app/feature/search/data/models/filter_facilities_model.dart';
 import 'package:algoriza_booking_app/feature/search/data/models/search_data_model.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +11,7 @@ abstract class BaseSearchRemoteDataSource {
     String? address,
     int? maxPrice,
     int? minPrice,
-    int? facilities,
+    List<int>? facilities,
     double? lat,
     double? long,
     double? distance,
@@ -35,7 +35,7 @@ class SearchRemoteDataSource extends BaseSearchRemoteDataSource {
     String? address,
     int? maxPrice,
     int? minPrice,
-    int? facilities,
+    List<int?>? facilities,
     double? lat,
     double? long,
     double? distance,
@@ -47,7 +47,10 @@ class SearchRemoteDataSource extends BaseSearchRemoteDataSource {
       'address': address ,
       'max_price': maxPrice ,
       'min_price': minPrice ,
-      'facilities[0]': facilities ,
+      'facilities[0]': facilities![0] ,
+      'facilities[1]': facilities[1] ,
+      'facilities[2]': facilities[2] ,
+      'facilities[3]': facilities[3] ,
       'latitude': lat ,
       'longitude': long ,
       'distance': distance ,
