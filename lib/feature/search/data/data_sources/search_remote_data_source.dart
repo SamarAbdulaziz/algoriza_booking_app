@@ -49,7 +49,7 @@ class SearchRemoteDataSource extends BaseSearchRemoteDataSource {
         'address': address,
         'max_price': maxPrice,
         'min_price': minPrice,
-        'facilities[0]': facilities,
+        'facilities[0]': facilities,//List<int?>? facilities
         'latitude': lat,
         'longitude': long,
         'distance': distance,

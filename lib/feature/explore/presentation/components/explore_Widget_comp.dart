@@ -1,4 +1,3 @@
-import 'package:algoriza_booking_app/feature/booking/presentation/components/hotel_pressed.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../config/routes/app_routes.dart';
@@ -125,6 +124,21 @@ class _ExploreWidgetComponentState extends State<ExploreWidgetComponent> {
                   ),
 
                 ],),
+                // RatingBar.builder(
+                //   initialRating: double.parse(hotel.rate!) / 2,
+                //   ignoreGestures: true,
+                //   direction: Axis.horizontal,
+                //   allowHalfRating: true,
+                //   itemCount: 5,
+                //   itemSize: 16.0,
+                //   itemBuilder: (context, index) => Icon(
+                //     Icons.star,
+                //     color: Colors.teal,
+                //   ),
+                //   onRatingUpdate: (rating) {
+                //     print(rating);
+                //   },
+                // ),
                 const SizedBox(height: 10,)
               ],
             ),

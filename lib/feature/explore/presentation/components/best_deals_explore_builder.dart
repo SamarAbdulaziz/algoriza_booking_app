@@ -68,6 +68,7 @@ class ExploreBuilderWidget extends StatelessWidget {
                             child: Column(
                               children: [
                                 Row(
+
                                   children: const [
                                     Icon(
                                       Icons.location_on,
@@ -97,7 +98,7 @@ class ExploreBuilderWidget extends StatelessWidget {
                                   onRatingUpdate: (rating) {
                                     print(rating);
                                   },
-                                )
+                                ),
                               ],
                             ),
                           ),
