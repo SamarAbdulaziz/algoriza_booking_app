@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 class ExploreHotelScreen extends StatelessWidget {
   const ExploreHotelScreen({Key? key}) : super(key: key);
-  static const String routeName='Explore Hotel Screen';
 
   @override
   Widget build(BuildContext context) {

@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../config/routes/app_routes.dart';
 import '../../../auth/presentation/components/login-text-form-field.dart';
 import '../components/best_deals_explore_builder.dart';
 import '../components/popular_destination_builder.dart';
@@ -122,7 +123,9 @@ class _ExploreScreenState extends State<ExploreScreen> {
                                             size: 15,
                                             width: 120,
                                             height: 40,
-                                            ontap: () {},
+                                            ontap: () {
+                                              Navigator.pushNamed(context, Routes.exploreHotelScreen);
+                                            },
                                           ),
                                         ],
                                       ),
@@ -168,18 +171,15 @@ class _ExploreScreenState extends State<ExploreScreen> {
                                           SizedBox(
                                             height: 5,
                                           ),
-                                          InkWell(
-                                            onTap: () {
-                                              Navigator.pushNamed(context,
-                                                  ExploreHotelScreen.routeName);
+                                          DefaultButton(
+                                            title: 'View Hotel',
+                                            size: 15,
+                                            width: 120,
+                                            height: 40,
+                                            ontap: () {
+                                              Navigator.pushNamed(context, Routes.exploreHotelScreen);
+
                                             },
-                                            child: DefaultButton(
-                                              title: 'View Hotel',
-                                              size: 15,
-                                              width: 120,
-                                              height: 40,
-                                              ontap: () {},
-                                            ),
                                           ),
                                         ],
                                       ),
@@ -230,7 +230,10 @@ class _ExploreScreenState extends State<ExploreScreen> {
                                             size: 15,
                                             width: 120,
                                             height: 40,
-                                            ontap: () {},
+                                            ontap: () {
+                                              Navigator.pushNamed(context, Routes.exploreHotelScreen);
+
+                                            },
                                           ),
                                         ],
                                       ),

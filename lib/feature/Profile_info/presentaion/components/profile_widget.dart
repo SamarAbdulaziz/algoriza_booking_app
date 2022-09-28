@@ -55,20 +55,49 @@ class ProfileWidget extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 40,),
-            ProfileComponent(
-                hintTitle: 'Change Password', suffixIcon: Icons.lock),
-            ProfileComponent(
-                hintTitle: 'Invite Friend',
-                suffixIcon: Icons.supervisor_account_rounded),
-            ProfileComponent(
-                hintTitle: 'Change Password',
-                suffixIcon: Icons.supervisor_account_rounded),
-            ProfileComponent(
-                hintTitle: 'Help Center', suffixIcon: Icons.help),
-            ProfileComponent(
-                hintTitle: 'Payment', suffixIcon: Icons.payments_sharp),
-            ProfileComponent(
-                hintTitle: ' Settings', suffixIcon: Icons.settings),
+            InkWell(
+              onTap:(){
+                Navigator.pushNamed(context, Routes.profileChangePassword);
+              },
+              child: ProfileComponent(
+                  hintTitle: 'Change Password', suffixIcon: Icons.lock),
+            ),
+            InkWell(
+              onTap: (){
+                Navigator.pushNamed(context, Routes.profileInviteFriendScreen);
+
+              },
+              child: ProfileComponent(
+                  hintTitle: 'Invite Friend',
+                  suffixIcon: Icons.supervisor_account_rounded),
+            ),
+            InkWell(
+              onTap: (){
+              },
+              child: ProfileComponent(
+                  hintTitle: 'Credit & Coupons',
+                  suffixIcon: Icons.card_giftcard_rounded),
+            ),
+            InkWell(
+              onTap: (){
+                Navigator.pushNamed(context, Routes.helpCenter);
+              },
+              child: ProfileComponent(
+                  hintTitle: 'Help Center', suffixIcon: Icons.help),
+            ),
+            InkWell(
+              onTap: (){
+              },
+              child: ProfileComponent(
+                  hintTitle: 'Payment', suffixIcon: Icons.payments_sharp),
+            ),
+            InkWell(
+              onTap: (){
+                Navigator.pushNamed(context, Routes.profileSetting);
+              },
+              child: ProfileComponent(
+                  hintTitle: ' Settings', suffixIcon: Icons.settings),
+            ),
           ],
         ),
       ),
