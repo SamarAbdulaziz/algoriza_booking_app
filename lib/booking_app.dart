@@ -6,7 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/services.dart';
 
 import 'feature/auth/presentation/screens/get_started_screen.dart';
-import 'feature/auth/presentation/screens/onboarding_screen.dart';
 
 
 class BookingApp extends StatelessWidget {
