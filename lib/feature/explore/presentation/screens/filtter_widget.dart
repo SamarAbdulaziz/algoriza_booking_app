@@ -41,7 +41,7 @@ class _FiltterWidgetState extends State<FiltterWidget> {
           SizedBox(height: 20,),
           SfRangeSlider(
               labelPlacement: LabelPlacement.betweenTicks,
-
+              inactiveColor: Colors.grey,
               min: 0.0,
               max: 100.0,
               interval: 20,
