@@ -21,15 +21,16 @@ class AuthenticationRepository extends BaseAuthRepository {
         await baseRemoteDataSource.loginByEmailAndPassword(email, password);
 
     try {
-      debugPrint(result.status.type);
-      debugPrint(result.status.title!.arMessage);
-      debugPrint(result.status.title!.enMessage);
-      debugPrint(result.data!.name);
-      debugPrint(result.data!.apiToken);
-      debugPrint(result.data.toString());
+      // debugPrint(result.status.type);
+      // debugPrint(result.status.title!.arMessage);
+      // debugPrint(result.status.title!.enMessage);
+      // debugPrint(result.data!.name);
+      // debugPrint(result.data!.apiToken);
+      // debugPrint(result.data.toString());
       CacheData.setData(key: 'apiToken', value: result.data!.apiToken);
       return Right(result);
     } on ServerException catch (failure) {
+      debugPrint(failure.message);
       return Left(ServerFailure(failure.message));
     }
   }
