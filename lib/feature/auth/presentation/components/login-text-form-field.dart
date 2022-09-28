@@ -39,7 +39,7 @@ class LoginTextFormField extends StatelessWidget {
           autocorrect: false,
           style: const TextStyle(color: Colors.white),
           decoration: InputDecoration(
-            prefixIcon: Icon(
+            prefixIcon: (prefix==null)? null : Icon(
             prefix,color: Colors.teal,
            ),
               hintText: hintText,
