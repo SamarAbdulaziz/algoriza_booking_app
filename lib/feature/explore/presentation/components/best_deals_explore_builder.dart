@@ -43,9 +43,21 @@ class ExploreBuilderWidget extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('${hotel.name}',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18),),
-                            Text('${hotel.description}',style: TextStyle(color: Colors.grey,fontWeight: FontWeight.w400),),
-
+                            Text(
+                              '${hotel.name}',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18),
+                            ),
+                            Text(
+                              '${hotel.description}',
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 2,
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.w400),
+                            ),
                           ],
                         ),
                       ),

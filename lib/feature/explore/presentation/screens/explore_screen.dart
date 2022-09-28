@@ -62,8 +62,8 @@ class _ExploreScreenState extends State<ExploreScreen> {
                     collapsedHeight: 100,
                     elevation: 100,
                     automaticallyImplyLeading: false,
-                    title: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                    title: const Padding(
+                      padding: EdgeInsets.all(8.0),
                       child: LoginTextFormField(
                         title: '',
                         hintText: 'Where are you going?',
@@ -80,7 +80,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                             items: [
                               Container(
                                   width: double.infinity,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                       image: DecorationImage(
                                           image: AssetImage(
                                             'assets/images/GetStarted.jpg',
@@ -97,17 +97,17 @@ class _ExploreScreenState extends State<ExploreScreen> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
-                                          Text(
+                                          const Text(
                                             'Find best deals',
                                             style: TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 25,
                                                 color: Colors.white),
                                           ),
-                                          SizedBox(
+                                          const SizedBox(
                                             height: 5,
                                           ),
-                                          Text(
+                                          const Text(
                                             'Extraordinary five-star \noutdoor activities',
                                             style: TextStyle(
                                                 fontWeight: FontWeight.w400,
@@ -115,7 +115,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                                                 letterSpacing: 1,
                                                 color: Colors.white),
                                           ),
-                                          SizedBox(
+                                          const SizedBox(
                                             height: 5,
                                           ),
                                           DefaultButton(
@@ -133,7 +133,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                                   )),
                               Container(
                                   width: double.infinity,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                       image: DecorationImage(
                                           image: AssetImage(
                                             'assets/images/slider1.jpg',
@@ -150,17 +150,17 @@ class _ExploreScreenState extends State<ExploreScreen> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
-                                          Text(
+                                          const Text(
                                             'Cape Town',
                                             style: TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 25,
                                                 color: Colors.white),
                                           ),
-                                          SizedBox(
+                                          const SizedBox(
                                             height: 5,
                                           ),
-                                          Text(
+                                          const Text(
                                             'Extraordinary five-star \noutdoor activities',
                                             style: TextStyle(
                                                 fontWeight: FontWeight.w400,
@@ -168,7 +168,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                                                 letterSpacing: 1,
                                                 color: Colors.white),
                                           ),
-                                          SizedBox(
+                                          const SizedBox(
                                             height: 5,
                                           ),
                                           DefaultButton(
@@ -187,7 +187,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                                   )),
                               Container(
                                   width: double.infinity,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                       image: DecorationImage(
                                           image: AssetImage(
                                             'assets/images/slider2.jpg',
@@ -204,17 +204,17 @@ class _ExploreScreenState extends State<ExploreScreen> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
-                                          Text(
+                                          const Text(
                                             'Find best deals',
                                             style: TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 25,
                                                 color: Colors.white),
                                           ),
-                                          SizedBox(
+                                          const SizedBox(
                                             height: 5,
                                           ),
-                                          Text(
+                                          const Text(
                                             'Extraordinary five-star \noutdoor activities',
                                             style: TextStyle(
                                                 fontWeight: FontWeight.w400,
@@ -222,7 +222,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                                                 letterSpacing: 1,
                                                 color: Colors.white),
                                           ),
-                                          SizedBox(
+                                          const SizedBox(
                                             height: 5,
                                           ),
                                           DefaultButton(
@@ -247,8 +247,9 @@ class _ExploreScreenState extends State<ExploreScreen> {
                                 enableInfiniteScroll: true,
                                 reverse: false,
                                 autoPlay: true,
-                                autoPlayInterval: Duration(seconds: 3),
-                                autoPlayAnimationDuration: Duration(seconds: 1),
+                                autoPlayInterval: const Duration(seconds: 3),
+                                autoPlayAnimationDuration:
+                                    const Duration(seconds: 1),
                                 autoPlayCurve: Curves.fastOutSlowIn),
                           ),
                         )
@@ -271,45 +272,45 @@ class _ExploreScreenState extends State<ExploreScreen> {
               ];
             },
             body: SingleChildScrollView(
-                physics: BouncingScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Column(
                     children: [
                       Row(
                         children: [
-                          Text(
+                          const Text(
                             'Popular Destination',
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold),
                           ),
-                          Spacer(),
+                          const Spacer(),
                         ],
                       ),
                       PopularDestinationBuilder(),
                       Row(
                         children: [
-                          Text(
+                          const Text(
                             'Best deals',
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold),
                           ),
-                          Spacer(),
+                          const Spacer(),
                           TextButton(
                               onPressed: () {},
                               child: Row(
                                 children: [
-                                  Text('View all'),
-                                  Icon(Icons.arrow_forward_sharp)
+                                  const Text('View all'),
+                                  const Icon(Icons.arrow_forward_sharp)
                                 ],
                               ))
                         ],
                       ),
                       ListView.builder(
-                          padding: EdgeInsets.all(0),
-                          physics: NeverScrollableScrollPhysics(),
+                          padding: const EdgeInsets.all(0),
+                          physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
                           itemCount: hotel!.hotelsList!.length,
                           //physics: BouncingScrollPhysics(),
@@ -322,7 +323,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                 )),
           );
         } else
-          return Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
       },
     );
   }

@@ -16,7 +16,7 @@ class SearchScreen extends StatelessWidget {
         onPressed: () {
           BlocProvider.of<SearchCubit>(context).search(
            // address: 'tanta',
-            facilities: [1,2,3,4],
+          //  facilities: [5],
           );
         },
         child: const Text(
