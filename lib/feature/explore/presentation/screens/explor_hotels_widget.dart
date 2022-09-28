@@ -152,6 +152,7 @@ class ExploreHotelWidget extends StatelessWidget {
             child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
                 child: ListView.builder(
+                  physics: BouncingScrollPhysics(),
                   itemBuilder: (context, index) => ExploreWidgetComponent(),
                   itemCount: 6,
                 )),
