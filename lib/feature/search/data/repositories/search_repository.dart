@@ -38,8 +38,8 @@ class SearchRepository extends BaseSearchRepository {
       page: page,
     );
     try {
-      debugPrint(result.statusType);
-      debugPrint(result.generalSearchData.hotelsList.toString());
+      // debugPrint(result.statusType);
+      // debugPrint(result.generalSearchData.hotelsList.toString());
       debugPrint(result.generalSearchData.hotelsList.length.toString());
       return Right(result);
     } on ServerException catch (failure) {

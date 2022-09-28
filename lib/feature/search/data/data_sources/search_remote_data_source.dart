@@ -42,21 +42,36 @@ class SearchRemoteDataSource extends BaseSearchRemoteDataSource {
     int? count,
     int? page,
   }) async {
-    final response = await dio.get(AppConstants.searchPath, queryParameters: {
-      'name': name ,
-      'address': address ,
-      'max_price': maxPrice ,
-      'min_price': minPrice ,
-      'facilities[0]': facilities![0] ,
-      'facilities[1]': facilities[1] ,
-      'facilities[2]': facilities[2] ,
-      'facilities[3]': facilities[3] ,
-      'latitude': lat ,
-      'longitude': long ,
-      'distance': distance ,
-      'count': count ,
-      'page': page ,
-    });
+    Map<String, dynamic> query;
+    if (facilities != null) {
+      query = {
+        'name': name,
+        'address': address,
+        'max_price': maxPrice,
+        'min_price': minPrice,
+        'facilities[0]': facilities,
+        'latitude': lat,
+        'longitude': long,
+        'distance': distance,
+        'count': count,
+        'page': page,
+      };
+    }
+    else {
+      query = {
+        'name': name,
+        'address': address,
+        'max_price': maxPrice,
+        'min_price': minPrice,
+        'latitude': lat,
+        'longitude': long,
+        'distance': distance,
+        'count': count,
+        'page': page,
+      };
+    }
+    final response =
+        await dio.get(AppConstants.searchPath, queryParameters: query);
     if (response.statusCode == 200) {
       debugPrint(response.toString());
       return SearchDataModel.fromJson(response.data);
