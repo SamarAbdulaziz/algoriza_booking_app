@@ -1,3 +1,4 @@
+import 'package:algoriza_booking_app/feature/auth/presentation/components/login_button.dart';
 import 'package:algoriza_booking_app/feature/explore/presentation/components/check_box_widget.dart';
 import 'package:algoriza_booking_app/feature/explore/presentation/components/line.dart';
 import 'package:flutter/cupertino.dart';
@@ -112,8 +113,12 @@ class _FiltterWidgetState extends State<FiltterWidget> {
             lineHeight: 1,
             lineWidth: MediaQuery.of(context).size.width * 0.8,
           ),
+          Spacer(),
+          DefaultButton(
+              title: 'Apply',
+              ontap: (){
 
-
+              })
         ],
       ),
     );
