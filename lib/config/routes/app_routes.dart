@@ -8,7 +8,6 @@ import 'package:algoriza_booking_app/feature/booking/presentation/screens/bookin
 import 'package:algoriza_booking_app/feature/explore/presentation/controllers/hotels_cubit.dart';
 import 'package:algoriza_booking_app/feature/explore/presentation/screens/explor_hotels_screen.dart';
 import 'package:algoriza_booking_app/feature/explore/presentation/screens/explore_screen.dart';
-import 'package:algoriza_booking_app/feature/explore/presentation/screens/filtter_widget.dart';
 import 'package:algoriza_booking_app/feature/explore/presentation/screens/hotel_details.dart';
 import 'package:algoriza_booking_app/feature/search/presentation/controllers/search_cubit.dart';
 import 'package:algoriza_booking_app/feature/search/presentation/screens/search_screen.dart';
@@ -62,7 +61,7 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (context) => BlocProvider<AuthenticationCubit>(
             create: (context) => sl<AuthenticationCubit>(),
-            child:  FiltterWidget(),
+            child:  GetStartedScreen(),
           ),
         );
       case Routes.onBoardingRoute:
