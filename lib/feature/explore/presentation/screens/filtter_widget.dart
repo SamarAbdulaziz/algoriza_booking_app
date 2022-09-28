@@ -88,6 +88,10 @@ class _FiltterWidgetState extends State<FiltterWidget> {
             ],
           ),
           CheckBoxWidget(checkedTitle: 'Free Wifi'),
+          Line(
+            lineHeight: 1,
+            lineWidth: MediaQuery.of(context).size.width * 0.8,
+          ),
           SizedBox(
             height: 16,
           ),
