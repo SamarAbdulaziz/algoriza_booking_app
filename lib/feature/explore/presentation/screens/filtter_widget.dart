@@ -3,6 +3,7 @@ import 'package:algoriza_booking_app/feature/explore/presentation/components/che
 import 'package:algoriza_booking_app/feature/explore/presentation/components/line.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:syncfusion_flutter_sliders/sliders.dart';
 
 class FiltterWidget extends StatefulWidget {
   FiltterWidget({Key? key}) : super(key: key);
@@ -13,13 +14,11 @@ class FiltterWidget extends StatefulWidget {
 
 class _FiltterWidgetState extends State<FiltterWidget> {
   double valueSlider = 0;
-
+  SfRangeValues valuesSlid = SfRangeValues(0.0, 100.0);
   double minValue = 0;
   double maxValue = 100;
   double lowerValue = 0.0;
   double upperValue = 100.0;
-  var selectRangeSlider = RangeValues(0.0, 100);
-  bool switchValue = true;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -39,22 +38,26 @@ class _FiltterWidgetState extends State<FiltterWidget> {
             'price (for 1 night)',
             style: TextStyle(color: Colors.grey),
           ),
+          SizedBox(height: 20,),
+          SfRangeSlider(
+              labelPlacement: LabelPlacement.betweenTicks,
+
+              min: 0.0,
+              max: 100.0,
+              interval: 20,
+              showTicks: true,
+              showLabels: true,
+              enableTooltip: true,
+              minorTicksPerInterval: 1,
+              values: valuesSlid,
+              onChanged: (SfRangeValues values) {
+                setState(() {
+                  valuesSlid = values;
+                });
+              }),
           SizedBox(
             height: 6,
           ),
-          RangeSlider(
-              labels: RangeLabels('${selectRangeSlider.toString()}',
-                  '${selectRangeSlider.toString()}'),
-              min: lowerValue,
-              max: maxValue,
-              inactiveColor: Colors.grey,
-              activeColor: Colors.teal,
-              values: selectRangeSlider,
-              onChanged: (RangeValues newRange) {
-                setState(() {
-                  selectRangeSlider = newRange;
-                });
-              }),
           SizedBox(
             height: 6,
           ),
@@ -92,19 +95,24 @@ class _FiltterWidgetState extends State<FiltterWidget> {
             'Distance from city center',
             style: TextStyle(color: Colors.grey, fontSize: 15),
           ),
-          Slider(
-            label: 'Less than $valueSlider km',
-            autofocus: true,
+          SizedBox(
+            height: 20,
+          ),
+          SfSlider(
+            min: 0.0,
+            max: 100.0,
             value: valueSlider,
-            max: maxValue,
-            onChanged: (value) {
+            interval: 20,
+            showTicks: true,
+            showLabels: true,
+            enableTooltip: true,
+            minorTicksPerInterval: 1,
+            inactiveColor: Colors.grey,
+            onChanged: (dynamic value) {
               setState(() {
                 valueSlider = value;
               });
             },
-            inactiveColor: Colors.grey,
-            thumbColor: Colors.teal,
-            activeColor: Colors.teal,
           ),
           SizedBox(
             height: 16,
@@ -114,11 +122,7 @@ class _FiltterWidgetState extends State<FiltterWidget> {
             lineWidth: MediaQuery.of(context).size.width * 0.8,
           ),
           Spacer(),
-          DefaultButton(
-              title: 'Apply',
-              ontap: (){
-
-              })
+          DefaultButton(title: 'Apply', ontap: () {})
         ],
       ),
     );
