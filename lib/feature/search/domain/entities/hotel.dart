@@ -1,5 +1,5 @@
 import 'package:algoriza_booking_app/feature/search/domain/entities/hotel_image.dart';
-import 'package:algoriza_booking_app/feature/search/domain/entities/facilities.dart';
+import 'package:algoriza_booking_app/feature/search/domain/entities/facility.dart';
 import 'package:equatable/equatable.dart';
 
 class Hotel extends Equatable {
@@ -14,7 +14,7 @@ class Hotel extends Equatable {
   final String createdAt;
   final String updatedAt;
   final List<HotelImage> hotelImageList;
-  final List<Facilities> facilitiesList;
+  final List<Facility> facilitiesList;
 
   const Hotel({
     required this.id,

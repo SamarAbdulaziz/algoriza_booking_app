@@ -1,7 +1,8 @@
 import 'package:algoriza_booking_app/core/errors/failure.dart';
-import 'package:algoriza_booking_app/feature/search/data/models/facilities_model.dart';
 import 'package:algoriza_booking_app/feature/search/domain/entities/search_data.dart';
 import 'package:dartz/dartz.dart';
+
+import '../../data/models/filter_facilities_model.dart';
 
 abstract class BaseSearchRepository {
   Future<Either<Failure, SearchData>> search({

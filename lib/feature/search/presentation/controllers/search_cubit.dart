@@ -1,4 +1,4 @@
-import 'package:algoriza_booking_app/feature/search/domain/entities/facilities.dart';
+import 'package:algoriza_booking_app/feature/search/domain/entities/filter_facility.dart';
 import 'package:algoriza_booking_app/feature/search/domain/entities/search_data.dart';
 import 'package:algoriza_booking_app/feature/search/domain/use_cases/get_facilities_use_case.dart';
 import 'package:algoriza_booking_app/feature/search/domain/use_cases/search_use_case.dart';

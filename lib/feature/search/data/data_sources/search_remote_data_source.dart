@@ -1,6 +1,6 @@
 import 'package:algoriza_booking_app/core/errors/exceptions.dart';
 import 'package:algoriza_booking_app/core/utiles/constants.dart';
-import 'package:algoriza_booking_app/feature/search/data/models/facilities_model.dart';
+import 'package:algoriza_booking_app/feature/search/data/models/filter_facilities_model.dart';
 import 'package:algoriza_booking_app/feature/search/data/models/search_data_model.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';

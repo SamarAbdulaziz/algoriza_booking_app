@@ -1,11 +1,11 @@
 import 'package:equatable/equatable.dart';
 
-class Facilities extends Equatable {
+class Facility extends Equatable {
   final int id;
   final String name;
   final String image;
 
-  const Facilities({
+  const Facility({
     required this.id,
     required this.name,
     required this.image,

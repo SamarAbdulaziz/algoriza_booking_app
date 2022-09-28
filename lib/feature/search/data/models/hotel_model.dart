@@ -1,4 +1,4 @@
-import 'package:algoriza_booking_app/feature/search/data/models/facilities_model.dart';
+import 'package:algoriza_booking_app/feature/search/data/models/facility_model.dart';
 import 'package:algoriza_booking_app/feature/search/data/models/hotel_image_model.dart';
 import 'package:algoriza_booking_app/feature/search/domain/entities/hotel.dart';
 
@@ -31,7 +31,7 @@ class HotelModel extends Hotel {
         updatedAt: json["updated_at"],
         hotelImageList: List<HotelImageModel>.from(
             json["hotel_images"].map((x) => HotelImageModel.fromJson(x))),
-        facilitiesList: List<FacilitiesModel>.from(
-            json["facilities"].map((x) => FacilitiesModel.fromJson(x))),
+        facilitiesList: List<FacilityModel>.from(
+            json["facilities"].map((x) => FacilityModel.fromJson(x))),
       );
 }
