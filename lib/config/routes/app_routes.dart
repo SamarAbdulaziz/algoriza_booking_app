@@ -46,7 +46,7 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (context) => BlocProvider<AuthenticationCubit>(
             create: (context) => sl<AuthenticationCubit>(),
-            child:  ExploreHotelScreen(),
+            child: const ExploreHotelScreen(),
           ),
         );
 
@@ -55,7 +55,7 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (context) => BlocProvider<AuthenticationCubit>(
             create: (context) => sl<AuthenticationCubit>(),
-            child:  ExploreHotelScreen(),
+            child: const ExploreHotelScreen(),
           ),
         );
 
@@ -78,7 +78,7 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (context) => BlocProvider<ProfileCubit>(
             create: (context) => sl<ProfileCubit>(),
-            child:  ProfileScreen(),
+            child: const ProfileScreen(),
           ),
         );
       case Routes.profileEditScreenRoute:
@@ -106,7 +106,7 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (context) => BlocProvider<BookingCubit>(
             create: (context) => sl<BookingCubit>(),
-            child:  BookingScreen(),
+            child: const BookingScreen(),
           ),
         );
 
@@ -121,7 +121,7 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (context) => BlocProvider<SearchCubit>(
             create: (context) => sl<SearchCubit>(),
-            child: OnHotelPressedScreen(),
+            child: const OnHotelPressedScreen(),
           ),
         );
       case Routes.hotelDetails:
