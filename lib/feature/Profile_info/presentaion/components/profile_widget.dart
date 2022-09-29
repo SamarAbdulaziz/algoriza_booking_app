@@ -1,10 +1,13 @@
 import 'package:algoriza_booking_app/feature/Profile_info/presentaion/components/profile_component.dart';
+import 'package:algoriza_booking_app/feature/Profile_info/presentaion/controllers/profile_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../config/routes/app_routes.dart';
 
 class ProfileWidget extends StatelessWidget {
   const ProfileWidget({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -16,27 +19,39 @@ class ProfileWidget extends StatelessWidget {
         child: Column(
           children: [
             InkWell(
-              onTap: (){
-                Navigator.pushNamed(context, Routes.profileEditScreenRoute);
-
+              onTap: () {
+                BlocProvider.of<ProfileCubit>(context)
+                    .getProfileInfoByToken()
+                    .then((value) {
+                  Navigator.pushNamed(context, Routes.profileEditScreenRoute);
+                });
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
-                        'Amanda',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 22,
-                            fontWeight: FontWeight.w700),
+                    children: [
+                      BlocBuilder<ProfileCubit, ProfileStates>(
+                        builder: (context, state) {
+                          if (state is ProfileInfoSuccessState) {
+                            return Text(
+                              //'Amanda',
+                              state.profileInfo.data.name,
+                              style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.w700),
+                            );
+                          } else {
+                            return const Text('');
+                          }
+                        },
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 4,
                       ),
-                      Text(
+                      const Text(
                         'View and Edit profile',
                         style: TextStyle(
                           color: Colors.grey,
@@ -45,54 +60,62 @@ class ProfileWidget extends StatelessWidget {
                       ),
                     ],
                   ),
-                  CircleAvatar(
-                    radius: 35,
-                    backgroundImage: NetworkImage(
-                        'https://image.tmdb.org/t/p/original/aJmRnDlGqO76hwDzPeg9QnyVmEk.jpg'),
-                    backgroundColor: Colors.transparent,
+                  BlocBuilder<ProfileCubit, ProfileStates>(
+                    builder: (context, state) {
+                      if (state is ProfileInfoSuccessState) {
+                        return CircleAvatar(
+                          radius: 35,
+                          backgroundImage:
+                              NetworkImage(state.profileInfo.data.image),
+                          backgroundColor: Colors.transparent,
+                        );
+                      } else {
+                        return const CircleAvatar(
+                          radius: 35,
+                          backgroundColor: Colors.transparent,
+                        );
+                      }
+                    },
                   )
                 ],
               ),
             ),
             const SizedBox(height: 40,),
             InkWell(
-              onTap:(){
+              onTap: () {
                 Navigator.pushNamed(context, Routes.profileChangePassword);
               },
               child: ProfileComponent(
                   hintTitle: 'Change Password', suffixIcon: Icons.lock),
             ),
             InkWell(
-              onTap: (){
+              onTap: () {
                 Navigator.pushNamed(context, Routes.profileInviteFriendScreen);
-
               },
               child: ProfileComponent(
                   hintTitle: 'Invite Friend',
                   suffixIcon: Icons.supervisor_account_rounded),
             ),
             InkWell(
-              onTap: (){
-              },
+              onTap: () {},
               child: ProfileComponent(
                   hintTitle: 'Credit & Coupons',
                   suffixIcon: Icons.card_giftcard_rounded),
             ),
             InkWell(
-              onTap: (){
+              onTap: () {
                 Navigator.pushNamed(context, Routes.helpCenter);
               },
               child: ProfileComponent(
                   hintTitle: 'Help Center', suffixIcon: Icons.help),
             ),
             InkWell(
-              onTap: (){
-              },
+              onTap: () {},
               child: ProfileComponent(
                   hintTitle: 'Payment', suffixIcon: Icons.payments_sharp),
             ),
             InkWell(
-              onTap: (){
+              onTap: () {
                 Navigator.pushNamed(context, Routes.profileSetting);
               },
               child: ProfileComponent(

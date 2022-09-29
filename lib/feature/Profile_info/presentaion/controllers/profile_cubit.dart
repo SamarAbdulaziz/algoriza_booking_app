@@ -33,12 +33,12 @@ class ProfileCubit extends Cubit<ProfileStates> {
   }
   File? image;
   ImagePicker picker = ImagePicker();
-
   Future<void> uploadImage(ImageSource source) async {
     XFile? pickedImage = await picker.pickImage(source: source,imageQuality: 50,maxHeight: 500,maxWidth: 500,);
     image = File(pickedImage!.path);
     // print(image);
      emit(ImageLoadedState());
+    getProfileInfoByToken();
     // image = pickedImage.path;
   }
   Future<void> updateProfileInfo({
@@ -50,7 +50,7 @@ class ProfileCubit extends Cubit<ProfileStates> {
     Either<Failure, UpdateProfile> response = await updateProfileInfoUseCase(
       name: name,
       email: email,
-      pickedImage: pickedImage,
+      pickedImage: image,
     );
     response.fold(
       (failure) => emit(UpdateProfileInfoErrorState(message: failure.massage)),
