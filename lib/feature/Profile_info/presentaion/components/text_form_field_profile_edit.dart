@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
 class TextFormFieldProfileEdit extends StatelessWidget {
- // final TextEditingController controller;
+  final TextEditingController controller;
   final String hintTitle;
 
   //final String suffixTitle;
-  final String initialValue;
+  //final String initialValue;
 
   const TextFormFieldProfileEdit({
     required this.hintTitle,
     //required this.suffixTitle,
-    //required this.controller,
-    required this.initialValue,
+    required this.controller,
+   // required this.initialValue,
   });
 
   @override
@@ -19,8 +19,8 @@ class TextFormFieldProfileEdit extends StatelessWidget {
     return Column(
       children: [
         TextFormField(
-          // controller: controller,
-          initialValue: initialValue,
+          controller: controller,
+          //initialValue: initialValue,
           style: TextStyle(color: Colors.white),
           decoration: InputDecoration(
             hintText: hintTitle,

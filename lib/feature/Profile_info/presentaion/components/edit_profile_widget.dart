@@ -18,7 +18,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
   TextEditingController emailController = TextEditingController();
 
   TextEditingController phoneController = TextEditingController();
-
   @override
   void initState() {
     // TODO: implement initState
@@ -29,10 +28,12 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
   @override
   Widget build(BuildContext context) {
     var cubit = BlocProvider.of<ProfileCubit>(context);
-
     return BlocBuilder<ProfileCubit, ProfileStates>(
       builder: (context, state) {
         if (state is ProfileInfoSuccessState) {
+          nameController.text = state.profileInfo.data.name;
+          emailController.text = state.profileInfo.data.email;
+          phoneController.text = '010 9988 120';
           return Container(
             padding: const EdgeInsets.all(20),
             child: SingleChildScrollView(
@@ -47,60 +48,59 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                         fontWeight: FontWeight.w700),
                   ),
                   Center(
-                    child: InkWell(
-                      onTap: () {
-                        cubit.uploadImage(ImageSource.gallery);
-                      },
-                      child: Stack(
-                        alignment: AlignmentDirectional.bottomEnd,
-                        children: [
-                          CircleAvatar(
-                            radius: 50,
-                            backgroundImage:
-                                NetworkImage(state.profileInfo.data.image),
-                            backgroundColor: Colors.transparent,
-                          ),
-                          CircleAvatar(
-                              radius: 15,
-                              backgroundColor: Colors.teal.shade200,
-                              child: IconButton(
-                                onPressed: () {
-                                  cubit
-                                      .uploadImage(ImageSource.gallery)
-                                      .then((value) {
-                                    cubit.updateProfileInfo(
-                                        name: 'Samar',
-                                        email: 'sam.sam@gmail.com');
-                                    Navigator.pop(context);
-                                  });
-                                },
-                                icon: const Icon(
-                                  Icons.camera_alt,
-                                  size: 17,
-                                  color: Colors.black,
+                    child: Stack(
+                      alignment: AlignmentDirectional.bottomEnd,
+                      children: [
+                        cubit.image == null
+                            ? CircleAvatar(
+                                radius: 50,
+                                backgroundImage:
+                                    NetworkImage(state.profileInfo.data.image),
+                                backgroundColor: Colors.transparent,
+                              )
+                            : Container(
+                                width: 100,
+                                height: 100,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  image: DecorationImage(
+                                      image: FileImage(cubit.image!),
+                                      fit: BoxFit.fill),
                                 ),
-                              ))
-                        ],
-                      ),
+                              ),
+                        CircleAvatar(
+                            radius: 15,
+                            backgroundColor: Colors.teal.shade200,
+                            child: IconButton(
+                              onPressed: () {
+                                cubit.uploadImage(ImageSource.gallery);
+                              },
+                              icon: const Icon(
+                                Icons.camera_alt,
+                                size: 17,
+                                color: Colors.black,
+                              ),
+                            ))
+                      ],
                     ),
                   ),
                   TextFormFieldProfileEdit(
-                    // controller: nameController,
+                    controller: nameController,
                     hintTitle: 'UserName',
-                    initialValue: state.profileInfo.data.name,
+                    //initialValue: state.profileInfo.data.name,
 
                     // suffixTitle: 'Amanda Jane',
                   ),
                   TextFormFieldProfileEdit(
-                    // controller: emailController,
+                    controller: emailController,
                     hintTitle: 'Email',
-                    initialValue: state.profileInfo.data.email,
+                    //initialValue: state.profileInfo.data.email,
                     // suffixTitle: 'amanda@gmail.com ',
                   ),
-                  const TextFormFieldProfileEdit(
-                    // controller: phoneController,
+                  TextFormFieldProfileEdit(
+                    controller: phoneController,
                     hintTitle: 'Phone',
-                    initialValue: '+2 0100 9988 112',
+                    //initialValue: '+2 0100 9988 112',
                     // suffixTitle: '+66 688683976',
                   ),
                   // TextFormFieldProfileEdit(
@@ -116,9 +116,15 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                   DefaultButton(
                       title: 'Update',
                       ontap: () {
-                        cubit.updateProfileInfo(
-                            name: nameController.text,
-                            email: emailController.text);
+                        cubit
+                            .updateProfileInfo(
+                          name: nameController.text,
+                          email: emailController.text,
+                        )
+                            .then((value) {
+                          cubit.getProfileInfoByToken();
+                        });
+                        Navigator.pop(context);
                       }),
                 ],
               ),

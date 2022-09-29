@@ -10,6 +10,7 @@ class ProfileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var cubit = BlocProvider.of<ProfileCubit>(context);
     return Container(
       color: Colors.black,
       width: double.infinity,
@@ -20,8 +21,7 @@ class ProfileWidget extends StatelessWidget {
           children: [
             InkWell(
               onTap: () {
-                BlocProvider.of<ProfileCubit>(context)
-                    .getProfileInfoByToken()
+                cubit.getProfileInfoByToken()
                     .then((value) {
                   Navigator.pushNamed(context, Routes.profileEditScreenRoute);
                 });
@@ -38,9 +38,11 @@ class ProfileWidget extends StatelessWidget {
                             return Text(
                               //'Amanda',
                               state.profileInfo.data.name,
+                              overflow: TextOverflow.fade,
+                              maxLines: 1,
                               style: const TextStyle(
                                   color: Colors.white,
-                                  fontSize: 22,
+                                  fontSize: 20,
                                   fontWeight: FontWeight.w700),
                             );
                           } else {
@@ -63,12 +65,26 @@ class ProfileWidget extends StatelessWidget {
                   BlocBuilder<ProfileCubit, ProfileStates>(
                     builder: (context, state) {
                       if (state is ProfileInfoSuccessState) {
-                        return CircleAvatar(
-                          radius: 35,
+                        return
+                            // cubit.image == null
+                            //   ?
+                            CircleAvatar(
+                          radius: 50,
                           backgroundImage:
                               NetworkImage(state.profileInfo.data.image),
                           backgroundColor: Colors.transparent,
                         );
+                        //       :
+                        //   Container(
+                        //   width: 100,
+                        //   height: 100,
+                        //   decoration: BoxDecoration(
+                        //     shape: BoxShape.circle,
+                        //     image: DecorationImage(
+                        //         image: FileImage(cubit.image!),
+                        //         fit: BoxFit.fill),
+                        //   ),
+                        // );
                       } else {
                         return const CircleAvatar(
                           radius: 35,
