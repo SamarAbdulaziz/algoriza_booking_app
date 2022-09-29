@@ -43,14 +43,6 @@ class Routes {
   static const String profileInviteFriendScreen = '/profileInviteFriendScreen';
   static const String helpCenter = '/helpCenter';
   static const String profileSetting = '/profileSetting';
-
-
-
-
-
-
-
-
 }
 
 class AppRoutes {
@@ -59,17 +51,21 @@ class AppRoutes {
 
       case Routes.initialRoute:
         return MaterialPageRoute(
-          builder: (context) => BlocProvider<AuthenticationCubit>(
-            create: (context) => sl<AuthenticationCubit>(),
-            child:  GetStartedScreen(),
-          ),
+          // builder: (context) => BlocProvider<AuthenticationCubit>(
+          //   create: (context) => sl<AuthenticationCubit>(),
+          //   child:  const GetStartedScreen(),
+          // ),
+          builder: (context) => const GetStartedScreen(),
         );
       case Routes.onBoardingRoute:
         return MaterialPageRoute(
-          builder: (context) => BlocProvider<AuthenticationCubit>(
-            create: (context) => sl<AuthenticationCubit>(),
-            child:  OnBoardingScreen(),
-          ),
+          //todo it need not cubit
+          //builder: (context) =>
+          // BlocProvider<AuthenticationCubit>(
+          //   create: (context) => sl<AuthenticationCubit>(),
+          //   child: OnBoardingScreen(),
+          // ),
+          builder: (context) => OnBoardingScreen(),
         );
 
       case Routes.loginScreenRoute:
@@ -79,6 +75,7 @@ class AppRoutes {
             child: const LoginScreen(),
           ),
         );
+
       case Routes.registerScreenRoute:
         return MaterialPageRoute(
           builder: (context) => BlocProvider<AuthenticationCubit>(
@@ -90,10 +87,15 @@ class AppRoutes {
       case Routes.profileScreenRoute:
         return MaterialPageRoute(
           builder: (context) => BlocProvider<ProfileCubit>(
-            create: (context) => sl<ProfileCubit>(),
+            create: (context) => sl<ProfileCubit>()..getProfileInfoByToken(),
             child: const ProfileScreen(),
           ),
+          // builder: (context) => BlocProvider<ProfileCubit>(
+          //   create: (context) => sl<ProfileCubit>(),
+          //   child: const ProfileScreen(),
+          // ),
         );
+
       case Routes.profileEditScreenRoute:
         return MaterialPageRoute(
           builder: (context) => BlocProvider<ProfileCubit>(
@@ -101,11 +103,12 @@ class AppRoutes {
             child: const EditProfileScreen(),
           ),
         );
+
       case Routes.exploreScreenRoute:
         return MaterialPageRoute(
           builder: (context) => BlocProvider<HotelsCubit>(
             create: (context) => sl<HotelsCubit>(),
-            child:  ExploreScreen(),
+            child: const ExploreScreen(),
           ),
         );
       case Routes.homeScreenRoute:
@@ -148,35 +151,35 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (context) => BlocProvider<AuthenticationCubit>(
             create: (context) => sl<AuthenticationCubit>(),
-            child:  ExploreHotelScreen(),
+            child: const ExploreHotelScreen(),
           ),
         );
       case Routes.profileChangePassword:
         return MaterialPageRoute(
           builder: (context) => BlocProvider<AuthenticationCubit>(
             create: (context) => sl<AuthenticationCubit>(),
-            child:  ProfileChangePassword(),
+            child: const ProfileChangePassword(),
           ),
         );
       case Routes.profileInviteFriendScreen:
         return MaterialPageRoute(
           builder: (context) => BlocProvider<AuthenticationCubit>(
             create: (context) => sl<AuthenticationCubit>(),
-            child:  ProfileInviteFriendScreen(),
+            child: const ProfileInviteFriendScreen(),
           ),
         );
       case Routes.helpCenter:
         return MaterialPageRoute(
           builder: (context) => BlocProvider<AuthenticationCubit>(
             create: (context) => sl<AuthenticationCubit>(),
-            child:  HelpCenter(),
+            child: const HelpCenter(),
           ),
         );
       case Routes.profileSetting:
         return MaterialPageRoute(
           builder: (context) => BlocProvider<AuthenticationCubit>(
             create: (context) => sl<AuthenticationCubit>(),
-            child:  ProfileSetting(),
+            child: const ProfileSetting(),
           ),
         );
 
