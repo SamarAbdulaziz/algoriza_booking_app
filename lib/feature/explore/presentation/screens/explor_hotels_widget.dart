@@ -1,8 +1,7 @@
-import 'package:algoriza_booking_app/feature/booking/presentation/components/favorite_widget.dart';
-import 'package:algoriza_booking_app/feature/booking/presentation/components/upcoming_widget.dart';
+import 'package:algoriza_booking_app/config/routes/app_routes.dart';
 import 'package:algoriza_booking_app/feature/explore/presentation/components/explore_Widget_comp.dart';
 import 'package:algoriza_booking_app/feature/explore/presentation/components/line.dart';
-import 'package:algoriza_booking_app/feature/explore/presentation/screens/filtter_screen.dart';
+import 'package:algoriza_booking_app/feature/search/presentation/screens/filter_screen.dart';
 import 'package:flutter/material.dart';
 
 class ExploreHotelWidget extends StatelessWidget {
@@ -137,7 +136,7 @@ class ExploreHotelWidget extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: (){
-                    Navigator.pushNamed(context, FiltterScreen.routeName);
+                    Navigator.pushNamed(context,Routes.filterScreenRoute);
                   },
                   child: Row(
                     children: [

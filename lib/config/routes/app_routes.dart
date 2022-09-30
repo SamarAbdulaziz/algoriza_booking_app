@@ -8,10 +8,9 @@ import 'package:algoriza_booking_app/feature/booking/presentation/screens/bookin
 import 'package:algoriza_booking_app/feature/explore/presentation/controllers/hotels_cubit.dart';
 import 'package:algoriza_booking_app/feature/explore/presentation/screens/explor_hotels_screen.dart';
 import 'package:algoriza_booking_app/feature/explore/presentation/screens/explore_screen.dart';
-import 'package:algoriza_booking_app/feature/explore/presentation/screens/filtter_widget.dart';
 import 'package:algoriza_booking_app/feature/explore/presentation/screens/hotel_details.dart';
 import 'package:algoriza_booking_app/feature/search/presentation/controllers/search_cubit.dart';
-import 'package:algoriza_booking_app/feature/search/presentation/screens/search_screen.dart';
+import 'package:algoriza_booking_app/feature/search/presentation/screens/filter_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../core/services/service_locator.dart';
@@ -36,6 +35,7 @@ class Routes {
   static const String exploreScreenRoute = '/exploreScreen';
   static const String bookingScreenRoute = '/bookingScreen';
   static const String searchScreenRoute = '/searchScreen';
+  static const String filterScreenRoute = '/filterScreen';
   static const String homeScreenRoute = '/homeScreen';
   static const String onHotelPressedScreen = '/onHotelPressedScreen';
   static const String hotelDetails = '/hotelDetails';
@@ -62,7 +62,7 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (context) => BlocProvider<AuthenticationCubit>(
             create: (context) => sl<AuthenticationCubit>(),
-            child:  FiltterWidget(),
+            child:  const GetStartedScreen(),
           ),
         );
       case Routes.onBoardingRoute:
@@ -124,11 +124,11 @@ class AppRoutes {
           ),
         );
 
-      case Routes.searchScreenRoute:
+      case Routes.filterScreenRoute:
         return MaterialPageRoute(
           builder: (context) => BlocProvider<SearchCubit>(
             create: (context) => sl<SearchCubit>(),
-            child: SearchScreen(),
+            child: const FilterScreen(),
           ),
         );
       case Routes.onHotelPressedScreen:
@@ -149,35 +149,35 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (context) => BlocProvider<AuthenticationCubit>(
             create: (context) => sl<AuthenticationCubit>(),
-            child:  ExploreHotelScreen(),
+            child:  const ExploreHotelScreen(),
           ),
         );
       case Routes.profileChangePassword:
         return MaterialPageRoute(
           builder: (context) => BlocProvider<AuthenticationCubit>(
             create: (context) => sl<AuthenticationCubit>(),
-            child:  ProfileChangePassword(),
+            child:  const ProfileChangePassword(),
           ),
         );
       case Routes.profileInviteFriendScreen:
         return MaterialPageRoute(
           builder: (context) => BlocProvider<AuthenticationCubit>(
             create: (context) => sl<AuthenticationCubit>(),
-            child:  ProfileInviteFriendScreen(),
+            child:  const ProfileInviteFriendScreen(),
           ),
         );
       case Routes.helpCenter:
         return MaterialPageRoute(
           builder: (context) => BlocProvider<AuthenticationCubit>(
             create: (context) => sl<AuthenticationCubit>(),
-            child:  HelpCenter(),
+            child:  const HelpCenter(),
           ),
         );
       case Routes.profileSetting:
         return MaterialPageRoute(
           builder: (context) => BlocProvider<AuthenticationCubit>(
             create: (context) => sl<AuthenticationCubit>(),
-            child:  ProfileSetting(),
+            child:  const ProfileSetting(),
           ),
         );
 

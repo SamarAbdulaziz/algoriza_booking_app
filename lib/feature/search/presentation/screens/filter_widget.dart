@@ -1,20 +1,19 @@
 import 'package:algoriza_booking_app/feature/auth/presentation/components/login_button.dart';
-import 'package:algoriza_booking_app/feature/explore/presentation/components/check_box_widget.dart';
-import 'package:algoriza_booking_app/feature/explore/presentation/components/line.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:algoriza_booking_app/feature/search/presentation/componnet/check_box_widget.dart';
+import 'package:algoriza_booking_app/feature/search/presentation/componnet/line.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
 
-class FiltterWidget extends StatefulWidget {
-  FiltterWidget({Key? key}) : super(key: key);
+class FilterWidget extends StatefulWidget {
+  // FilterWidget({Key? key}) : super(key: key);
 
   @override
-  State<FiltterWidget> createState() => _FiltterWidgetState();
+  State<FilterWidget> createState() => _FilterWidgetState();
 }
 
-class _FiltterWidgetState extends State<FiltterWidget> {
+class _FilterWidgetState extends State<FilterWidget> {
   double valueSlider = 0;
-  SfRangeValues valuesSlid = SfRangeValues(0.0, 100.0);
+  SfRangeValues valuesSlid = const SfRangeValues(0.0, 100.0);
   double minValue = 0;
   double maxValue = 100;
   double lowerValue = 0.0;
@@ -26,19 +25,19 @@ class _FiltterWidgetState extends State<FiltterWidget> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(
-            'Filtter',
+          const Text(
+            'Filter',
             style: TextStyle(
                 color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
           ),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
-          Text(
+          const Text(
             'price (for 1 night)',
             style: TextStyle(color: Colors.grey),
           ),
-          SizedBox(height: 20,),
+          const SizedBox(height: 20,),
           SfRangeSlider(
               labelPlacement: LabelPlacement.betweenTicks,
               inactiveColor: Colors.grey,
@@ -55,24 +54,24 @@ class _FiltterWidgetState extends State<FiltterWidget> {
                   valuesSlid = values;
                 });
               }),
-          SizedBox(
+          const SizedBox(
             height: 6,
           ),
-          SizedBox(
+          const SizedBox(
             height: 6,
           ),
           Line(
             lineHeight: 1,
             lineWidth: MediaQuery.of(context).size.width * 0.8,
           ),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
-          Text(
+          const Text(
             'Popular filter',
             style: TextStyle(color: Colors.grey, fontSize: 15),
           ),
-          SizedBox(
+          const SizedBox(
             height: 6,
           ),
           Row(
@@ -92,14 +91,14 @@ class _FiltterWidgetState extends State<FiltterWidget> {
             lineHeight: 1,
             lineWidth: MediaQuery.of(context).size.width * 0.8,
           ),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
-          Text(
+          const Text(
             'Distance from city center',
             style: TextStyle(color: Colors.grey, fontSize: 15),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           SfSlider(
@@ -118,14 +117,14 @@ class _FiltterWidgetState extends State<FiltterWidget> {
               });
             },
           ),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
           Line(
             lineHeight: 1,
             lineWidth: MediaQuery.of(context).size.width * 0.8,
           ),
-          Spacer(),
+          const Spacer(),
           DefaultButton(title: 'Apply', ontap: () {})
         ],
       ),

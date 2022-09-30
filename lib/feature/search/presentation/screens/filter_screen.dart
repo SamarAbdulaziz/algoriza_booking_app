@@ -1,9 +1,9 @@
-import 'package:algoriza_booking_app/feature/explore/presentation/screens/filtter_widget.dart';
+import 'package:algoriza_booking_app/feature/search/presentation/screens/filter_widget.dart';
 import 'package:flutter/material.dart';
 
-class FiltterScreen extends StatelessWidget {
-  const FiltterScreen({Key? key}) : super(key: key);
-  static const String routeName='Filtter Screen';
+class FilterScreen extends StatelessWidget {
+  const FilterScreen({Key? key}) : super(key: key);
+  // static const String routeName='Filtter Screen';
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class FiltterScreen extends StatelessWidget {
           color: Colors.white,
         ),
       ),
-      body:  FiltterWidget(),
+      body:  FilterWidget(),
 
     );
   }

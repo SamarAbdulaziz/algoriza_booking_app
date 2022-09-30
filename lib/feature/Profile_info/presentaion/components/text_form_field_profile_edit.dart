@@ -4,7 +4,7 @@ class TextFormFieldProfileEdit extends StatelessWidget {
   String hintTitle;
   String suffixTitle;
 
-  TextFormFieldProfileEdit({required this.hintTitle,required this.suffixTitle});
+  TextFormFieldProfileEdit({super.key, required this.hintTitle,required this.suffixTitle});
 
   @override
   Widget build(BuildContext context) {

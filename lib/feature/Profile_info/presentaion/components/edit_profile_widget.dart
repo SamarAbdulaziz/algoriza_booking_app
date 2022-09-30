@@ -7,12 +7,12 @@ class EditProfileWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(
+            const Text(
               'Edit Profile',
               style: TextStyle(
                   color: Colors.white, fontSize: 22, fontWeight: FontWeight.w700),
@@ -21,7 +21,7 @@ class EditProfileWidget extends StatelessWidget {
               child: Stack(
                 alignment: AlignmentDirectional.bottomEnd,
                 children: [
-                  CircleAvatar(
+                  const CircleAvatar(
                     radius: 50,
                     backgroundImage: NetworkImage(
                         'https://image.tmdb.org/t/p/original/aJmRnDlGqO76hwDzPeg9QnyVmEk.jpg'),
@@ -30,7 +30,7 @@ class EditProfileWidget extends StatelessWidget {
                   CircleAvatar(
                       radius: 15,
                       backgroundColor: Colors.teal.shade200,
-                      child: Icon(
+                      child: const Icon(
                         Icons.camera_alt,
                         size: 17,
                         color: Colors.black,

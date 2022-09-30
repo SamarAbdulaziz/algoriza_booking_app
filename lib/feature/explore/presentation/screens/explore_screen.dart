@@ -316,7 +316,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                           //physics: BouncingScrollPhysics(),
                           itemBuilder: (BuildContext context, int index) =>
                               ExploreBuilderWidget(
-                                hotel: hotel!.hotelsList![index],
+                                hotel: hotel.hotelsList![index],
                               )),
                     ],
                   ),
