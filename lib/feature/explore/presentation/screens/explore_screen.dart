@@ -1,6 +1,5 @@
 import 'package:algoriza_booking_app/feature/auth/presentation/components/login_button.dart';
 import 'package:algoriza_booking_app/feature/explore/presentation/controllers/hotels_cubit.dart';
-import 'package:algoriza_booking_app/feature/explore/presentation/screens/explor_hotels_screen.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -62,7 +61,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                     collapsedHeight: 100,
                     elevation: 100,
                     automaticallyImplyLeading: false,
-                    title: const Padding(
+                    title:  Padding(
                       padding: EdgeInsets.all(8.0),
                       child: LoginTextFormField(
                         title: '',

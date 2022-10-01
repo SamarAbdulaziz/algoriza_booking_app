@@ -6,6 +6,7 @@ import 'package:algoriza_booking_app/feature/Profile_info/domain/usecases/get_pr
 import 'package:algoriza_booking_app/feature/Profile_info/domain/usecases/update_profile_use_case.dart';
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 
 part 'profile_state.dart';
@@ -16,7 +17,7 @@ class ProfileCubit extends Cubit<ProfileStates> {
 
   ProfileCubit(this.getProfileInfoUseCase, this.updateProfileInfoUseCase)
       : super(ProfileInitialState());
-
+  //static ProfileCubit get(context) => BlocProvider.of<ProfileCubit>(context);
   //String apiToken
   Future<void> getProfileInfoByToken() async {
     emit(ProfileInfoLoadingState());
@@ -61,18 +62,3 @@ class ProfileCubit extends Cubit<ProfileStates> {
 
 
 }
-// File? file;
-//
-// ImagePicker picker = ImagePicker();
-// var _imageName;
-//
-// uploadImage(ImageSource source) async {
-//   var picked = await picker.pickImage(source: source);
-//   if (picked != null) {
-//     var rand = Random().nextInt(10000);
-//     setState(() {
-//       file = File(picked.path);
-//       _imageName = "$rand" + basename(picked.path);
-//     });
-//   }
-// }

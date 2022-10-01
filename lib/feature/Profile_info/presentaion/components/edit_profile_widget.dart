@@ -122,7 +122,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                           email: emailController.text,
                         )
                             .then((value) {
-                          cubit.getProfileInfoByToken();
+                          //cubit.getProfileInfoByToken();
                         });
                         Navigator.pop(context);
                       }),
@@ -132,78 +132,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
           );
         }
         return Container(
-            // padding: const EdgeInsets.all(20),
-            // child: SingleChildScrollView(
-            //   child: Column(
-            //     crossAxisAlignment: CrossAxisAlignment.stretch,
-            //     children: [
-            //       const Text(
-            //         'Edit Profile',
-            //         style: TextStyle(
-            //             color: Colors.white,
-            //             fontSize: 22,
-            //             fontWeight: FontWeight.w700),
-            //       ),
-            //       Center(
-            //         child: InkWell(
-            //           onTap: () {
-            //             BlocProvider.of<ProfileCubit>(context)
-            //                 .uploadImage(ImageSource.gallery);
-            //           },
-            //           child: Stack(
-            //             alignment: AlignmentDirectional.bottomEnd,
-            //             children: [
-            //               CircleAvatar(
-            //                 //backgroundImage: Image.file(file),
-            //                 radius: 50,
-            //                 backgroundColor: Colors.transparent,
-            //                 child: Image.file(
-            //                   BlocProvider.of<ProfileCubit>(context).image!,
-            //                 ),
-            //               ),
-            //               CircleAvatar(
-            //                   radius: 15,
-            //                   backgroundColor: Colors.teal.shade200,
-            //                   child: const Icon(
-            //                     Icons.camera_alt,
-            //                     size: 17,
-            //                     color: Colors.black,
-            //                   ))
-            //             ],
-            //           ),
-            //         ),
-            //       ),
-            //       TextFormFieldProfileEdit(
-            //         // controller: nameController,
-            //         hintTitle: 'UserName',
-            //         initialValue: 'name',
-            //
-            //         // suffixTitle: 'Amanda Jane',
-            //       ),
-            //       TextFormFieldProfileEdit(
-            //         // controller: emailController,
-            //         hintTitle: 'Email',
-            //         initialValue: 'email',
-            //         // suffixTitle: 'amanda@gmail.com ',
-            //       ),
-            //       TextFormFieldProfileEdit(
-            //         // controller: phoneController,
-            //         hintTitle: 'Phone',
-            //         initialValue: '+2 0100 9988 112',
-            //         // suffixTitle: '+66 688683976',
-            //       ),
-            //       // TextFormFieldProfileEdit(
-            //       //   controller:,
-            //       //   hintTitle: 'Date of Birth',
-            //       //   // suffixTitle: '20, Aug, 1998',
-            //       // ),
-            //       // TextFormFieldProfileEdit(
-            //       //   hintTitle: 'Address',
-            //       //   // suffixTitle: '123 Royal Street,New York',
-            //       // ),
-            //     ],
-            //   ),
-            // ),
             );
       },
     );

@@ -1,26 +1,31 @@
 import 'package:algoriza_booking_app/config/routes/app_routes.dart';
+import 'package:algoriza_booking_app/core/services/service_locator.dart';
 import 'package:algoriza_booking_app/feature/explore/presentation/components/explore_Widget_comp.dart';
 import 'package:algoriza_booking_app/feature/explore/presentation/components/line.dart';
+import 'package:algoriza_booking_app/feature/search/presentation/controllers/search_cubit.dart';
 import 'package:algoriza_booking_app/feature/search/presentation/screens/filter_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ExploreHotelWidget extends StatelessWidget {
   const ExploreHotelWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10.0),
-      child: Column(
-        children: [
-          SizedBox(
-            height: 20,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Container(
-                width: MediaQuery.of(context).size.width * 0.7,
+    return BlocProvider<SearchCubit>(
+      create: (context) => sl<SearchCubit>(),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+        child: Column(
+          children: [
+            SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Container(
+                  width: MediaQuery.of(context).size.width * 0.7,
                 child: TextFormField(
                   style: TextStyle(
                     color: Colors.white,
@@ -41,17 +46,20 @@ class ExploreHotelWidget extends StatelessWidget {
                         color: Colors.grey.shade700,
                       ),
                     ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(30.0)),
-                      borderSide: BorderSide(
-                        color: Colors.grey.shade700,
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                        borderSide: BorderSide(
+                          color: Colors.grey.shade700,
+                        ),
                       ),
+                      filled: true,
+                      contentPadding: const EdgeInsets.only(
+                          bottom: 10.0, left: 10.0, right: 10.0),
                     ),
-                    filled: true,
-                    contentPadding: const EdgeInsets.only(
-                        bottom: 10.0, left: 10.0, right: 10.0),
+                    onFieldSubmitted: (value) {
+                      BlocProvider.of<SearchCubit>(context).search(name: value);
+                    },
                   ),
-                ),
               ),
               Container(
                 padding: EdgeInsets.all(10),
@@ -131,7 +139,7 @@ class ExploreHotelWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  '20 Hotel Found',
+                  '7 Hotel Found',
                   style: TextStyle(color: Colors.white,fontSize: 16),
                 ),
                 InkWell(
@@ -141,7 +149,7 @@ class ExploreHotelWidget extends StatelessWidget {
                   child: Row(
                     children: [
                       Text(
-                        'Filtter',
+                        'Filter',
                         style: TextStyle(color: Colors.white,fontSize: 16),
                       ),
                       SizedBox(width: 6,),
@@ -154,15 +162,16 @@ class ExploreHotelWidget extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-                child: ListView.builder(
-                  physics: BouncingScrollPhysics(),
-                  itemBuilder: (context, index) => ExploreWidgetComponent(),
-                  itemCount: 6,
-                )),
-          ),
-        ],
+              child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                  child: ListView.builder(
+                    physics: BouncingScrollPhysics(),
+                    itemBuilder: (context, index) => ExploreWidgetComponent(),
+                    itemCount: 6,
+                  )),
+            ),
+          ],
+        ),
       ),
     );
   }
