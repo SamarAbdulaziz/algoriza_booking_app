@@ -1,7 +1,8 @@
-import 'package:algoriza_booking_app/feature/explore/presentation/components/check_box_widget.dart';
 import 'package:algoriza_booking_app/feature/explore/presentation/components/line.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../../../search/presentation/componnet/check_box_widget.dart';
 
 class FiltterWidget extends StatefulWidget {
   FiltterWidget({Key? key}) : super(key: key);

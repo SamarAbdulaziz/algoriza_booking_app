@@ -2,16 +2,16 @@ import 'package:algoriza_booking_app/core/utiles/app_strings.dart';
 import 'package:algoriza_booking_app/feature/Profile_info/presentaion/controllers/profile_cubit.dart';
 import 'package:algoriza_booking_app/feature/Profile_info/presentaion/screens/Profile_screen.dart';
 import 'package:algoriza_booking_app/feature/auth/presentation/controllers/auth_cubit.dart';
+import 'package:algoriza_booking_app/feature/auth/presentation/screens/get_started_screen.dart';
 import 'package:algoriza_booking_app/feature/booking/presentation/controllers/booking_cubit.dart';
 import 'package:algoriza_booking_app/feature/booking/presentation/screens/booking_screen.dart';
 import 'package:algoriza_booking_app/feature/explore/presentation/controllers/hotels_cubit.dart';
 import 'package:algoriza_booking_app/feature/explore/presentation/screens/explor_hotels_screen.dart';
 import 'package:algoriza_booking_app/feature/explore/presentation/screens/explore_screen.dart';
-import 'package:algoriza_booking_app/feature/explore/presentation/screens/home_screen.dart';
 import 'package:algoriza_booking_app/feature/explore/presentation/screens/hotel_details.dart';
 import 'package:algoriza_booking_app/feature/explore/presentation/screens/map_screen.dart';
 import 'package:algoriza_booking_app/feature/search/presentation/controllers/search_cubit.dart';
-import 'package:algoriza_booking_app/feature/search/presentation/screens/search_screen.dart';
+import 'package:algoriza_booking_app/feature/search/presentation/screens/new_filter_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../core/services/service_locator.dart';
@@ -24,6 +24,7 @@ import '../../feature/auth/presentation/screens/login_screen.dart';
 import '../../feature/auth/presentation/screens/onboarding_screen.dart';
 import '../../feature/auth/presentation/screens/register_screen.dart';
 import '../../feature/booking/presentation/screens/on_hotel_pressed_screen.dart';
+import '../../feature/explore/presentation/screens/home_screen.dart';
 
 class Routes {
   static const String initialRoute = '/';
@@ -35,6 +36,7 @@ class Routes {
   static const String exploreScreenRoute = '/exploreScreen';
   static const String bookingScreenRoute = '/bookingScreen';
   static const String searchScreenRoute = '/searchScreen';
+  static const String filterScreenRoute = '/filterScreen';
   static const String homeScreenRoute = '/homeScreen';
   static const String onHotelPressedScreen = '/onHotelPressedScreen';
   static const String hotelDetails = '/hotelDetails';
@@ -61,15 +63,12 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (context) => BlocProvider<AuthenticationCubit>(
             create: (context) => sl<AuthenticationCubit>(),
-            child:  MapScreen(),
+            child:  GetStartedScreen(),
           ),
         );
       case Routes.onBoardingRoute:
         return MaterialPageRoute(
-          builder: (context) => BlocProvider<AuthenticationCubit>(
-            create: (context) => sl<AuthenticationCubit>(),
-            child:  OnBoardingScreen(),
-          ),
+          builder: (context) => OnBoardingScreen(),
         );
 
       case Routes.loginScreenRoute:
@@ -123,61 +122,46 @@ class AppRoutes {
           ),
         );
 
-      case Routes.searchScreenRoute:
+      case Routes.filterScreenRoute:
         return MaterialPageRoute(
-          builder: (context) => BlocProvider<SearchCubit>(
-            create: (context) => sl<SearchCubit>(),
-            child: SearchScreen(),
-          ),
+          builder: (context) => const NewFilterScreen(),
         );
       case Routes.onHotelPressedScreen:
         return MaterialPageRoute(
-          builder: (context) => BlocProvider<SearchCubit>(
-            create: (context) => sl<SearchCubit>(),
-            child: const OnHotelPressedScreen(),
+          builder: (context) => BlocProvider<BookingCubit>(
+            create: (context) => sl<BookingCubit>(),
+            child:  OnHotelPressedScreen(),
           ),
         );
       case Routes.hotelDetails:
         return MaterialPageRoute(
-          builder: (context) => BlocProvider<AuthenticationCubit>(
-            create: (context) => sl<AuthenticationCubit>(),
-            child:  HotelDetails(),
+          builder: (context) => BlocProvider<HotelsCubit>(
+            create: (context) => sl<HotelsCubit>(),
+            child:  HotelDetails(hotel: null!),
           ),
         );
       case Routes.exploreHotelScreen:
         return MaterialPageRoute(
-          builder: (context) => BlocProvider<AuthenticationCubit>(
-            create: (context) => sl<AuthenticationCubit>(),
-            child:  ExploreHotelScreen(),
+          builder: (context) => BlocProvider<HotelsCubit>(
+            create: (context) => sl<HotelsCubit>(),
+            child:  const ExploreHotelScreen(),
           ),
         );
       case Routes.profileChangePassword:
         return MaterialPageRoute(
-          builder: (context) => BlocProvider<AuthenticationCubit>(
-            create: (context) => sl<AuthenticationCubit>(),
-            child:  ProfileChangePassword(),
-          ),
+          builder: (context) => const ProfileChangePassword(),
         );
       case Routes.profileInviteFriendScreen:
         return MaterialPageRoute(
-          builder: (context) => BlocProvider<AuthenticationCubit>(
-            create: (context) => sl<AuthenticationCubit>(),
-            child:  ProfileInviteFriendScreen(),
-          ),
+          builder: (context) => const ProfileInviteFriendScreen(),
         );
       case Routes.helpCenter:
         return MaterialPageRoute(
-          builder: (context) => BlocProvider<AuthenticationCubit>(
-            create: (context) => sl<AuthenticationCubit>(),
-            child:  HelpCenter(),
-          ),
+          builder: (context) => const HelpCenter(),
         );
       case Routes.profileSetting:
         return MaterialPageRoute(
-          builder: (context) => BlocProvider<AuthenticationCubit>(
-            create: (context) => sl<AuthenticationCubit>(),
-            child:  ProfileSetting(),
-          ),
+          builder: (context) => const ProfileSetting(),
         );
 
       default:
