@@ -5,14 +5,14 @@ import '../../../../config/routes/app_routes.dart';
 import '../../domain/entities/hotel.dart';
 
 class ExploreBuilderWidget extends StatelessWidget {
-   ExploreBuilderWidget({Key? key,required this.hotel}) : super(key: key);
-  Hotel hotel;
+   const ExploreBuilderWidget({Key? key,required this.hotel}) : super(key: key);
+  final Hotel hotel;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        Navigator.pushNamed(context, Routes.hotelDetails);
+        Navigator.pushNamed(context, Routes.hotelDetails,arguments:hotel.id);
         //Navigator.push(context, MaterialPageRoute(builder: (context) => test()));
       },
       child: Padding(

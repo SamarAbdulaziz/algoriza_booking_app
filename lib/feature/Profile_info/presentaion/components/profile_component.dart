@@ -4,7 +4,7 @@ class ProfileComponent extends StatelessWidget {
   String hintTitle;
   IconData suffixIcon;
 
-  ProfileComponent({
+  ProfileComponent({super.key,
     required this.hintTitle,
     required this.suffixIcon,
   });

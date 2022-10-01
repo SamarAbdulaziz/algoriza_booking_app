@@ -8,6 +8,8 @@ class BookingApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      initialRoute: Routes.initialRoute,
+      onGenerateRoute: AppRoutes.onGenerateRoute,
       theme: ThemeData(
         primarySwatch: Colors.teal,
         scaffoldBackgroundColor: Colors.black,
@@ -20,10 +22,8 @@ class BookingApp extends StatelessWidget {
           elevation: 0.0,
         ),
       ),
+      // home:  const NewFilterScreen(),
       debugShowCheckedModeBanner: false,
-
-     // initialRoute: Routes.initialRoute,
-      onGenerateRoute: AppRoutes.onGenerateRoute,
     );
   }
 }

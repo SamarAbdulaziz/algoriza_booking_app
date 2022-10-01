@@ -9,7 +9,7 @@ class DefaultTextFont extends StatelessWidget {
   Color? titlecolor;
   double height;
   TextAlign titleAlign;
-  DefaultTextFont({
+  DefaultTextFont({super.key,
     required this.title,
     this.size=15,
     this.fontweight= FontWeight.w700,

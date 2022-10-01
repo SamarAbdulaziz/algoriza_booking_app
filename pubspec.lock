@@ -146,13 +146,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.0.1"
-  flutter_switch:
-    dependency: "direct main"
-    description:
-      name: flutter_switch
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.3"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -218,7 +211,7 @@ packages:
       name: image_picker_for_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.9"
+    version: "2.1.8"
   image_picker_ios:
     dependency: transitive
     description:
@@ -232,7 +225,7 @@ packages:
       name: image_picker_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.6.2"
+    version: "2.6.1"
   intl:
     dependency: "direct main"
     description:
@@ -330,7 +323,7 @@ packages:
       name: path_provider_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.5"
+    version: "2.0.4"
   path_provider_windows:
     dependency: transitive
     description:
@@ -462,6 +455,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.1"
+  syncfusion_flutter_core:
+    dependency: transitive
+    description:
+      name: syncfusion_flutter_core
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "20.2.50"
+  syncfusion_flutter_sliders:
+    dependency: "direct main"
+    description:
+      name: syncfusion_flutter_sliders
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "20.2.50"
   term_glyph:
     dependency: transitive
     description:

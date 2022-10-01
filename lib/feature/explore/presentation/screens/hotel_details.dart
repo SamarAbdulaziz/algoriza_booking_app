@@ -1,11 +1,7 @@
 import 'dart:ui';
-
 import 'package:algoriza_booking_app/feature/auth/presentation/components/login_button.dart';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import '../../../../config/routes/app_routes.dart';
 import '../components/hotel_details_widget.dart';
 
 class HotelDetails extends StatefulWidget {
@@ -21,7 +17,6 @@ class HotelDetailsState extends State<HotelDetails> {
 
   @override
   void initState() {
-
     //BlocProvider.of<HotelsCubit>(context).exploreHotels(count: 10,page: 1);
 
     super.initState();
@@ -45,6 +40,7 @@ class HotelDetailsState extends State<HotelDetails> {
 
   @override
   Widget build(BuildContext context) {
+    //int id= ModalRoute.of(context)!.settings.arguments;
     Size size = MediaQuery.of(context).size;
     print(size.height);
     return  Scaffold(
@@ -175,7 +171,8 @@ class HotelDetailsState extends State<HotelDetails> {
                                             DefaultButton(
                                                 title: 'Book now',
                                                 ontap: (){
-                                                  Navigator.pushNamed(context, Routes.onHotelPressedScreen);
+                                                //  Navigator.pushNamed(context, Routes.onHotelPressedScreen);
+                                                 // BlocProvider.of<BookingCubit>(context).createBooking(hotelId: id);
                                                 }
                                             )
 
