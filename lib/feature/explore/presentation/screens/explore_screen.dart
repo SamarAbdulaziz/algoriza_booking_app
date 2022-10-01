@@ -320,6 +320,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                         itemBuilder: (BuildContext context, int index) =>
                             ExploreBuilderWidget(
                           hotel: hotel.hotelsList![index],
+                              index: index,
                         ),
                       ),
                       // if (BlocProvider.of<HotelsCubit>(context).isEnd)

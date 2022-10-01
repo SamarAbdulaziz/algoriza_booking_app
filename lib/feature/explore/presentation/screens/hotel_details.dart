@@ -1,15 +1,20 @@
 import 'dart:ui';
 
 import 'package:algoriza_booking_app/feature/auth/presentation/components/login_button.dart';
+import 'package:algoriza_booking_app/feature/explore/domain/entities/hotels.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../config/routes/app_routes.dart';
+import '../../domain/entities/hotel.dart';
 import '../components/hotel_details_widget.dart';
+import '../controllers/hotels_cubit.dart';
 
 class HotelDetails extends StatefulWidget {
-  HotelDetails({Key? key}) : super(key: key);
+  HotelDetails({Key? key,required this.hotel}) : super(key: key);
+  final ExploreHotel hotel;
 
   @override
   State<HotelDetails> createState() => HotelDetailsState();
@@ -22,7 +27,7 @@ class HotelDetailsState extends State<HotelDetails> {
   @override
   void initState() {
 
-    //BlocProvider.of<HotelsCubit>(context).exploreHotels(count: 10,page: 1);
+   // BlocProvider.of<HotelsCubit>(context).exploreHotels(count: 10, page: 1);
 
     super.initState();
     _controller = ScrollController();
@@ -47,26 +52,26 @@ class HotelDetailsState extends State<HotelDetails> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     print(size.height);
-    return  Scaffold(
+    return   Scaffold(
       body: NestedScrollView(
           controller: _controller,
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
             return <Widget>[
               SliverAppBar(
-                  expandedHeight: size.height,
-                  toolbarHeight: 90,
-                  collapsedHeight: 130,
-                  elevation: 100,
-                  automaticallyImplyLeading: false,
-                  title: Padding(
+                expandedHeight: size.height,
+                toolbarHeight: 90,
+                collapsedHeight: 130,
+                elevation: 100,
+                automaticallyImplyLeading: false,
+                title: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
                       children: [
                         Container(
                           child: IconButton(icon: Icon(Icons.arrow_back,color: Colors.black,), onPressed: () {  },),
                           decoration: BoxDecoration(
-                            color: Colors.white38,
-                            shape: BoxShape.circle
+                              color: Colors.white38,
+                              shape: BoxShape.circle
                           ),
                         ),
                         Spacer(),
@@ -80,28 +85,27 @@ class HotelDetailsState extends State<HotelDetails> {
 
                       ],
                     )
-                  ),
-                  pinned: true,
-                  //floating: true,
-                  //snap: true,
-                  flexibleSpace:  Stack(
+                ),
+                pinned: true,
+                //floating: true,
+                //snap: true,
+                flexibleSpace:  Stack(
                     children: [
                       Positioned.fill(
-                      child:  Container(
+                        child:  Container(
                           width: double.infinity,
                           decoration: BoxDecoration(
                               image: DecorationImage(
-                                  image: AssetImage(
-                                    'assets/images/GetStarted.jpg',),
+                                  image: NetworkImage('http://api.mahmoudtaha.com/images/${widget.hotel.hotelImageList![0].image}'),
                                   fit: BoxFit.cover
                               )
                           ),
 
 
+                        ),
                       ),
-                    ),
-                  ]
-                  ),
+                    ]
+                ),
                 bottom: PreferredSize(
                   preferredSize: const Size.fromHeight(0.0),
                   child: Padding(
@@ -121,7 +125,7 @@ class HotelDetailsState extends State<HotelDetails> {
                                 ),
                                 child: ClipRect(
                                   child: BackdropFilter(
-                                  filter: ImageFilter.blur(sigmaX: 4.0, sigmaY: 4.0),
+                                    filter: ImageFilter.blur(sigmaX: 4.0, sigmaY: 4.0),
                                     child: Container(
                                       width: double.infinity,
                                       height: 170,
@@ -134,23 +138,24 @@ class HotelDetailsState extends State<HotelDetails> {
                                         child: Column(
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
-                                            Text('Grand Royal Hotel',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),),
+                                            Text('${widget.hotel.name}',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20,),maxLines:1 ,),
                                             Row(
                                               children: [
-                                                Text('Wembly,London',style: TextStyle(color: Colors.white,fontWeight: FontWeight.w400),),
+                                                Container(width:120,child: Text('${widget.hotel.address}',style: TextStyle(color: Colors.white,fontWeight: FontWeight.w400),maxLines: 1,)),
                                                 Row(children: [
                                                   Icon(Icons.location_on,color: Colors.teal,size: 15,),
                                                   Text('3.0 km to city',style: TextStyle(color: Colors.white,fontWeight: FontWeight.w400),),
 
                                                 ],),
                                                 Spacer(),
-                                                Text('\$180',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),),
+                                                Text('\$${widget.hotel.price}',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),),
 
 
 
                                               ],
 
                                             ),
+
                                             Row(
                                               children: [
                                                 Row(
@@ -232,8 +237,8 @@ class HotelDetailsState extends State<HotelDetails> {
           body:  SingleChildScrollView(
               physics: BouncingScrollPhysics(),
               child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: HotelDetailsWidget(size:size)
+                  padding: const EdgeInsets.all(20.0),
+                  child: HotelDetailsWidget(size:size,hotel : widget.hotel)
               )
           )
 

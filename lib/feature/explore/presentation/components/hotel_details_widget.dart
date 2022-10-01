@@ -1,3 +1,5 @@
+import 'package:algoriza_booking_app/feature/explore/domain/entities/hotel.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../config/routes/app_routes.dart';
@@ -5,8 +7,9 @@ import '../../../auth/presentation/components/login_button.dart';
 import 'hotel_details_photos_widget.dart';
 
 class HotelDetailsWidget extends StatelessWidget {
-  HotelDetailsWidget({Key? key,required this.size}) : super(key: key);
+  HotelDetailsWidget({Key? key,required this.size,required this.hotel}) : super(key: key);
   Size size;
+  ExploreHotel hotel;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -14,16 +17,18 @@ class HotelDetailsWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Grand Royal Hotel',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18),),
+              Flexible(child: Text('${hotel.name}',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18),),flex: 10,),
               Spacer(),
-              Text('\$180',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),),
+              Text('\$${hotel.price}',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),),
 
             ],
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Wembly,London',style: TextStyle(color: Colors.grey,fontWeight: FontWeight.w400),),
+              Flexible(child: Text('${hotel.address}',style: TextStyle(color: Colors.grey,fontWeight: FontWeight.w400),overflow: TextOverflow.fade,),flex: 18,),
               Row(children: [
                 Icon(Icons.location_on,color: Colors.teal,size: 15,),
                 Text('3.0 km to city',style: TextStyle(color: Colors.grey,fontWeight: FontWeight.w400),),
@@ -46,7 +51,7 @@ class HotelDetailsWidget extends StatelessWidget {
             children: [
               Expanded(child: RichText(
                   text: TextSpan(
-                      text: 'Featuring a fitness center, Grand Royale Park Hote is Located in Sweden, 4.7 Km frome National Museum...',style: TextStyle(color: Colors.grey,wordSpacing:2,fontWeight: FontWeight.w400,fontSize: 15),
+                      text: '${hotel.description}',style: TextStyle(color: Colors.grey,wordSpacing:2,fontWeight: FontWeight.w400,fontSize: 15),
                       children: [
                         TextSpan(text: ' read more',style: TextStyle(color: Colors.teal,fontWeight: FontWeight.w600,fontSize: 15))
 
@@ -74,7 +79,7 @@ class HotelDetailsWidget extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        Text('8.8',style: TextStyle(color: Colors.teal,fontWeight: FontWeight.bold,fontSize: 30),),
+                        Text('${hotel.rate}',style: TextStyle(color: Colors.teal,fontWeight: FontWeight.bold,fontSize: 30),),
                         SizedBox(width: 10,),
                         Text('Overall rating',style: TextStyle(color: Colors.grey.shade300,fontWeight: FontWeight.w400,fontSize: 15),),
 

@@ -6,11 +6,13 @@ class LoginTextFormField extends StatelessWidget {
   final String? hintText;
   final FormFieldValidator<String>? validator;
   final IconData? prefix;
+  final bool isPassword;
 
 
   const LoginTextFormField({
     Key? key,
     required this.title,
+    this.isPassword = false,
      this.hintText,
      this.controller,
      this.validator,
@@ -36,6 +38,7 @@ class LoginTextFormField extends StatelessWidget {
         TextFormField(
           controller: controller,
           validator:validator,
+          obscureText: isPassword,
           autocorrect: false,
           style: const TextStyle(color: Colors.white),
           decoration: InputDecoration(

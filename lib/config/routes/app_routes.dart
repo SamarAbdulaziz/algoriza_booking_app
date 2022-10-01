@@ -142,15 +142,15 @@ class AppRoutes {
         );
       case Routes.hotelDetails:
         return MaterialPageRoute(
-          builder: (context) => BlocProvider<AuthenticationCubit>(
-            create: (context) => sl<AuthenticationCubit>(),
-            child:  HotelDetails(),
+          builder: (context) => BlocProvider<HotelsCubit>(
+            create: (context) => sl<HotelsCubit>(),
+            child:  HotelDetails(hotel: null!),
           ),
         );
       case Routes.exploreHotelScreen:
         return MaterialPageRoute(
-          builder: (context) => BlocProvider<AuthenticationCubit>(
-            create: (context) => sl<AuthenticationCubit>(),
+          builder: (context) => BlocProvider<HotelsCubit>(
+            create: (context) => sl<HotelsCubit>(),
             child: const ExploreHotelScreen(),
           ),
         );

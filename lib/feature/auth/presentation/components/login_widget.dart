@@ -40,11 +40,10 @@ class LoginWidget extends StatelessWidget {
                       Expanded(
                         child: ElevatedButton(
                             onPressed: () {},
-                            style: ButtonStyle(
-                                shape: MaterialStateProperty.all<
-                                    RoundedRectangleBorder>(RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30.0),
-                                ))),
+                            style: ElevatedButton.styleFrom(
+                              primary: Color(0xff3b5998),
+                              shape: StadiumBorder()
+                            ),
                             child: Row(
                               children: const [
                                 IconButton(
@@ -70,11 +69,10 @@ class LoginWidget extends StatelessWidget {
                       Expanded(
                         child: ElevatedButton(
                           onPressed: () {},
-                          style: ButtonStyle(
-                              shape: MaterialStateProperty.all<
-                                  RoundedRectangleBorder>(RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30.0),
-                          ))),
+                          style: ElevatedButton.styleFrom(
+                              primary: Color(0xff00acee),
+                              shape: StadiumBorder()
+                          ),
                           child: Row(
                             children: const [
                               IconButton(
@@ -128,6 +126,7 @@ class LoginWidget extends StatelessWidget {
                 LoginTextFormField(
                   controller: passwordController,
                   title: 'password',
+                  isPassword: true,
                   hintText: 'enter password',
                   validator: (String? value) {
                     if (value!.isEmpty) {
