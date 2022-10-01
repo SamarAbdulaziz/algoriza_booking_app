@@ -140,10 +140,10 @@ class AppRoutes {
             child:  HotelDetails(hotel: null!),
           ),
         );
-      case Routes.exploreHotelScreen:
+      case Routes.exploreHotelScreen://todo
         return MaterialPageRoute(
-          builder: (context) => BlocProvider<HotelsCubit>(
-            create: (context) => sl<HotelsCubit>(),
+          builder: (context) => BlocProvider<SearchCubit>(
+            create: (context) => sl<SearchCubit>(),
             child:  const ExploreHotelScreen(),
           ),
         );

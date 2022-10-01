@@ -3,13 +3,12 @@ import 'package:algoriza_booking_app/core/services/service_locator.dart';
 import 'package:algoriza_booking_app/feature/auth/presentation/components/login_button.dart';
 import 'package:algoriza_booking_app/feature/booking/presentation/controllers/booking_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../domain/entities/hotel.dart';
 import '../components/hotel_details_widget.dart';
 
 class HotelDetails extends StatefulWidget {
-  HotelDetails({Key? key,required this.hotel}) : super(key: key);
+  const HotelDetails({Key? key,required this.hotel}) : super(key: key);
   final ExploreHotel hotel;
 
   @override
@@ -22,9 +21,7 @@ class HotelDetailsState extends State<HotelDetails> {
 
   @override
   void initState() {
-
-
-    super.initState();
+        super.initState();
     _controller = ScrollController();
 
     _controller.addListener(() {
@@ -47,7 +44,7 @@ class HotelDetailsState extends State<HotelDetails> {
   Widget build(BuildContext context) {
     //int id= ModalRoute.of(context)!.settings.arguments;
     Size size = MediaQuery.of(context).size;
-    print(size.height);
+    //print(size.height);
     return BlocProvider<BookingCubit>(
       create: (context) => sl<BookingCubit>(),
       child: Scaffold(
@@ -67,6 +64,8 @@ class HotelDetailsState extends State<HotelDetails> {
                       child: Row(
                         children: [
                           Container(
+                            decoration: const BoxDecoration(
+                                color: Colors.white38, shape: BoxShape.circle),
                             child: IconButton(
                               icon: const Icon(
                                 Icons.arrow_back,
@@ -74,11 +73,11 @@ class HotelDetailsState extends State<HotelDetails> {
                               ),
                               onPressed: () {},
                             ),
-                            decoration: const BoxDecoration(
-                                color: Colors.white38, shape: BoxShape.circle),
                           ),
                           const Spacer(),
                           Container(
+                            decoration: const BoxDecoration(
+                                color: Colors.black, shape: BoxShape.circle),
                             child: IconButton(
                               icon: const Icon(
                                 Icons.favorite_border,
@@ -86,8 +85,6 @@ class HotelDetailsState extends State<HotelDetails> {
                               ),
                               onPressed: () {},
                             ),
-                            decoration: const BoxDecoration(
-                                color: Colors.black, shape: BoxShape.circle),
                           )
                         ],
                       )
@@ -157,7 +154,7 @@ class HotelDetailsState extends State<HotelDetails> {
                                               ),
                                               Row(
                                                 children: [
-                                                  Container(
+                                                  SizedBox(
                                                       width: 120,
                                                       child: Text(
                                                         '${widget.hotel.address}',
@@ -169,13 +166,13 @@ class HotelDetailsState extends State<HotelDetails> {
                                                         maxLines: 1,
                                                       )),
                                                   Row(
-                                                    children: [
-                                                      const Icon(
+                                                    children: const [
+                                                      Icon(
                                                         Icons.location_on,
                                                         color: Colors.teal,
                                                         size: 15,
                                                       ),
-                                                      const Text(
+                                                      Text(
                                                         '3.0 km to city',
                                                         style: TextStyle(
                                                             color: Colors.white,
@@ -199,28 +196,28 @@ class HotelDetailsState extends State<HotelDetails> {
                                               Row(
                                                 children: [
                                                   Row(
-                                                    children: [
-                                                      const Icon(
+                                                    children: const [
+                                                      Icon(
                                                         Icons.star,
                                                         color: Colors.teal,
                                                         size: 15,
                                                       ),
-                                                      const Icon(
+                                                      Icon(
                                                         Icons.star,
                                                         color: Colors.teal,
                                                         size: 15,
                                                       ),
-                                                      const Icon(
+                                                      Icon(
                                                         Icons.star,
                                                         color: Colors.teal,
                                                         size: 15,
                                                       ),
-                                                      const Icon(
+                                                      Icon(
                                                         Icons.star,
                                                         color: Colors.teal,
                                                         size: 15,
                                                       ),
-                                                      const Icon(
+                                                      Icon(
                                                         Icons.star,
                                                         color: Colors.grey,
                                                         size: 15,
@@ -265,7 +262,7 @@ class HotelDetailsState extends State<HotelDetails> {
                                                       ScaffoldMessenger.of(
                                                               context)
                                                           .showSnackBar(
-                                                        SnackBar(
+                                                        const SnackBar(
                                                           content: Text(
                                                               'succefully create'),
                                                           backgroundColor:

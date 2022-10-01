@@ -2,6 +2,7 @@ import 'package:algoriza_booking_app/config/routes/app_routes.dart';
 import 'package:algoriza_booking_app/core/services/service_locator.dart';
 import 'package:algoriza_booking_app/feature/auth/presentation/controllers/auth_cubit.dart';
 import 'package:algoriza_booking_app/feature/explore/presentation/screens/map_screen.dart';
+import 'package:algoriza_booking_app/feature/search/presentation/screens/searched_results.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -27,7 +28,7 @@ class BookingApp extends StatelessWidget {
         //  home:  MapScreen(),
         // debugShowCheckedModeBanner: false,
       ),
-      // home:  const NewFilterScreen(),
+      //home:   SearchedResult(),
       debugShowCheckedModeBanner: false,
     );
   }

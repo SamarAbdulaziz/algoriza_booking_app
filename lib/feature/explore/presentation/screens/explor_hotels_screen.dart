@@ -15,9 +15,14 @@ class ExploreHotelScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.black,
         appBar: AppBar(
-          leading: const Icon(
-            Icons.arrow_back,
-            color: Colors.white,
+          leading:  IconButton(
+            onPressed: (){
+              Navigator.pop(context);
+            },
+            icon: Icon(
+              Icons.arrow_back,
+              color: Colors.white,
+            ),
           ),
           centerTitle: true,
           title: const Text(
@@ -40,7 +45,7 @@ class ExploreHotelScreen extends StatelessWidget {
             SizedBox(width: 18,)
           ],
         ),
-        body: const ExploreHotelWidget(),
+        body:  ExploreHotelWidget(),
       ),
     );
   }

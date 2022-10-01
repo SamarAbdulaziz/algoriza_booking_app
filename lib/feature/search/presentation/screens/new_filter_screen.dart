@@ -2,6 +2,7 @@ import 'package:algoriza_booking_app/core/services/service_locator.dart';
 import 'package:algoriza_booking_app/feature/auth/presentation/components/login_button.dart';
 import 'package:algoriza_booking_app/feature/search/presentation/componnet/line.dart';
 import 'package:algoriza_booking_app/feature/search/presentation/controllers/search_cubit.dart';
+import 'package:algoriza_booking_app/feature/search/presentation/screens/searched_results.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
@@ -342,18 +343,36 @@ class _NewFilterScreenState extends State<NewFilterScreen> {
                       lineWidth: MediaQuery.of(context).size.width * 0.8,
                     ),
                     const Spacer(),
-                    DefaultButton(
-                        title: 'Apply',
-                        ontap: () {
-                          BlocProvider.of<SearchCubit>(context).search(
-                            //name: 'Palm',
-                            minPrice: valuesSlid.start.toInt(),
-                            maxPrice: valuesSlid.end.toInt(),
-                            facilities: x,
-                            distance: valueSlider,
-                          );
+                    BlocBuilder<SearchCubit, SearchStates>(
+                      builder: (context, state) {
+                        if (state is FacilitiesSuccessState) {
+                          return DefaultButton(
+                              title: 'Apply',
+                              ontap: () {
+                                BlocProvider.of<SearchCubit>(context)
+                                    .search(
+                                  //name: 'Palm',
+                                  minPrice: valuesSlid.start.toInt(),
+                                  maxPrice: valuesSlid.end.toInt(),
+                                  facilities:x,
+                                  distance: valueSlider,
+                                );
+                                Navigator.pop(context);
+                              });
+                        } if (state is SearchSuccessState) {
                           Navigator.pop(context);
-                        })
+                          // Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //         builder: (context) => SearchedResult(
+                          //           hotels:
+                          //           state.searchData.generalSearchData.hotelsList,
+                          //         )));
+                          return Container();
+                        } else
+                          return Container();
+                      },
+                    ),
                   ],
                 ),
               ),

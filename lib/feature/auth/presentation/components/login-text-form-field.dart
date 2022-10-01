@@ -7,6 +7,8 @@ class LoginTextFormField extends StatelessWidget {
   final FormFieldValidator<String>? validator;
   final IconData? prefix;
   final bool isPassword;
+  final onTap;
+  final onFieldSubmitted;
 
 
   const LoginTextFormField({
@@ -16,7 +18,8 @@ class LoginTextFormField extends StatelessWidget {
      this.hintText,
      this.controller,
      this.validator,
-    this.prefix,
+    this.prefix, this.onTap, this.onFieldSubmitted,
+
   }) : super(key: key);
 
   @override
@@ -39,6 +42,8 @@ class LoginTextFormField extends StatelessWidget {
           controller: controller,
           validator:validator,
           obscureText: isPassword,
+          onTap:onTap,
+          onFieldSubmitted: onFieldSubmitted,
           autocorrect: false,
           style: const TextStyle(color: Colors.white),
           decoration: InputDecoration(

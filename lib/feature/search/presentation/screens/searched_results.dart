@@ -1,25 +1,17 @@
-import 'package:algoriza_booking_app/core/services/service_locator.dart';
-import 'package:algoriza_booking_app/feature/search/presentation/controllers/search_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class SearchedResult extends StatelessWidget {
-   SearchedResult({Key? key,}) : super(key: key);
+   SearchedResult({Key? key, this.hotels,}) : super(key: key);
+   final hotels;
   var controller = PageController();
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-  create: (context) => sl<SearchCubit>(),
-  child: BlocBuilder<SearchCubit, SearchStates>(
-  builder: (context, state) {
-    if(state is SearchSuccessState) {
-
-      return Scaffold(
+    return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Results'
+            'Results'
         ),
       ),
       body: Column(
@@ -29,7 +21,7 @@ class SearchedResult extends StatelessWidget {
             height: MediaQuery.of(context).size.height * 0.27,
             child: PageView.builder(
               controller: controller,
-              itemCount:state.searchData.generalSearchData.hotelsList.length ,
+              itemCount:hotels.length ,
               itemBuilder: (context,index)=>Column(
                 children: [
                   Image.asset(
@@ -156,9 +148,5 @@ class SearchedResult extends StatelessWidget {
         ],
       ),
     );
-    }else return Container();
-  },
-),
-);
   }
 }

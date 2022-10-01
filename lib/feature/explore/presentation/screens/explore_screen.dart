@@ -1,10 +1,8 @@
 import 'package:algoriza_booking_app/feature/auth/presentation/components/login_button.dart';
 import 'package:algoriza_booking_app/feature/explore/presentation/controllers/hotels_cubit.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../config/routes/app_routes.dart';
 import '../../../auth/presentation/components/login-text-form-field.dart';
 import '../components/best_deals_explore_builder.dart';
@@ -62,11 +60,17 @@ class _ExploreScreenState extends State<ExploreScreen> {
                     elevation: 100,
                     automaticallyImplyLeading: false,
                     title:  Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: LoginTextFormField(
-                        title: '',
-                        hintText: 'Where are you going?',
-                        prefix: Icons.search,
+                      padding: const EdgeInsets.all(8.0),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(
+                              context, Routes.exploreHotelScreen);
+                        },
+                        child: const LoginTextFormField(
+                          title: '',
+                          hintText: 'Where are you going?',
+                          prefix: Icons.search,
+                        ),
                       ),
                     ),
                     pinned: true,

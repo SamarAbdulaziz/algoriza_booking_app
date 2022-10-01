@@ -1,9 +1,11 @@
+import 'package:algoriza_booking_app/feature/search/domain/entities/hotel.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../config/routes/app_routes.dart';
 
 class ExploreWidgetComponent extends StatefulWidget {
-  const ExploreWidgetComponent({Key? key}) : super(key: key);
+  const ExploreWidgetComponent({Key? key, required this.hotel}) : super(key: key);
+  final Hotel hotel;
 
   @override
   State<ExploreWidgetComponent> createState() => _ExploreWidgetComponentState();
@@ -31,12 +33,13 @@ class _ExploreWidgetComponentState extends State<ExploreWidgetComponent> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       image: const DecorationImage(
+                        //NetworkImage('${widget.hotel!.hotelImageList[0]}')
                         image: AssetImage(
                           'assets/images/grand.jpg',
                         ),
                         fit: BoxFit.fill,
                       ),
-                    )),
+                    ),),
               ),
               Container(
                 padding: const EdgeInsets.all(8),
@@ -51,10 +54,10 @@ class _ExploreWidgetComponentState extends State<ExploreWidgetComponent> {
             ],
           ),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 10),
             decoration: BoxDecoration(
                 color: Colors.grey.shade800,
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(20),
                   bottomRight: Radius.circular(20),
                 )),
@@ -64,16 +67,16 @@ class _ExploreWidgetComponentState extends State<ExploreWidgetComponent> {
                 const SizedBox(height: 10,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
+                  children:  [
                     Text(
-                      'Grand Royal Hotel',
+                      widget.hotel.name,
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
                           color: Colors.white),
                     ),
                     Text(
-                      '\$180',
+                      widget.hotel.price,
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
@@ -94,7 +97,7 @@ class _ExploreWidgetComponentState extends State<ExploreWidgetComponent> {
                                   'Wembley, London ',
                                   style: TextStyle(fontSize: 12, color: Colors.grey.shade500),
                                 ),
-                                Icon(Icons.location_on,color: Colors.teal,size: 18,),
+                                const Icon(Icons.location_on,color: Colors.teal,size: 18,),
                                 Text(
                                   '2.0 km to...',
                                   style: TextStyle(fontSize: 12, color: Colors.grey.shade500),
@@ -105,19 +108,19 @@ class _ExploreWidgetComponentState extends State<ExploreWidgetComponent> {
                         ),
                       ],
                     ),
-                     Text(
+                    Text(
                       '\/per night',
                       style: TextStyle(fontSize: 14, color: Colors.grey.shade500),
                     ),
                   ],
                 ),
                 Row(children: [
-                  Icon(Icons.star,color: Colors.teal,size: 20,),
-                  Icon(Icons.star,color: Colors.teal,size: 20,),
-                  Icon(Icons.star,color: Colors.teal,size: 20,),
-                  Icon(Icons.star,color: Colors.teal,size: 20,),
-                  Icon(Icons.star,color: Colors.grey,size: 20,),
-                  SizedBox(width: 8,),
+                  const Icon(Icons.star,color: Colors.teal,size: 20,),
+                  const Icon(Icons.star,color: Colors.teal,size: 20,),
+                  const Icon(Icons.star,color: Colors.teal,size: 20,),
+                  const Icon(Icons.star,color: Colors.teal,size: 20,),
+                  const Icon(Icons.star,color: Colors.grey,size: 20,),
+                  const SizedBox(width: 8,),
                   Text(
                     '80Reviews',
                     style: TextStyle(fontSize: 12, color: Colors.grey.shade500),
