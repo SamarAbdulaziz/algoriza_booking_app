@@ -1,8 +1,10 @@
 import 'package:algoriza_booking_app/feature/booking/presentation/screens/on_hotel_pressed_widget.dart';
+import 'package:algoriza_booking_app/feature/explore/domain/entities/hotel.dart';
 import 'package:flutter/material.dart';
 
 class OnHotelPressedScreen extends StatelessWidget {
-  const OnHotelPressedScreen({Key? key}) : super(key: key);
+   OnHotelPressedScreen({Key? key,  this.hotel}) : super(key: key);
+  final hotel;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,8 +15,8 @@ class OnHotelPressedScreen extends StatelessWidget {
           color: Colors.white,
         ),
         centerTitle: true,
-        title: const Text(
-          'Name Of Hotel',
+        title:  (hotel== null)? Text('Hotels') :Text(
+          '${hotel.name}',
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
         ),
         actions: const [

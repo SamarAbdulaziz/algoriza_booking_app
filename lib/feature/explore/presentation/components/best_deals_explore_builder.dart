@@ -17,7 +17,6 @@ class ExploreBuilderWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-
         Navigator.push(context, MaterialPageRoute(builder: (context) => HotelDetails(hotel: hotel,)));
       },
       child: Padding(

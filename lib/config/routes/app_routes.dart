@@ -124,9 +124,9 @@ class AppRoutes {
         );
       case Routes.onHotelPressedScreen:
         return MaterialPageRoute(
-          builder: (context) => BlocProvider<SearchCubit>(
-            create: (context) => sl<SearchCubit>(),
-            child: const OnHotelPressedScreen(),
+          builder: (context) => BlocProvider<BookingCubit>(
+            create: (context) => sl<BookingCubit>(),
+            child:  OnHotelPressedScreen(),
           ),
         );
       case Routes.hotelDetails:

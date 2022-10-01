@@ -49,7 +49,7 @@ class HotelPressed extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             const Text(
-              'Name Of Hotel',
+              'Deluxe Room',
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20,

@@ -1,3 +1,4 @@
+import 'package:algoriza_booking_app/feature/booking/presentation/screens/on_hotel_pressed_screen.dart';
 import 'package:algoriza_booking_app/feature/explore/domain/entities/hotel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -315,8 +316,7 @@ class HotelDetailsWidget extends StatelessWidget {
           DefaultButton(
               title: 'Book now',
               ontap: (){
-                Navigator.pushNamed(context, Routes.onHotelPressedScreen);
-
+                Navigator.push(context, MaterialPageRoute(builder: (context) => OnHotelPressedScreen(hotel: hotel)));
               })
 
 
