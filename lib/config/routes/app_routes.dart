@@ -2,13 +2,12 @@ import 'package:algoriza_booking_app/core/utiles/app_strings.dart';
 import 'package:algoriza_booking_app/feature/Profile_info/presentaion/controllers/profile_cubit.dart';
 import 'package:algoriza_booking_app/feature/Profile_info/presentaion/screens/Profile_screen.dart';
 import 'package:algoriza_booking_app/feature/auth/presentation/controllers/auth_cubit.dart';
-import 'package:algoriza_booking_app/feature/auth/presentation/screens/get_started_screen.dart';
 import 'package:algoriza_booking_app/feature/booking/presentation/controllers/booking_cubit.dart';
 import 'package:algoriza_booking_app/feature/booking/presentation/screens/booking_screen.dart';
 import 'package:algoriza_booking_app/feature/explore/presentation/controllers/hotels_cubit.dart';
 import 'package:algoriza_booking_app/feature/explore/presentation/screens/explor_hotels_screen.dart';
 import 'package:algoriza_booking_app/feature/explore/presentation/screens/explore_screen.dart';
-import 'package:algoriza_booking_app/feature/explore/presentation/screens/filtter_widget.dart';
+import 'package:algoriza_booking_app/feature/explore/presentation/screens/home_screen.dart';
 import 'package:algoriza_booking_app/feature/explore/presentation/screens/hotel_details.dart';
 import 'package:algoriza_booking_app/feature/explore/presentation/screens/map_screen.dart';
 import 'package:algoriza_booking_app/feature/search/presentation/controllers/search_cubit.dart';
@@ -25,7 +24,6 @@ import '../../feature/auth/presentation/screens/login_screen.dart';
 import '../../feature/auth/presentation/screens/onboarding_screen.dart';
 import '../../feature/auth/presentation/screens/register_screen.dart';
 import '../../feature/booking/presentation/screens/on_hotel_pressed_screen.dart';
-import '../../feature/explore/presentation/screens/home_screen.dart';
 
 class Routes {
   static const String initialRoute = '/';
@@ -114,7 +112,7 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (context) => BlocProvider<HotelsCubit>(
             create: (context) => sl<HotelsCubit>(),
-            child: const Home_Screen(),
+            child: const HomeScreen(),
           ),
         );
       case Routes.bookingScreenRoute:
