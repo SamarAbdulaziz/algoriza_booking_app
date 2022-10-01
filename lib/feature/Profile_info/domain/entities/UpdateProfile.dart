@@ -6,7 +6,7 @@ class UpdateProfile extends Equatable {
   final Status status;
   Data? data;
 
-  UpdateProfile({required this.status, this.data});
+   UpdateProfile({required this.status, this.data});
 
   @override
   List<Object> get props => [status];

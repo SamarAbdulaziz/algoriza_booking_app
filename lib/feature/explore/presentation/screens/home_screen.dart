@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../controllers/hotels_cubit.dart';
 
-class Home_Screen extends StatelessWidget {
-  const Home_Screen({Key? key}) : super(key: key);
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({Key? key}) : super(key: key);
   static const String routeName = 'home Screen';
 
 
