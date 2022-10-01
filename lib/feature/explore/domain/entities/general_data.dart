@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 
 class GeneralData extends Equatable {
   final int? currentPage;
-  final List<Hotel>? hotelsList;
+  final List<ExploreHotel>? hotelsList;
   final String? firstPageUrl;
   final int? from;
   final int? lastPage;

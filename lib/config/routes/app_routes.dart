@@ -133,7 +133,7 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (context) => BlocProvider<HotelsCubit>(
             create: (context) => sl<HotelsCubit>(),
-            child:  HotelDetails(),
+            child:  HotelDetails(hotel: null!),
           ),
         );
       case Routes.exploreHotelScreen:

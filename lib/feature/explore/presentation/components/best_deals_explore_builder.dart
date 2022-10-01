@@ -1,19 +1,24 @@
+import 'package:algoriza_booking_app/feature/explore/presentation/controllers/hotels_cubit.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-
+import 'package:algoriza_booking_app/feature/explore/domain/entities/hotels.dart';
 import '../../../../config/routes/app_routes.dart';
 import '../../domain/entities/hotel.dart';
+import '../screens/hotel_details.dart';
 
 class ExploreBuilderWidget extends StatelessWidget {
-   const ExploreBuilderWidget({Key? key,required this.hotel}) : super(key: key);
-  final Hotel hotel;
+   ExploreBuilderWidget({Key? key,required this.hotel,required this.index}) : super(key: key);
+   ExploreHotel hotel;
+   int index;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        Navigator.pushNamed(context, Routes.hotelDetails,arguments:hotel.id);
-        //Navigator.push(context, MaterialPageRoute(builder: (context) => test()));
+
+        Navigator.push(context, MaterialPageRoute(builder: (context) => HotelDetails(hotel: hotel,)));
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -27,7 +32,7 @@ class ExploreBuilderWidget extends StatelessWidget {
           child: Row(
             children: [
               Container(
-                child: (hotel.hotelImageList!.isEmpty)? Image.asset('assets/images/GetStarted.jpg',fit: BoxFit.cover,) : Image.network('http://api.mahmoudtaha.com/images/${hotel.hotelImageList![0].image}',fit: BoxFit.fitWidth,),
+                child: (hotel.hotelImageList!.isEmpty)? Image.asset('assets/images/GetStarted.jpg',fit: BoxFit.fitHeight,height: 130,) : Image.network('http://api.mahmoudtaha.com/images/${hotel.hotelImageList![0].image}',fit: BoxFit.fitHeight,height: 130,),
                 width: 120,
                 clipBehavior: Clip.hardEdge,
                 decoration: BoxDecoration(
@@ -50,6 +55,7 @@ class ExploreBuilderWidget extends StatelessWidget {
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 18),
+                              maxLines: 1,
                             ),
                             Text(
                               '${hotel.address}',
@@ -66,6 +72,7 @@ class ExploreBuilderWidget extends StatelessWidget {
                         children: [
                           Expanded(
                             child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Row(
 

@@ -316,8 +316,14 @@ class _ExploreScreenState extends State<ExploreScreen> {
                           //physics: BouncingScrollPhysics(),
                           itemBuilder: (BuildContext context, int index) =>
                               ExploreBuilderWidget(
-                                hotel: hotel.hotelsList![index],
-                              )),
+                                hotel: hotel.hotelsList![index], index: index,
+                              ),
+                      ),
+                      // if (BlocProvider.of<HotelsCubit>(context).isEnd)
+                      //   const Padding(
+                      //     padding: EdgeInsets.all(24.0),
+                      //     child: CircularProgressIndicator(),
+                      //   ),
                     ],
                   ),
                 )),

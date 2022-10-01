@@ -46,12 +46,10 @@ class RegisterWidget extends StatelessWidget {
                       Expanded(
                         child: ElevatedButton(
                             onPressed: () {},
-                            style: ButtonStyle(
-                                shape: MaterialStateProperty.all<
-                                        RoundedRectangleBorder>(
-                                    RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30.0),
-                            ))),
+                            style: ElevatedButton.styleFrom(
+                                primary: Color(0xff3b5998),
+                                shape: StadiumBorder()
+                            ),
                             child: Row(
                               children: const [
                                 IconButton(
@@ -77,12 +75,10 @@ class RegisterWidget extends StatelessWidget {
                       Expanded(
                         child: ElevatedButton(
                             onPressed: () {},
-                            style: ButtonStyle(
-                                shape: MaterialStateProperty.all<
-                                        RoundedRectangleBorder>(
-                                    RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30.0),
-                            ))),
+                            style: ElevatedButton.styleFrom(
+                                primary: Color(0xff00acee),
+                                shape: StadiumBorder()
+                            ),
                             child: Row(
                               children: const [
                                 IconButton(

@@ -2,7 +2,7 @@ import 'package:algoriza_booking_app/feature/explore/data/models/hotel_facilitie
 import 'package:algoriza_booking_app/feature/explore/data/models/hotel_image_model.dart';
 import 'package:algoriza_booking_app/feature/explore/domain/entities/hotel.dart';
 
-class HotelModel extends Hotel {
+class HotelModel extends ExploreHotel {
   const HotelModel(
       { super.id,
        super.name,
