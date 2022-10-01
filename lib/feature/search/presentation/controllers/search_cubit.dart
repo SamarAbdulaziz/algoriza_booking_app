@@ -38,16 +38,28 @@ class SearchCubit extends Cubit<SearchStates> {
       count: count,
       page: page,
     );
-    result.fold((failure) => emit(SearchErrorState(message: failure.massage)),
-        (searchData) => emit(SearchSuccessState(searchData: searchData)));
+    result.fold(
+      (failure) => emit(
+        SearchErrorState(message: failure.massage),
+      ),
+      (searchData) => emit(
+        SearchSuccessState(searchData: searchData),
+      ),
+    );
   }
 
  // var facilitiesList = [];
 
   Future<void> getFacilities() async {
+    emit(SearchLoadingState());
     final result = await getFacilitiesUseCase();
     result.fold(
-        (failure) => emit(FacilitiesErrorState(message: failure.massage)),
-        (facilities) => emit(FacilitiesSuccessState(facilities: facilities)));
+      (failure) => emit(
+        FacilitiesErrorState(message: failure.massage),
+      ),
+      (facilities) => emit(
+        FacilitiesSuccessState(facilities: facilities),
+      ),
+    );
   }
 }

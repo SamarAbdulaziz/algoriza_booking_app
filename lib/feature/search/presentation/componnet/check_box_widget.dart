@@ -11,6 +11,7 @@ class CheckBoxWidget extends StatefulWidget {
 
 class _CheckBoxWidgetState extends State<CheckBoxWidget> {
   bool checkedValue = false;
+  int? x ;
   @override
   Widget build(BuildContext context) {
 

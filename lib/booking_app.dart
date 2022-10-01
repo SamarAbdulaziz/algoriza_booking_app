@@ -22,7 +22,7 @@ class BookingApp extends StatelessWidget {
           elevation: 0.0,
         ),
       ),
-      // home:  FilterScreen(),
+      // home:  const NewFilterScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
