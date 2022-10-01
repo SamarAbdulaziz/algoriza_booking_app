@@ -2,9 +2,12 @@ import 'package:algoriza_booking_app/feature/booking/presentation/components/hot
 import 'package:flutter/material.dart';
 
 import '../../../../config/routes/app_routes.dart';
+import '../../../explore/domain/entities/hotel.dart';
 
 class FinishedWidget extends StatelessWidget {
-  const FinishedWidget({Key? key}) : super(key: key);
+   FinishedWidget({Key? key,required this.hotel}) : super(key: key);
+  ExploreHotel hotel;
+
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +19,7 @@ class FinishedWidget extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 6),
         margin:const EdgeInsets.symmetric(vertical: 10),
         width: double.infinity,
-        height: 160,
+        height: 190,
         decoration: BoxDecoration(
           color: Colors.white10,
           borderRadius: BorderRadius.circular(20),
@@ -24,12 +27,9 @@ class FinishedWidget extends StatelessWidget {
         child: Row(
           children: [
             Container(
-              child: Image.asset(
-                'assets/images/grand.jpg',
-                fit: BoxFit.cover,
-              ),
+              child: Image.network('http://api.mahmoudtaha.com/images/${hotel.hotelImageList![0].image}',fit: BoxFit.cover,),
               width: 130,
-              height: 140,
+              height: 160,
               clipBehavior: Clip.hardEdge,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
@@ -47,14 +47,14 @@ class FinishedWidget extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Grand Royal Hotel',
+                            '${hotel.name}',
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 18),
                           ),
                           Text(
-                            'Wembly, London',
+                            '${hotel.address}',
                             style: TextStyle(
                                 color: Colors.grey, fontWeight: FontWeight.w400),
                           ),
@@ -124,7 +124,7 @@ class FinishedWidget extends StatelessWidget {
                               Row(
                                 children: [
                                   Text(
-                                    '\$180',
+                                    '\$${hotel.price}',
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold,

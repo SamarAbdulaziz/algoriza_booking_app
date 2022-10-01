@@ -1,10 +1,14 @@
+import 'package:algoriza_booking_app/feature/booking/domain/entities/booked_hotel.dart';
 import 'package:algoriza_booking_app/feature/booking/presentation/components/hotel_pressed.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../config/routes/app_routes.dart';
+import '../../../explore/domain/entities/hotel.dart';
 
 class UpComingWidget extends StatefulWidget {
-  const UpComingWidget({Key? key}) : super(key: key);
+   UpComingWidget({Key? key,required this.hotel}) : super(key: key);
+  ExploreHotel hotel;
 
   @override
   State<UpComingWidget> createState() => _UpComingWidgetState();
@@ -38,10 +42,8 @@ class _UpComingWidgetState extends State<UpComingWidget> {
                     height: 150,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      image: const DecorationImage(
-                        image: AssetImage(
-                          'assets/images/grand.jpg',
-                        ),
+                      image:  DecorationImage(
+                        image: NetworkImage('http://api.mahmoudtaha.com/images/${widget.hotel.hotelImageList![0].image}'),
                         fit: BoxFit.fill,
                       ),
                     )),
@@ -72,16 +74,21 @@ class _UpComingWidgetState extends State<UpComingWidget> {
                 const SizedBox(height: 10,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Text(
-                      'Grand Royal Hotel',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                          color: Colors.white),
+                  children:  [
+                    Flexible(
+                      flex:4,
+                      child: Text(
+                        '${widget.hotel.name}',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                            color: Colors.white),
+                        overflow: TextOverflow.fade,
+                        maxLines: 1,
+                      ),
                     ),
                     Text(
-                      '\$180',
+                      '\$${widget.hotel.price}',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
@@ -98,9 +105,14 @@ class _UpComingWidgetState extends State<UpComingWidget> {
                           children: [
                             Row(
                               children: [
-                                Text(
-                                  'Wembley, London ',
-                                  style: TextStyle(fontSize: 12, color: Colors.grey.shade500),
+                                Container(
+                                  width:150,
+                                  child: Text(
+                                    '${widget.hotel.address} ',
+                                    style: TextStyle(fontSize: 12, color: Colors.grey.shade500),
+                                    overflow: TextOverflow.fade,
+                                    maxLines: 1,
+                                  ),
                                 ),
                                 Icon(Icons.location_on,color: Colors.teal,size: 18,),
                                 Text(
